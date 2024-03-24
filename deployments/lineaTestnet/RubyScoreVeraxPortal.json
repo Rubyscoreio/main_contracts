@@ -1,0 +1,1091 @@
+{
+  "address": "0x5E1FE999737bce29Ca8C73B844eB1483005f6148",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "modules",
+          "type": "address[]"
+        },
+        {
+          "internalType": "address",
+          "name": "router",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "ArrayLengthMismatch",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidAttestationFee",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidCertificateId",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyPortalOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "WithdrawFail",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAddressCheck",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32[]",
+          "name": "schemaIds",
+          "type": "bytes32[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "attestationFees",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "FeesSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "module",
+          "type": "address"
+        }
+      ],
+      "name": "addModule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "schemaId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expirationDate",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes",
+              "name": "subject",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "attestationData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct AttestationPayload",
+          "name": "attestationPayload",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "validationPayloads",
+          "type": "bytes[]"
+        }
+      ],
+      "name": "attest",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "schemaId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expirationDate",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes",
+              "name": "subject",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "attestationData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct AttestationPayload",
+          "name": "attestationPayload",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "validationPayload",
+          "type": "bytes[]"
+        }
+      ],
+      "name": "attestRubyscore",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "attestationFees",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "attestationRegistry",
+      "outputs": [
+        {
+          "internalType": "contract IAttestationRegistry",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "schemaId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expirationDate",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes",
+              "name": "subject",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "attestationData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct AttestationPayload[]",
+          "name": "attestationsPayloads",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "bytes[][]",
+          "name": "validationPayloads",
+          "type": "bytes[][]"
+        }
+      ],
+      "name": "bulkAttest",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "attestationIds",
+          "type": "bytes32[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "schemaId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expirationDate",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes",
+              "name": "subject",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "attestationData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct AttestationPayload[]",
+          "name": "attestationsPayloads",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "bytes[][]",
+          "name": "validationPayloads",
+          "type": "bytes[][]"
+        }
+      ],
+      "name": "bulkReplace",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "attestationIds",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "bulkRevoke",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "bulkStatus",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "certificates",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "schemaId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "checkFee",
+      "outputs": [],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "feeStatus",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAttester",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getModules",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "moduleRegistry",
+      "outputs": [
+        {
+          "internalType": "contract IModuleRegistry",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "modules",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "portalRegistry",
+      "outputs": [
+        {
+          "internalType": "contract IPortalRegistry",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "removeModules",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "attestationId",
+          "type": "bytes32"
+        },
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "schemaId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expirationDate",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes",
+              "name": "subject",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "attestationData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct AttestationPayload",
+          "name": "attestationPayload",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "validationPayloads",
+          "type": "bytes[]"
+        }
+      ],
+      "name": "replace",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "attestationId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "revoke",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "router",
+      "outputs": [
+        {
+          "internalType": "contract IRouter",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bool",
+          "name": "fee",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "bulk",
+          "type": "bool"
+        }
+      ],
+      "name": "setCheckStatuses",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "schemaIds",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_attestationFees",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "setFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "schemaIds",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "bool[]",
+          "name": "certificateStatuses",
+          "type": "bool[]"
+        }
+      ],
+      "name": "setUpCertificates",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceID",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x41715f55aa1c07a93ef95f9aa5f4280b47f3b054c599785ba30dcf005629b077",
+  "receipt": {
+    "to": null,
+    "from": "0x4803003e06Fe7Bc150cC8CB21D12750A1A1bA135",
+    "contractAddress": "0x5E1FE999737bce29Ca8C73B844eB1483005f6148",
+    "transactionIndex": 3,
+    "gasUsed": "2036099",
+    "logsBloom": "0x00000000000000000000000000000000200000000000000000800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004000000000000001000000000000000000000000000000000000020000000000000000000800000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000108000000000000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000800000000",
+    "blockHash": "0x4e3914fe78b5e764c13ca6c67a2417d8076c045604cc64e176659a13bb0bcb96",
+    "transactionHash": "0x41715f55aa1c07a93ef95f9aa5f4280b47f3b054c599785ba30dcf005629b077",
+    "logs": [
+      {
+        "transactionIndex": 3,
+        "blockNumber": 2861977,
+        "transactionHash": "0x41715f55aa1c07a93ef95f9aa5f4280b47f3b054c599785ba30dcf005629b077",
+        "address": "0x5E1FE999737bce29Ca8C73B844eB1483005f6148",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x0000000000000000000000004803003e06fe7bc150cc8cb21d12750a1a1ba135"
+        ],
+        "data": "0x",
+        "logIndex": 11,
+        "blockHash": "0x4e3914fe78b5e764c13ca6c67a2417d8076c045604cc64e176659a13bb0bcb96"
+      },
+      {
+        "transactionIndex": 3,
+        "blockNumber": 2861977,
+        "transactionHash": "0x41715f55aa1c07a93ef95f9aa5f4280b47f3b054c599785ba30dcf005629b077",
+        "address": "0x5E1FE999737bce29Ca8C73B844eB1483005f6148",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000004803003e06fe7bc150cc8cb21d12750a1a1ba135",
+          "0x0000000000000000000000004803003e06fe7bc150cc8cb21d12750a1a1ba135"
+        ],
+        "data": "0x",
+        "logIndex": 12,
+        "blockHash": "0x4e3914fe78b5e764c13ca6c67a2417d8076c045604cc64e176659a13bb0bcb96"
+      }
+    ],
+    "blockNumber": 2861977,
+    "cumulativeGasUsed": "2742770",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    [
+      "0xaCD70AdfeEe619ACa7354e9c89C6a86968d11078"
+    ],
+    "0x736c78b2f2cBf4F921E8551b2acB6A5Edc9177D5"
+  ],
+  "numDeployments": 2,
+  "solcInputHash": "1b500af459c4272cf599f0e1844a2b2e",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"modules\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"ArrayLengthMismatch\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidAttestationFee\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidCertificateId\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyPortalOwner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"WithdrawFail\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ZeroAddressCheck\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32[]\",\"name\":\"schemaIds\",\"type\":\"bytes32[]\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"attestationFees\",\"type\":\"uint256[]\"}],\"name\":\"FeesSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"module\",\"type\":\"address\"}],\"name\":\"addModule\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"schemaId\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"expirationDate\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"subject\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"attestationData\",\"type\":\"bytes\"}],\"internalType\":\"struct AttestationPayload\",\"name\":\"attestationPayload\",\"type\":\"tuple\"},{\"internalType\":\"bytes[]\",\"name\":\"validationPayloads\",\"type\":\"bytes[]\"}],\"name\":\"attest\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"schemaId\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"expirationDate\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"subject\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"attestationData\",\"type\":\"bytes\"}],\"internalType\":\"struct AttestationPayload\",\"name\":\"attestationPayload\",\"type\":\"tuple\"},{\"internalType\":\"bytes[]\",\"name\":\"validationPayload\",\"type\":\"bytes[]\"}],\"name\":\"attestRubyscore\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"attestationFees\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"attestationRegistry\",\"outputs\":[{\"internalType\":\"contract IAttestationRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"schemaId\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"expirationDate\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"subject\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"attestationData\",\"type\":\"bytes\"}],\"internalType\":\"struct AttestationPayload[]\",\"name\":\"attestationsPayloads\",\"type\":\"tuple[]\"},{\"internalType\":\"bytes[][]\",\"name\":\"validationPayloads\",\"type\":\"bytes[][]\"}],\"name\":\"bulkAttest\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"attestationIds\",\"type\":\"bytes32[]\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"schemaId\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"expirationDate\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"subject\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"attestationData\",\"type\":\"bytes\"}],\"internalType\":\"struct AttestationPayload[]\",\"name\":\"attestationsPayloads\",\"type\":\"tuple[]\"},{\"internalType\":\"bytes[][]\",\"name\":\"validationPayloads\",\"type\":\"bytes[][]\"}],\"name\":\"bulkReplace\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"attestationIds\",\"type\":\"bytes32[]\"}],\"name\":\"bulkRevoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"bulkStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"certificates\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"schemaId\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"checkFee\",\"outputs\":[],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"feeStatus\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAttester\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getModules\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"moduleRegistry\",\"outputs\":[{\"internalType\":\"contract IModuleRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"modules\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"portalRegistry\",\"outputs\":[{\"internalType\":\"contract IPortalRegistry\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"removeModules\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"attestationId\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"schemaId\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"expirationDate\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"subject\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"attestationData\",\"type\":\"bytes\"}],\"internalType\":\"struct AttestationPayload\",\"name\":\"attestationPayload\",\"type\":\"tuple\"},{\"internalType\":\"bytes[]\",\"name\":\"validationPayloads\",\"type\":\"bytes[]\"}],\"name\":\"replace\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"attestationId\",\"type\":\"bytes32\"}],\"name\":\"revoke\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"router\",\"outputs\":[{\"internalType\":\"contract IRouter\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bool\",\"name\":\"fee\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"bulk\",\"type\":\"bool\"}],\"name\":\"setCheckStatuses\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"schemaIds\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_attestationFees\",\"type\":\"uint256[]\"}],\"name\":\"setFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"schemaIds\",\"type\":\"bytes32[]\"},{\"internalType\":\"bool[]\",\"name\":\"certificateStatuses\",\"type\":\"bool[]\"}],\"name\":\"setUpCertificates\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceID\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"RubyScoreVeraxPortal is a smart contract that handles the attestation process for RubyScore certificates. It manages fees, signatures based on specific schemas.\",\"events\":{\"Paused(address)\":{\"details\":\"Emitted when the pause is triggered by `account`.\"},\"Unpaused(address)\":{\"details\":\"Emitted when the pause is lifted by `account`.\"}},\"kind\":\"dev\",\"methods\":{\"addModule(address)\":{\"details\":\"Add a new module to the list of modules.\",\"params\":{\"module\":\"The address of the new module.\"}},\"attest((bytes32,uint64,bytes,bytes),bytes[])\":{\"details\":\"Runs all modules for the portal and registers the attestation using IAttestationRegistry\",\"params\":{\"attestationPayload\":\"the payload to attest\",\"validationPayloads\":\"the payloads to validate via the modules to issue the attestations\"}},\"attestRubyscore((bytes32,uint64,bytes,bytes),bytes[])\":{\"details\":\"Attest a score with a given attestation payload and validation payloads.\",\"params\":{\"attestationPayload\":\"The payload of the attestation.\",\"validationPayload\":\"The validation payload required for the module.\"}},\"bulkAttest((bytes32,uint64,bytes,bytes)[],bytes[][])\":{\"params\":{\"attestationsPayloads\":\"the payloads to attest\",\"validationPayloads\":\"the payloads to validate via the modules to issue the attestations\"}},\"bulkReplace(bytes32[],(bytes32,uint64,bytes,bytes)[],bytes[][])\":{\"params\":{\"attestationIds\":\"the list of IDs of the attestations to replace\",\"attestationsPayloads\":\"the list of attestation payloads to create the new attestations and register them\",\"validationPayloads\":\"the payloads to validate via the modules to issue the attestations\"}},\"bulkRevoke(bytes32[])\":{\"params\":{\"attestationIds\":\"the IDs of the attestations to revoke\"}},\"checkFee(bytes32,uint256)\":{\"details\":\"Check if the provided value meets the attestation fee requirement.\",\"params\":{\"_value\":\"The value sent for the attestation.\",\"schemaId\":\"The schemaId for which to check the fee.\"}},\"constructor\":{\"details\":\"Contract constructor.\",\"params\":{\"modules\":\"List of modules to use for the portal.\",\"router\":\"The Router's address.\"}},\"getAttester()\":{\"details\":\"We strongly encourage a reflection when overriding this rule: who should be set as the attester?\"},\"getModules()\":{\"returns\":{\"_0\":\"The list of modules addresses linked to the Portal\"}},\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"paused()\":{\"details\":\"Returns true if the contract is paused, and false otherwise.\"},\"removeModules()\":{\"details\":\"Remove all modules from the list of modules.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"replace(bytes32,(bytes32,uint64,bytes,bytes),bytes[])\":{\"details\":\"Runs all modules for the portal and registers the attestation using IAttestationRegistry\",\"params\":{\"attestationId\":\"the ID of the attestation to replace\",\"attestationPayload\":\"the attestation payload to create the new attestation and register it\",\"validationPayloads\":\"the payloads to validate via the modules to issue the attestation\"}},\"revoke(bytes32)\":{\"details\":\"By default, revocation is only possible by the portal owner We strongly encourage implementing such a rule in your Portal if you intend on overriding this method\",\"params\":{\"attestationId\":\"the ID of the attestation to revoke\"}},\"setCheckStatuses(bool,bool)\":{\"details\":\"Set the fee, signature, and issuance statuses.\",\"params\":{\"fee\":\"Fee status.\"}},\"setFees(bytes32[],uint256[])\":{\"details\":\"Set the fees for specific schemaIds.\",\"params\":{\"_attestationFees\":\"The fees required to attest.\",\"schemaIds\":\"The schemaIds to set the fee for.\"}},\"setUpCertificates(bytes32[],bool[])\":{\"details\":\"Set up certificate mappings for schemaIds.\",\"params\":{\"certificateStatuses\":\"The corresponding certificate statuses.\",\"schemaIds\":\"The schemaIds for which to set up certificates.\"}},\"supportsInterface(bytes4)\":{\"params\":{\"interfaceID\":\"the interface identifier checked in this call\"},\"returns\":{\"_0\":\"The list of modules addresses linked to the Portal\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"},\"withdraw(address,uint256)\":{\"details\":\"Withdraw ETH from the contract.\",\"params\":{\"amount\":\"The amount of ETH to withdraw.\",\"to\":\"The address to which the ETH will be withdrawn.\"}}},\"title\":\"RubyScoreVeraxPortal\",\"version\":1},\"userdoc\":{\"errors\":{\"OnlyPortalOwner()\":[{\"notice\":\"Error thrown when someone else than the portal's owner is trying to revoke\"}]},\"kind\":\"user\",\"methods\":{\"attest((bytes32,uint64,bytes,bytes),bytes[])\":{\"notice\":\"Attest the schema with given attestationPayload and validationPayload\"},\"bulkAttest((bytes32,uint64,bytes,bytes)[],bytes[][])\":{\"notice\":\"Bulk attest the schema with payloads to attest and validation payloads\"},\"bulkReplace(bytes32[],(bytes32,uint64,bytes,bytes)[],bytes[][])\":{\"notice\":\"Bulk replaces the attestation for the given identifiers and replaces them with new attestations\"},\"bulkRevoke(bytes32[])\":{\"notice\":\"Bulk revokes a list of attestations for the given identifiers\"},\"getAttester()\":{\"notice\":\"Defines the address of the entity issuing attestations to the subject\"},\"getModules()\":{\"notice\":\"Get all the modules addresses used by the Portal\"},\"replace(bytes32,(bytes32,uint64,bytes,bytes),bytes[])\":{\"notice\":\"Replaces the attestation for the given identifier and replaces it with a new attestation\"},\"revoke(bytes32)\":{\"notice\":\"Revokes an attestation for the given identifier\"},\"supportsInterface(bytes4)\":{\"notice\":\"Verifies that a specific interface is implemented by the Portal, following ERC-165 specification\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/certificates/RubyScoreVeraxPortal.sol\":\"RubyScoreVeraxPortal\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * By default, the owner account will be the one that deploys the contract. This\\n * can later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the deployer as the initial owner.\\n     */\\n    constructor() {\\n        _transferOwnership(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        require(owner() == _msgSender(), \\\"Ownable: caller is not the owner\\\");\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        require(newOwner != address(0), \\\"Ownable: new owner is the zero address\\\");\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xba43b97fba0d32eb4254f6a5a297b39a19a247082a02d6e69349e071e2946218\",\"license\":\"MIT\"},\"@openzeppelin/contracts/security/Pausable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (security/Pausable.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which allows children to implement an emergency stop\\n * mechanism that can be triggered by an authorized account.\\n *\\n * This module is used through inheritance. It will make available the\\n * modifiers `whenNotPaused` and `whenPaused`, which can be applied to\\n * the functions of your contract. Note that they will not be pausable by\\n * simply including this module, only once the modifiers are put in place.\\n */\\nabstract contract Pausable is Context {\\n    /**\\n     * @dev Emitted when the pause is triggered by `account`.\\n     */\\n    event Paused(address account);\\n\\n    /**\\n     * @dev Emitted when the pause is lifted by `account`.\\n     */\\n    event Unpaused(address account);\\n\\n    bool private _paused;\\n\\n    /**\\n     * @dev Initializes the contract in unpaused state.\\n     */\\n    constructor() {\\n        _paused = false;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is not paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    modifier whenNotPaused() {\\n        _requireNotPaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Modifier to make a function callable only when the contract is paused.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    modifier whenPaused() {\\n        _requirePaused();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns true if the contract is paused, and false otherwise.\\n     */\\n    function paused() public view virtual returns (bool) {\\n        return _paused;\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is paused.\\n     */\\n    function _requireNotPaused() internal view virtual {\\n        require(!paused(), \\\"Pausable: paused\\\");\\n    }\\n\\n    /**\\n     * @dev Throws if the contract is not paused.\\n     */\\n    function _requirePaused() internal view virtual {\\n        require(paused(), \\\"Pausable: not paused\\\");\\n    }\\n\\n    /**\\n     * @dev Triggers stopped state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must not be paused.\\n     */\\n    function _pause() internal virtual whenNotPaused {\\n        _paused = true;\\n        emit Paused(_msgSender());\\n    }\\n\\n    /**\\n     * @dev Returns to normal state.\\n     *\\n     * Requirements:\\n     *\\n     * - The contract must be paused.\\n     */\\n    function _unpause() internal virtual whenPaused {\\n        _paused = false;\\n        emit Unpaused(_msgSender());\\n    }\\n}\\n\",\"keccak256\":\"0x0849d93b16c9940beb286a7864ed02724b248b93e0d80ef6355af5ef15c64773\",\"license\":\"MIT\"},\"@openzeppelin/contracts/token/ERC1155/IERC1155.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.0) (token/ERC1155/IERC1155.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"../../utils/introspection/IERC165.sol\\\";\\n\\n/**\\n * @dev Required interface of an ERC1155 compliant contract, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-1155[EIP].\\n *\\n * _Available since v3.1._\\n */\\ninterface IERC1155 is IERC165 {\\n    /**\\n     * @dev Emitted when `value` tokens of token type `id` are transferred from `from` to `to` by `operator`.\\n     */\\n    event TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value);\\n\\n    /**\\n     * @dev Equivalent to multiple {TransferSingle} events, where `operator`, `from` and `to` are the same for all\\n     * transfers.\\n     */\\n    event TransferBatch(\\n        address indexed operator,\\n        address indexed from,\\n        address indexed to,\\n        uint256[] ids,\\n        uint256[] values\\n    );\\n\\n    /**\\n     * @dev Emitted when `account` grants or revokes permission to `operator` to transfer their tokens, according to\\n     * `approved`.\\n     */\\n    event ApprovalForAll(address indexed account, address indexed operator, bool approved);\\n\\n    /**\\n     * @dev Emitted when the URI for token type `id` changes to `value`, if it is a non-programmatic URI.\\n     *\\n     * If an {URI} event was emitted for `id`, the standard\\n     * https://eips.ethereum.org/EIPS/eip-1155#metadata-extensions[guarantees] that `value` will equal the value\\n     * returned by {IERC1155MetadataURI-uri}.\\n     */\\n    event URI(string value, uint256 indexed id);\\n\\n    /**\\n     * @dev Returns the amount of tokens of token type `id` owned by `account`.\\n     *\\n     * Requirements:\\n     *\\n     * - `account` cannot be the zero address.\\n     */\\n    function balanceOf(address account, uint256 id) external view returns (uint256);\\n\\n    /**\\n     * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {balanceOf}.\\n     *\\n     * Requirements:\\n     *\\n     * - `accounts` and `ids` must have the same length.\\n     */\\n    function balanceOfBatch(\\n        address[] calldata accounts,\\n        uint256[] calldata ids\\n    ) external view returns (uint256[] memory);\\n\\n    /**\\n     * @dev Grants or revokes permission to `operator` to transfer the caller's tokens, according to `approved`,\\n     *\\n     * Emits an {ApprovalForAll} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `operator` cannot be the caller.\\n     */\\n    function setApprovalForAll(address operator, bool approved) external;\\n\\n    /**\\n     * @dev Returns true if `operator` is approved to transfer ``account``'s tokens.\\n     *\\n     * See {setApprovalForAll}.\\n     */\\n    function isApprovedForAll(address account, address operator) external view returns (bool);\\n\\n    /**\\n     * @dev Transfers `amount` tokens of token type `id` from `from` to `to`.\\n     *\\n     * Emits a {TransferSingle} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `to` cannot be the zero address.\\n     * - If the caller is not `from`, it must have been approved to spend ``from``'s tokens via {setApprovalForAll}.\\n     * - `from` must have a balance of tokens of type `id` of at least `amount`.\\n     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155Received} and return the\\n     * acceptance magic value.\\n     */\\n    function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes calldata data) external;\\n\\n    /**\\n     * @dev xref:ROOT:erc1155.adoc#batch-operations[Batched] version of {safeTransferFrom}.\\n     *\\n     * Emits a {TransferBatch} event.\\n     *\\n     * Requirements:\\n     *\\n     * - `ids` and `amounts` must have the same length.\\n     * - If `to` refers to a smart contract, it must implement {IERC1155Receiver-onERC1155BatchReceived} and return the\\n     * acceptance magic value.\\n     */\\n    function safeBatchTransferFrom(\\n        address from,\\n        address to,\\n        uint256[] calldata ids,\\n        uint256[] calldata amounts,\\n        bytes calldata data\\n    ) external;\\n}\\n\",\"keccak256\":\"0xcab667ddad478ff0d39c2053ca77fac778af8483c18ab07d810277b4216fd582\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.9.4) (utils/Context.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0xa92e4fa126feb6907daa0513ddd816b2eb91f30a808de54f63c17d0e162c3439\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/ERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/introspection/ERC165.sol)\\n\\npragma solidity ^0.8.0;\\n\\nimport \\\"./IERC165.sol\\\";\\n\\n/**\\n * @dev Implementation of the {IERC165} interface.\\n *\\n * Contracts that want to implement ERC165 should inherit from this contract and override {supportsInterface} to check\\n * for the additional interface id that will be supported. For example:\\n *\\n * ```solidity\\n * function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {\\n *     return interfaceId == type(MyInterface).interfaceId || super.supportsInterface(interfaceId);\\n * }\\n * ```\\n *\\n * Alternatively, {ERC165Storage} provides an easier to use but more expensive implementation.\\n */\\nabstract contract ERC165 is IERC165 {\\n    /**\\n     * @dev See {IERC165-supportsInterface}.\\n     */\\n    function supportsInterface(bytes4 interfaceId) public view virtual override returns (bool) {\\n        return interfaceId == type(IERC165).interfaceId;\\n    }\\n}\\n\",\"keccak256\":\"0xd10975de010d89fd1c78dc5e8a9a7e7f496198085c151648f20cba166b32582b\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/introspection/IERC165.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[EIP].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\"},\"contracts/certificates/RubyScoreVeraxPortal.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nimport {AbstractPortal} from \\\"./abstracts/AbstractPortal.sol\\\";\\nimport {AttestationPayload} from \\\"./interfaces/Structs.sol\\\";\\nimport {Pausable} from \\\"@openzeppelin/contracts/security/Pausable.sol\\\";\\nimport {Ownable} from \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\nimport {IRubyscore_Certificates} from \\\"./interfaces/IRubyscore_Certificates.sol\\\";\\n\\n/**\\n * @title RubyScoreVeraxPortal\\n * @dev RubyScoreVeraxPortal is a smart contract that handles the attestation process for RubyScore certificates.\\n * It manages fees, signatures based on specific schemas.\\n */\\ncontract RubyScoreVeraxPortal is AbstractPortal, Ownable, Pausable {\\n    // State variables\\n    bool public bulkStatus = false;\\n    bool public feeStatus = true;\\n\\n    // Storage\\n    mapping(bytes32 => bool) public certificates; // schemaId => certificateStatus\\n    mapping(bytes32 => uint256) public attestationFees; // schemaId => attestationFee\\n\\n    // Errors\\n    error InvalidCertificateId();\\n    error ArrayLengthMismatch();\\n    error InvalidAttestationFee();\\n    error ZeroAddressCheck();\\n    error WithdrawFail();\\n\\n    // Events\\n    event FeesSet(bytes32[] schemaIds, uint256[] attestationFees);\\n\\n    /**\\n     * @dev Contract constructor.\\n     * @param modules List of modules to use for the portal.\\n     * @param router The Router's address.\\n     */\\n    constructor(address[] memory modules, address router) AbstractPortal(modules, router) {\\n        if (router == address(0)) revert ZeroAddressCheck();\\n        _transferOwnership(msg.sender);\\n    }\\n\\n    function pause() public onlyOwner {\\n        _pause();\\n    }\\n\\n    function unpause() public onlyOwner {\\n        _unpause();\\n    }\\n\\n    /**\\n     * @dev Check if the provided value meets the attestation fee requirement.\\n     * @param schemaId The schemaId for which to check the fee.\\n     * @param _value The value sent for the attestation.\\n     */\\n    function checkFee(bytes32 schemaId, uint256 _value) public view {\\n        if (_value < attestationFees[schemaId]) revert InvalidAttestationFee();\\n    }\\n\\n    /**\\n     * @dev Set the fee, signature, and issuance statuses.\\n     * @param fee Fee status.\\n     */\\n    function setCheckStatuses(bool fee, bool bulk) external onlyOwner {\\n        feeStatus = fee;\\n        bulkStatus = bulk;\\n    }\\n\\n    /**\\n     * @dev Add a new module to the list of modules.\\n     * @param module The address of the new module.\\n     */\\n    function addModule(address module) external onlyOwner {\\n        modules.push(module);\\n    }\\n\\n    /**\\n     * @dev Remove all modules from the list of modules.\\n     */\\n    function removeModules() external onlyOwner whenPaused {\\n        delete modules;\\n    }\\n\\n    /**\\n     * @dev Set the fees for specific schemaIds.\\n     * @param schemaIds The schemaIds to set the fee for.\\n     * @param _attestationFees The fees required to attest.\\n     */\\n    function setFees(bytes32[] memory schemaIds, uint256[] memory _attestationFees) public onlyOwner {\\n        if (schemaIds.length != _attestationFees.length) revert ArrayLengthMismatch();\\n        for (uint256 i = 0; i < schemaIds.length; i++) {\\n            attestationFees[schemaIds[i]] = _attestationFees[i];\\n        }\\n        emit FeesSet(schemaIds, _attestationFees);\\n    }\\n\\n    /**\\n     * @dev Set up certificate mappings for schemaIds.\\n     * @param schemaIds The schemaIds for which to set up certificates.\\n     * @param certificateStatuses The corresponding certificate statuses.\\n     */\\n    function setUpCertificates(bytes32[] calldata schemaIds, bool[] calldata certificateStatuses) public onlyOwner {\\n        if (schemaIds.length != certificateStatuses.length) revert ArrayLengthMismatch();\\n        for (uint256 i = 0; i < schemaIds.length; i++) {\\n            certificates[schemaIds[i]] = certificateStatuses[i];\\n        }\\n    }\\n\\n    /**\\n     * @dev Attest a score with a given attestation payload and validation payloads.\\n     * @param attestationPayload The payload of the attestation.\\n     * @param validationPayload The validation payload required for the module.\\n     */\\n    function attestRubyscore(\\n        AttestationPayload memory attestationPayload,\\n        bytes[] memory validationPayload\\n    ) external payable {\\n        if (!certificates[attestationPayload.schemaId]) revert InvalidCertificateId();\\n        super.attest(attestationPayload, validationPayload);\\n    }\\n\\n    /**\\n     * @dev Withdraw ETH from the contract.\\n     * @param to The address to which the ETH will be withdrawn.\\n     * @param amount The amount of ETH to withdraw.\\n     */\\n    function withdraw(address payable to, uint256 amount) external override onlyOwner {\\n        (bool status, ) = to.call{value: amount}(\\\"\\\");\\n        if (!status) revert WithdrawFail();\\n    }\\n\\n    /**\\n     * @notice Optional method run before a payload is attested\\n     * @param attestationPayload the attestation payload supposed to be attested\\n     * @param attester the address of the attester\\n     * @param value the value sent with the attestation\\n     */\\n    function _onAttest(\\n        AttestationPayload memory attestationPayload,\\n        address attester,\\n        uint256 value\\n    ) internal override whenNotPaused {\\n        if (feeStatus) checkFee(attestationPayload.schemaId, value);\\n        super._onAttest(attestationPayload, attester, value);\\n    }\\n\\n    /**\\n     * @notice Optional method run when attesting a batch of payloads\\n     */\\n    function _onBulkAttest(\\n        AttestationPayload[] memory /*attestationsPayloads*/,\\n        bytes[][] memory /*validationPayloads*/\\n    ) internal override whenNotPaused {\\n        if (!bulkStatus) revert(\\\"Only single attest\\\");\\n    }\\n\\n    /**\\n     * @notice Optional method run when an attestation is replaced\\n     * @param attestationId the ID of the attestation being replaced\\n     * @param attestationPayload the attestation payload to create attestation and register it\\n     * @param attester the address of the attester\\n     * @param value the value sent with the attestation\\n     */\\n    function _onReplace(\\n        bytes32 attestationId,\\n        AttestationPayload memory attestationPayload,\\n        address attester,\\n        uint256 value\\n    ) internal override whenNotPaused {\\n        if (feeStatus) checkFee(attestationPayload.schemaId, value);\\n        super._onReplace(attestationId, attestationPayload, attester, value);\\n    }\\n\\n    function _onBulkReplace(\\n        bytes32[] memory /*attestationIds*/,\\n        AttestationPayload[] memory /*attestationsPayloads*/,\\n        bytes[][] memory /*validationPayloads*/\\n    ) internal override whenNotPaused {\\n        if (!bulkStatus) revert(\\\"Only single replace\\\");\\n    }\\n}\\n\",\"keccak256\":\"0xdad308dae93bb29f220471e54d934dc4b70daabfbc6f0b60279ec07b29e477cd\",\"license\":\"MIT\"},\"contracts/certificates/abstracts/AbstractPortal.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nimport {IAttestationRegistry} from \\\"../interfaces/IAttestationRegistry.sol\\\";\\nimport {IModuleRegistry} from \\\"../interfaces/IModuleRegistry.sol\\\";\\nimport {IERC165} from \\\"@openzeppelin/contracts/utils/introspection/ERC165.sol\\\";\\nimport {IPortalRegistry} from \\\"../interfaces/IPortalRegistry.sol\\\";\\nimport {IRouter} from \\\"../interfaces/IRouter.sol\\\";\\nimport {IPortal} from \\\"../interfaces/IPortal.sol\\\";\\nimport {AttestationPayload} from \\\"../interfaces/Structs.sol\\\";\\n\\n/**\\n * @title Abstract Portal\\n * @author Consensys\\n * @notice This contract is an abstract contract with basic Portal logic\\n *         to be inherited. We strongly encourage all Portals to implement\\n *         this contract.\\n */\\nabstract contract AbstractPortal is IPortal {\\n    IRouter public router;\\n    address[] public modules;\\n    IModuleRegistry public moduleRegistry;\\n    IAttestationRegistry public attestationRegistry;\\n    IPortalRegistry public portalRegistry;\\n\\n    /// @notice Error thrown when someone else than the portal's owner is trying to revoke\\n    error OnlyPortalOwner();\\n\\n    /**\\n     * @notice Contract constructor\\n     * @param _modules list of modules to use for the portal (can be empty)\\n     * @param _router Router's address\\n     * @dev This sets the addresses for the IAttestationRegistry, IModuleRegistry and IPortalRegistry\\n     */\\n    constructor(address[] memory _modules, address _router) {\\n        modules = _modules;\\n        router = IRouter(_router);\\n        attestationRegistry = IAttestationRegistry(router.getAttestationRegistry());\\n        moduleRegistry = IModuleRegistry(router.getModuleRegistry());\\n        portalRegistry = IPortalRegistry(router.getPortalRegistry());\\n    }\\n\\n    /**\\n     * @notice Optional method to withdraw funds from the Portal\\n     * @param to the address to send the funds to\\n     * @param amount the amount to withdraw\\n     */\\n    function withdraw(address payable to, uint256 amount) external virtual;\\n\\n    /**\\n     * @notice Attest the schema with given attestationPayload and validationPayload\\n     * @param attestationPayload the payload to attest\\n     * @param validationPayloads the payloads to validate via the modules to issue the attestations\\n     * @dev Runs all modules for the portal and registers the attestation using IAttestationRegistry\\n     */\\n    function attest(AttestationPayload memory attestationPayload, bytes[] memory validationPayloads) public payable {\\n        moduleRegistry.runModules(modules, attestationPayload, validationPayloads, msg.value);\\n\\n        _onAttest(attestationPayload, getAttester(), msg.value);\\n\\n        attestationRegistry.attest(attestationPayload, getAttester());\\n    }\\n\\n    /**\\n     * @notice Bulk attest the schema with payloads to attest and validation payloads\\n     * @param attestationsPayloads the payloads to attest\\n     * @param validationPayloads the payloads to validate via the modules to issue the attestations\\n     */\\n    function bulkAttest(AttestationPayload[] memory attestationsPayloads, bytes[][] memory validationPayloads) public {\\n        moduleRegistry.bulkRunModules(modules, attestationsPayloads, validationPayloads);\\n\\n        _onBulkAttest(attestationsPayloads, validationPayloads);\\n\\n        attestationRegistry.bulkAttest(attestationsPayloads, getAttester());\\n    }\\n\\n    /**\\n     * @notice Replaces the attestation for the given identifier and replaces it with a new attestation\\n     * @param attestationId the ID of the attestation to replace\\n     * @param attestationPayload the attestation payload to create the new attestation and register it\\n     * @param validationPayloads the payloads to validate via the modules to issue the attestation\\n     * @dev Runs all modules for the portal and registers the attestation using IAttestationRegistry\\n     */\\n    function replace(\\n        bytes32 attestationId,\\n        AttestationPayload memory attestationPayload,\\n        bytes[] memory validationPayloads\\n    ) public payable {\\n        moduleRegistry.runModules(modules, attestationPayload, validationPayloads, msg.value);\\n\\n        _onReplace(attestationId, attestationPayload, getAttester(), msg.value);\\n\\n        attestationRegistry.replace(attestationId, attestationPayload, getAttester());\\n    }\\n\\n    /**\\n     * @notice Bulk replaces the attestation for the given identifiers and replaces them with new attestations\\n     * @param attestationIds the list of IDs of the attestations to replace\\n     * @param attestationsPayloads the list of attestation payloads to create the new attestations and register them\\n     * @param validationPayloads the payloads to validate via the modules to issue the attestations\\n     */\\n    function bulkReplace(\\n        bytes32[] memory attestationIds,\\n        AttestationPayload[] memory attestationsPayloads,\\n        bytes[][] memory validationPayloads\\n    ) public {\\n        moduleRegistry.bulkRunModules(modules, attestationsPayloads, validationPayloads);\\n\\n        _onBulkReplace(attestationIds, attestationsPayloads, validationPayloads);\\n\\n        attestationRegistry.bulkReplace(attestationIds, attestationsPayloads, getAttester());\\n    }\\n\\n    /**\\n     * @notice Revokes an attestation for the given identifier\\n     * @param attestationId the ID of the attestation to revoke\\n     * @dev By default, revocation is only possible by the portal owner\\n     * We strongly encourage implementing such a rule in your Portal if you intend on overriding this method\\n     */\\n    function revoke(bytes32 attestationId) public {\\n        _onRevoke(attestationId);\\n\\n        attestationRegistry.revoke(attestationId);\\n    }\\n\\n    /**\\n     * @notice Bulk revokes a list of attestations for the given identifiers\\n     * @param attestationIds the IDs of the attestations to revoke\\n     */\\n    function bulkRevoke(bytes32[] memory attestationIds) public {\\n        _onBulkRevoke(attestationIds);\\n\\n        attestationRegistry.bulkRevoke(attestationIds);\\n    }\\n\\n    /**\\n     * @notice Get all the modules addresses used by the Portal\\n     * @return The list of modules addresses linked to the Portal\\n     */\\n    function getModules() external view returns (address[] memory) {\\n        return modules;\\n    }\\n\\n    /**\\n     * @notice Verifies that a specific interface is implemented by the Portal, following ERC-165 specification\\n     * @param interfaceID the interface identifier checked in this call\\n     * @return The list of modules addresses linked to the Portal\\n     */\\n    function supportsInterface(bytes4 interfaceID) public pure virtual override returns (bool) {\\n        return\\n            interfaceID == type(AbstractPortal).interfaceId ||\\n            interfaceID == type(IPortal).interfaceId ||\\n            interfaceID == type(IERC165).interfaceId;\\n    }\\n\\n    /**\\n     * @notice Defines the address of the entity issuing attestations to the subject\\n     * @dev We strongly encourage a reflection when overriding this rule: who should be set as the attester?\\n     */\\n    function getAttester() public view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    /**\\n     * @notice Optional method run before a payload is attested\\n     * @param attestationPayload the attestation payload supposed to be attested\\n     * @param attester the address of the attester\\n     * @param value the value sent with the attestation\\n     */\\n    function _onAttest(\\n        AttestationPayload memory attestationPayload,\\n        address attester,\\n        uint256 value\\n    ) internal virtual {}\\n\\n    /**\\n     * @notice Optional method run when an attestation is replaced\\n     * @param attestationId the ID of the attestation being replaced\\n     * @param attestationPayload the attestation payload to create attestation and register it\\n     * @param attester the address of the attester\\n     * @param value the value sent with the attestation\\n     */\\n    function _onReplace(\\n        bytes32 attestationId,\\n        AttestationPayload memory attestationPayload,\\n        address attester,\\n        uint256 value\\n    ) internal virtual {}\\n\\n    /**\\n     * @notice Optional method run when attesting a batch of payloads\\n     * @param attestationsPayloads the payloads to attest\\n     * @param validationPayloads the payloads to validate in order to issue the attestations\\n     */\\n    function _onBulkAttest(\\n        AttestationPayload[] memory attestationsPayloads,\\n        bytes[][] memory validationPayloads\\n    ) internal virtual {}\\n\\n    function _onBulkReplace(\\n        bytes32[] memory attestationIds,\\n        AttestationPayload[] memory attestationsPayloads,\\n        bytes[][] memory validationPayloads\\n    ) internal virtual {}\\n\\n    /**\\n     * @notice Optional method run when an attestation is revoked or replaced\\n     * @dev    IMPORTANT NOTE: By default, revocation is only possible by the portal owner\\n     */\\n    function _onRevoke(bytes32 /*attestationId*/) internal virtual {\\n        if (msg.sender != portalRegistry.getPortalByAddress(address(this)).ownerAddress) revert OnlyPortalOwner();\\n    }\\n\\n    /**\\n     * @notice Optional method run when a batch of attestations are revoked or replaced\\n     * @dev    IMPORTANT NOTE: By default, revocation is only possible by the portal owner\\n     */\\n    function _onBulkRevoke(bytes32[] memory /*attestationIds*/) internal virtual {\\n        if (msg.sender != portalRegistry.getPortalByAddress(address(this)).ownerAddress) revert OnlyPortalOwner();\\n    }\\n}\\n\",\"keccak256\":\"0x5a4a740cbe6a1fe7c488ea9ad659458e0d05487308eaf0c595711b8cc0f4054f\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IAttestationRegistry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nimport {Attestation, AttestationPayload} from \\\"./Structs.sol\\\";\\nimport {IRouter} from \\\"./IRouter.sol\\\";\\n\\ninterface IAttestationRegistry {\\n    /// @notice Event emitted when an attestation is registered\\n    event AttestationRegistered(bytes32 indexed attestationId);\\n\\n    function router() external view returns (IRouter);\\n\\n    function attestations(bytes32 attestationId) external view returns (Attestation memory);\\n\\n    function initialize() external;\\n\\n    function updateRouter(address _router) external;\\n\\n    function updateChainPrefix(uint256 _chainPrefix) external;\\n\\n    function onlyPortals(address portal) external view;\\n\\n    function attest(AttestationPayload calldata attestationPayload, address attester) external;\\n\\n    function bulkAttest(AttestationPayload[] calldata attestationsPayloads, address attester) external;\\n\\n    function massImport(AttestationPayload[] calldata attestationsPayloads, address portal) external;\\n\\n    function replace(bytes32 attestationId, AttestationPayload calldata attestationPayload, address attester) external;\\n\\n    function bulkReplace(\\n        bytes32[] calldata attestationIds,\\n        AttestationPayload[] calldata attestationPayloads,\\n        address attester\\n    ) external;\\n\\n    function revoke(bytes32 attestationId) external;\\n\\n    function bulkRevoke(bytes32[] memory attestationIds) external;\\n\\n    function isRegistered(bytes32 attestationId) external view returns (bool);\\n\\n    function isRevocable(address portalId) external view returns (bool);\\n\\n    function getAttestation(bytes32 attestationId) external view returns (Attestation memory);\\n\\n    function incrementVersionNumber() external returns (uint16);\\n\\n    function getVersionNumber() external view returns (uint16);\\n\\n    function getAttestationIdCounter() external view returns (uint32);\\n\\n    function getChainPrefix() external view returns (uint256);\\n\\n    function balanceOf(address account, uint256 id) external view returns (uint256);\\n\\n    function balanceOfBatch(address[] memory accounts, uint256[] memory ids) external view returns (uint256[] memory);\\n}\\n\",\"keccak256\":\"0xcaf81c56f01e308ae7b45255b351073f705c76a7ed1e3fda5063d3e5193be977\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IModuleRegistry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nimport {Module, AttestationPayload} from \\\"./Structs.sol\\\";\\nimport {IRouter} from \\\"./IRouter.sol\\\";\\n\\ninterface IModuleRegistry {\\n    function router() external view returns (IRouter);\\n\\n    function modules(address moduleAddress) external view returns (Module memory);\\n\\n    function moduleAddresses(uint256 index) external view returns (address);\\n\\n    function initialize() external;\\n\\n    function updateRouter(address _router) external;\\n\\n    function isContractAddress(address contractAddress) external view returns (bool);\\n\\n    function onlyIssuers(address issuer) external view;\\n\\n    function register(string memory name, string memory description, address moduleAddress) external;\\n\\n    function runModules(\\n        address[] memory modulesAddresses,\\n        AttestationPayload memory attestationPayload,\\n        bytes[] memory validationPayloads,\\n        uint256 value\\n    ) external;\\n\\n    function bulkRunModules(\\n        address[] memory modulesAddresses,\\n        AttestationPayload[] memory attestationsPayloads,\\n        bytes[][] memory validationPayloads\\n    ) external;\\n\\n    function getModulesNumber() external view returns (uint256);\\n\\n    function isRegistered(address moduleAddress) external view returns (bool);\\n}\\n\",\"keccak256\":\"0xc034ff1deb2ce8360b318c878fa7577d08242ab51fabbedcdff76ac5bca7b589\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IPortal.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nimport {IERC165} from \\\"@openzeppelin/contracts/utils/introspection/ERC165.sol\\\";\\n\\n/**\\n * @title IPortal\\n * @author Consensys\\n * @notice This contract is the interface to be implemented by any Portal.\\n *         NOTE: A portal must implement this interface to registered on\\n *         the PortalRegistry contract.\\n */\\ninterface IPortal is IERC165 {\\n    /**\\n     * @notice Get all the modules addresses used by the Portal\\n     * @return The list of modules addresses linked to the Portal\\n     */\\n    function getModules() external view returns (address[] memory);\\n\\n    /**\\n     * @notice Defines the address of the entity issuing attestations to the subject\\n     * @dev We strongly encourage a reflection when implementing this method\\n     */\\n    function getAttester() external view returns (address);\\n}\\n\",\"keccak256\":\"0x9edf1e6a31d11a48495daa6db920661570f5d20cc4302029f69b733747c5edd6\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IPortalRegistry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nimport {Portal} from \\\"./Structs.sol\\\";\\nimport {IRouter} from \\\"./IRouter.sol\\\";\\n\\ninterface IPortalRegistry {\\n    function router() external view returns (IRouter);\\n\\n    function portals(address id) external view returns (Portal memory);\\n\\n    function issuers(address issuerAddress) external view returns (bool);\\n\\n    function portalAddresses(uint256 index) external view returns (address);\\n\\n    function initialize() external;\\n\\n    function updateRouter(address _router) external;\\n\\n    function setIssuer(address issuer) external;\\n\\n    function removeIssuer(address issuer) external;\\n\\n    function isIssuer(address issuer) external view returns (bool);\\n\\n    function register(\\n        address id,\\n        string memory name,\\n        string memory description,\\n        bool isRevocable,\\n        string memory ownerName\\n    ) external;\\n\\n    function revoke(address id) external;\\n\\n    function deployDefaultPortal(\\n        address[] calldata modules,\\n        string memory name,\\n        string memory description,\\n        bool isRevocable,\\n        string memory ownerName\\n    ) external;\\n\\n    function getPortalByAddress(address id) external view returns (Portal memory);\\n\\n    function isRegistered(address id) external view returns (bool);\\n\\n    function getPortalsCount() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0xc39341992199436fb5c3cbb4883a09669d9a5429a912d6c77a8bac7ceaa7a403\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IRouter.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\n/**\\n * @title Router\\n * @author Consensys\\n * @notice This contract aims to provides a single entrypoint for the Verax registries\\n */\\ninterface IRouter {\\n    /**\\n     * @notice Gives the address for the AttestationRegistry contract\\n     * @return The current address of the AttestationRegistry contract\\n     */\\n    function getAttestationRegistry() external view returns (address);\\n\\n    /**\\n     * @notice Gives the address for the ModuleRegistry contract\\n     * @return The current address of the ModuleRegistry contract\\n     */\\n    function getModuleRegistry() external view returns (address);\\n\\n    /**\\n     * @notice Gives the address for the PortalRegistry contract\\n     * @return The current address of the PortalRegistry contract\\n     */\\n    function getPortalRegistry() external view returns (address);\\n\\n    /**\\n     * @notice Gives the address for the SchemaRegistry contract\\n     * @return The current address of the SchemaRegistry contract\\n     */\\n    function getSchemaRegistry() external view returns (address);\\n}\\n\",\"keccak256\":\"0xa3bb32ddb7009c7a20d4c85f976bad7c6194e563d1194352b68ffd75edb38971\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IRubyscore_Certificates.sol\":{\"content\":\"// SPDX-License-Identifier: SEE LICENSE IN LICENSE\\npragma solidity 0.8.19;\\n\\nimport {IERC1155} from \\\"@openzeppelin/contracts/token/ERC1155/IERC1155.sol\\\";\\n\\n/**\\n * @title IRubyscore_Certificates\\n * @dev IRubyscore_Certificates is an interface for Rubyscore_Certificates contract\\n */\\ninterface IRubyscore_Certificates is IERC1155 {\\n    /**\\n     * @notice Emitted when the base URI for token metadata is updated.\\n     * @param newBaseURI The new base URI that will be used to construct token metadata URIs.\\n     * @dev This event is triggered when the contract operator updates the base URI\\n     * for retrieving metadata associated with tokens. The 'newBaseURI' parameter represents\\n     * the updated base URI.\\n     */\\n    event BaseURISet(string indexed newBaseURI);\\n\\n    /**\\n     * @notice Emitted when NFTs are minted for a user.\\n     * @param userAddress The address of the user receiving the NFTs.\\n     * @param nftId NFT IDs that were minted.\\n     * @dev This event is emitted when new NFTs are created and assigned to a user.\\n     * @dev It includes the user's address, and the ID of the minted NFT for transparency.\\n     */\\n    event Minted(address indexed userAddress, uint256 nftId);\\n\\n    /**\\n     * @notice Emitted when NFTs are minted for a user.\\n     * @param userAddress The address of the user receiving the NFTs.\\n     * @param nftIds NFT IDs that were minted.\\n     * @dev This event is emitted when new NFTs are created and assigned to a user.\\n     * @dev It includes the user's address and the IDs of the minted NFTs for transparency.\\n     */\\n    event BatchMinted(address indexed userAddress, uint256[] nftIds);\\n\\n    /**\\n     * @notice Emitted when the URI for a specific token is updated.\\n     * @param tokenId The ID of the token for which the URI is updated.\\n     * @param newTokenURI The new URI assigned to the token.\\n     * @dev This event is emitted when the URI for a token is modified, providing transparency\\n     * when metadata URIs are changed for specific tokens.\\n     */\\n    event TokenURISet(uint256 indexed tokenId, string indexed newTokenURI);\\n\\n    /**\\n     * @notice Get token name.\\n     * @return Token name.\\n     */\\n    function name() external view returns (string memory);\\n\\n    /**\\n     * @notice Get token symbol.\\n     * @return Token symbol.\\n     */\\n    function symbol() external view returns (string memory);\\n\\n    /**\\n     * @notice Get the URI of a token.\\n     * @param tokenId The ID of the token.\\n     * @return The URI of the token.\\n     */\\n    function uri(uint256 tokenId) external view returns (string memory);\\n\\n    /**\\n     * @notice Get the token URI for a given tokenId.\\n     * @param tokenId The ID of the token.\\n     * @return The URI of the token.\\n     * @dev Diblicate for uri() method\\n     */\\n    function tokenURI(uint256 tokenId) external view returns (string memory);\\n\\n    /**\\n     * @notice Set the URI for a token.\\n     * @param tokenId The ID of the token.\\n     * @param newTokenURI The new URI to set for the token.\\n     * @dev Requires the MINTER_ROLE.\\n     */\\n    function setTokenURI(uint256 tokenId, string memory newTokenURI) external;\\n\\n    /**\\n     * @notice Set the URIs for multiple tokens in a batch.\\n     * @param tokenIds An array of token IDs to set URIs for.\\n     * @param newTokenURIs An array of new URIs to set for the tokens.\\n     * @dev Requires the MINTER_ROLE.\\n     * @dev Requires that the tokenIds and newTokenURIs arrays have the same length.\\n     */\\n    function setBatchTokenURI(uint256[] calldata tokenIds, string[] calldata newTokenURIs) external;\\n\\n    /**\\n     * @notice Set the base URI for all tokens.\\n     * @param newBaseURI The new base URI to set.\\n     * @dev Requires the OPERATOR_ROLE.\\n     */\\n    function setBaseURI(string memory newBaseURI) external;\\n\\n    /**\\n     * @notice Safely mints NFT for a user.\\n     * @param to The NFT recipient.\\n     * @param id The NFT id.\\n     */\\n    function safeMint(address to, uint256 id) external payable;\\n\\n    /**\\n     * @notice Check if a given interface is supported by this contract.\\n     * @param interfaceId The interface identifier to check for support.\\n     * @return Whether the contract supports the specified interface.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x93409077c63de9cac60e8636e1c86e7cacb9142917b60a676b88d9b875664bfb\",\"license\":\"SEE LICENSE IN LICENSE\"},\"contracts/certificates/interfaces/Structs.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\nstruct AttestationPayload {\\n    bytes32 schemaId; // The identifier of the schema this attestation adheres to.\\n    uint64 expirationDate; // The expiration date of the attestation.\\n    bytes subject; // The ID of the attestee, EVM address, DID, URL etc.\\n    bytes attestationData; // The attestation data.\\n}\\n\\nstruct Attestation {\\n    bytes32 attestationId; // The unique identifier of the attestation.\\n    bytes32 schemaId; // The identifier of the schema this attestation adheres to.\\n    bytes32 replacedBy; // Whether the attestation was replaced by a new one.\\n    address attester; // The address issuing the attestation to the subject.\\n    address portal; // The id of the portal that created the attestation.\\n    uint64 attestedDate; // The date the attestation is issued.\\n    uint64 expirationDate; // The expiration date of the attestation.\\n    uint64 revocationDate; // The date when the attestation was revoked.\\n    uint16 version; // Version of the registry when the attestation was created.\\n    bool revoked; // Whether the attestation is revoked or not.\\n    bytes subject; // The ID of the attestee, EVM address, DID, URL etc.\\n    bytes attestationData; // The attestation data.\\n}\\n\\nstruct Schema {\\n    string name; // The name of the schema.\\n    string description; // A description of the schema.\\n    string context; // The context of the schema.\\n    string schema; // The schema definition.\\n}\\n\\nstruct Portal {\\n    address id; // The unique identifier of the portal.\\n    address ownerAddress; // The address of the owner of this portal.\\n    address[] modules; // Addresses of modules implemented by the portal.\\n    bool isRevocable; // Whether attestations issued can be revoked.\\n    string name; // The name of the portal.\\n    string description; // A description of the portal.\\n    string ownerName; // The name of the owner of this portal.\\n}\\n\\nstruct Module {\\n    address moduleAddress; // The address of the module.\\n    string name; // The name of the module.\\n    string description; // A description of the module.\\n}\\n\",\"keccak256\":\"0xe909b8ef9e344ab993d42a94e67512042a31ac0ee48fa4d387f6947c5a2d01cb\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60806040526005805461ffff60a81b1916600160b01b1790553480156200002557600080fd5b50604051620024d4380380620024d483398101604081905262000048916200036f565b81518290829062000061906001906020850190620002bb565b50600080546001600160a01b0319166001600160a01b0383169081179091556040805163bfa6658560e01b8152905163bfa66585916004808201926020929091908290030181865afa158015620000bc573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620000e2919062000455565b600380546001600160a01b0319166001600160a01b03928316179055600054604080516376f63ca960e11b81529051919092169163edec79529160048083019260209291908290030181865afa15801562000141573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062000167919062000455565b600280546001600160a01b0319166001600160a01b0392831617905560005460408051635bed64bb60e11b81529051919092169163b7dac9769160048083019260209291908290030181865afa158015620001c6573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620001ec919062000455565b600480546001600160a01b0319166001600160a01b0392909216919091179055506200022190506200021b3390565b62000269565b6005805460ff60a01b191690556001600160a01b03811662000256576040516399676b1160e01b815260040160405180910390fd5b620002613362000269565b50506200047a565b600580546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b82805482825590600052602060002090810192821562000313579160200282015b828111156200031357825182546001600160a01b0319166001600160a01b03909116178255602090920191600190910190620002dc565b506200032192915062000325565b5090565b5b8082111562000321576000815560010162000326565b634e487b7160e01b600052604160045260246000fd5b80516001600160a01b03811681146200036a57600080fd5b919050565b600080604083850312156200038357600080fd5b82516001600160401b03808211156200039b57600080fd5b818501915085601f830112620003b057600080fd5b8151602082821115620003c757620003c76200033c565b8160051b604051601f19603f83011681018181108682111715620003ef57620003ef6200033c565b6040529283528183019350848101820192898411156200040e57600080fd5b948201945b838610156200043757620004278662000352565b8552948201949382019362000413565b965062000448905087820162000352565b9450505050509250929050565b6000602082840312156200046857600080fd5b620004738262000352565b9392505050565b61204a806200048a6000396000f3fe6080604052600436106101e35760003560e01c80638456cb5911610102578063b666493411610095578063ed6d73f911610064578063ed6d73f914610563578063f2fde38b14610583578063f3fef3a3146105a3578063f887ea40146105c357600080fd5b8063b6664934146104f0578063b75c7dc614610510578063b95459e414610530578063ecdbb4fd1461055057600080fd5b80639e69bee9116100d15780639e69bee914610479578063acdfb1bb14610499578063b2494df3146104ae578063b2c8ea79146104d057600080fd5b80638456cb59146104055780638da5cb5b1461041a578063958f9735146104385780639c1584dc1461045957600080fd5b80633f4ba83a1161017a578063715018a611610149578063715018a614610375578063742f06881461038a57806381b2248a146103ba5780638388e226146103f257600080fd5b80633f4ba83a146103015780634ada807614610316578063523ba7ca146103365780635c975abb1461035657600080fd5b80631ed86f19116101b65780631ed86f191461028057806320d8d2a4146102a057806339f08d1c146102c15780633cc30e2a146102e157600080fd5b806301ffc9a7146101e857806303e25c491461021d57806305e67f6314610258578063074321961461026d575b600080fd5b3480156101f457600080fd5b506102086102033660046111fb565b6105e3565b60405190151581526020015b60405180910390f35b34801561022957600080fd5b5061024a61023836600461122c565b60076020526000908152604090205481565b604051908152602001610214565b61026b61026636600461148b565b610635565b005b61026b61027b36600461148b565b610674565b34801561028c57600080fd5b5061026b61029b366004611503565b610754565b3480156102ac57600080fd5b5060055461020890600160a81b900460ff1681565b3480156102cd57600080fd5b5061026b6102dc366004611520565b6107ad565b3480156102ed57600080fd5b5061026b6102fc36600461169b565b6107dc565b34801561030d57600080fd5b5061026b6108b7565b34801561032257600080fd5b5061026b610331366004611722565b6108c9565b34801561034257600080fd5b5061026b61035136600461175e565b610937565b34801561036257600080fd5b50600554600160a01b900460ff16610208565b34801561038157600080fd5b5061026b6109d8565b34801561039657600080fd5b506102086103a536600461122c565b60066020526000908152604090205460ff1681565b3480156103c657600080fd5b506103da6103d536600461122c565b6109ea565b6040516001600160a01b039091168152602001610214565b3480156103fe57600080fd5b50336103da565b34801561041157600080fd5b5061026b610a14565b34801561042657600080fd5b506005546001600160a01b03166103da565b34801561044457600080fd5b5060055461020890600160b01b900460ff1681565b34801561046557600080fd5b5061026b6104743660046117c5565b610a24565b34801561048557600080fd5b5061026b6104943660046117fe565b610a60565b3480156104a557600080fd5b5061026b610b31565b3480156104ba57600080fd5b506104c3610b4d565b60405161021491906118b8565b3480156104dc57600080fd5b5061026b6104eb366004611950565b610baf565b3480156104fc57600080fd5b506004546103da906001600160a01b031681565b34801561051c57600080fd5b5061026b61052b36600461122c565b610c5e565b34801561053c57600080fd5b506002546103da906001600160a01b031681565b61026b61055e3660046119bb565b610c98565b34801561056f57600080fd5b506003546103da906001600160a01b031681565b34801561058f57600080fd5b5061026b61059e366004611503565b610d45565b3480156105af57600080fd5b5061026b6105be366004611a1d565b610dc3565b3480156105cf57600080fd5b506000546103da906001600160a01b031681565b60006001600160e01b0319821663204cf90960e01b148061061457506001600160e01b031982166331c1afd560e01b145b8061062f57506001600160e01b031982166301ffc9a760e01b145b92915050565b815160009081526006602052604090205460ff16610666576040516304a057b360e21b815260040160405180910390fd5b6106708282610674565b5050565b60025460405163747129e560e11b81526001600160a01b039091169063e8e253ca906106ab90600190869086903490600401611b8b565b600060405180830381600087803b1580156106c557600080fd5b505af11580156106d9573d6000803e3d6000fd5b505050506106ee826106e83390565b34610e43565b6003546001600160a01b03166362fa3d4583336040518363ffffffff1660e01b815260040161071e929190611bd6565b600060405180830381600087803b15801561073857600080fd5b505af115801561074c573d6000803e3d6000fd5b505050505050565b61075c610e69565b6001805480820182556000919091527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b0319166001600160a01b0392909216919091179055565b600082815260076020526040902054811015610670576040516330c00ff760e01b815260040160405180910390fd5b60025460405163715d762560e11b81526001600160a01b039091169063e2baec4a906108119060019086908690600401611c48565b600060405180830381600087803b15801561082b57600080fd5b505af115801561083f573d6000803e3d6000fd5b5050505061084e838383610ec3565b6003546001600160a01b0316636ec4d4cb8484336040518463ffffffff1660e01b815260040161088093929190611cff565b600060405180830381600087803b15801561089a57600080fd5b505af11580156108ae573d6000803e3d6000fd5b50505050505050565b6108bf610e69565b6108c7610f1a565b565b6108d281610f6f565b60035460405163256d403b60e11b81526001600160a01b0390911690634ada807690610902908490600401611d3d565b600060405180830381600087803b15801561091c57600080fd5b505af1158015610930573d6000803e3d6000fd5b5050505050565b60025460405163715d762560e11b81526001600160a01b039091169063e2baec4a9061096c9060019086908690600401611c48565b600060405180830381600087803b15801561098657600080fd5b505af115801561099a573d6000803e3d6000fd5b505050506109a88282611015565b6003546001600160a01b031663a8e2812d83336040518363ffffffff1660e01b815260040161071e929190611d50565b6109e0610e69565b6108c7600061106b565b600181815481106109fa57600080fd5b6000918252602090912001546001600160a01b0316905081565b610a1c610e69565b6108c76110bd565b610a2c610e69565b6005805461ffff60a81b1916600160b01b9315159390930260ff60a81b191692909217600160a81b91151591909102179055565b610a68610e69565b8051825114610a8a5760405163512509d360e11b815260040160405180910390fd5b60005b8251811015610af357818181518110610aa857610aa8611d63565b602002602001015160076000858481518110610ac657610ac6611d63565b60200260200101518152602001908152602001600020819055508080610aeb90611d79565b915050610a8d565b507fe6819e2393072526980433f94718a65624dac839c064a79991c3d8d06cba0c1a8282604051610b25929190611da0565b60405180910390a15050565b610b39610e69565b610b41611100565b6108c7600160006111c9565b60606001805480602002602001604051908101604052809291908181526020018280548015610ba557602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610b87575b5050505050905090565b610bb7610e69565b828114610bd75760405163512509d360e11b815260040160405180910390fd5b60005b8381101561093057828282818110610bf457610bf4611d63565b9050602002016020810190610c099190611df7565b60066000878785818110610c1f57610c1f611d63565b90506020020135815260200190815260200160002060006101000a81548160ff0219169083151502179055508080610c5690611d79565b915050610bda565b610c6781610f6f565b600354604051635bae3ee360e11b8152600481018390526001600160a01b039091169063b75c7dc690602401610902565b60025460405163747129e560e11b81526001600160a01b039091169063e8e253ca90610ccf90600190869086903490600401611b8b565b600060405180830381600087803b158015610ce957600080fd5b505af1158015610cfd573d6000803e3d6000fd5b50505050610d138383610d0d3390565b34611150565b6003546001600160a01b0316638ffa736b8484336040518463ffffffff1660e01b815260040161088093929190611e14565b610d4d610e69565b6001600160a01b038116610db75760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084015b60405180910390fd5b610dc08161106b565b50565b610dcb610e69565b6000826001600160a01b03168260405160006040518083038185875af1925050503d8060008114610e18576040519150601f19603f3d011682016040523d82523d6000602084013e610e1d565b606091505b5050905080610e3e5760405162c0f29960e01b815260040160405180910390fd5b505050565b610e4b61117c565b600554600160b01b900460ff1615610e3e578251610e3e90826107ad565b6005546001600160a01b031633146108c75760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e65726044820152606401610dae565b610ecb61117c565b600554600160a81b900460ff16610e3e5760405162461bcd60e51b81526020600482015260136024820152724f6e6c792073696e676c65207265706c61636560681b6044820152606401610dae565b610f22611100565b6005805460ff60a01b191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa335b6040516001600160a01b03909116815260200160405180910390a1565b6004805460405163181f78e960e31b815230928101929092526001600160a01b03169063c0fbc74890602401600060405180830381865afa158015610fb8573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610fe09190810190611f09565b602001516001600160a01b0316336001600160a01b031614610dc0576040516371f63e3160e01b815260040160405180910390fd5b61101d61117c565b600554600160a81b900460ff166106705760405162461bcd60e51b815260206004820152601260248201527113db9b1e481cda5b99db1948185d1d195cdd60721b6044820152606401610dae565b600580546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b6110c561117c565b6005805460ff60a01b1916600160a01b1790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258610f523390565b600554600160a01b900460ff166108c75760405162461bcd60e51b815260206004820152601460248201527314185d5cd8589b194e881b9bdd081c185d5cd95960621b6044820152606401610dae565b61115861117c565b600554600160b01b900460ff161561117657825161117690826107ad565b50505050565b600554600160a01b900460ff16156108c75760405162461bcd60e51b815260206004820152601060248201526f14185d5cd8589b194e881c185d5cd95960821b6044820152606401610dae565b5080546000825590600052602060002090810190610dc091905b808211156111f757600081556001016111e3565b5090565b60006020828403121561120d57600080fd5b81356001600160e01b03198116811461122557600080fd5b9392505050565b60006020828403121561123e57600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b60405160e081016001600160401b038111828210171561127d5761127d611245565b60405290565b604051601f8201601f191681016001600160401b03811182821017156112ab576112ab611245565b604052919050565b60006001600160401b038211156112cc576112cc611245565b50601f01601f191660200190565b600082601f8301126112eb57600080fd5b81356112fe6112f9826112b3565b611283565b81815284602083860101111561131357600080fd5b816020850160208301376000918101602001919091529392505050565b60006080828403121561134257600080fd5b604051608081016001600160401b03828210818311171561136557611365611245565b816040528293508435835260208501359150808216821461138557600080fd5b816020840152604085013591508082111561139f57600080fd5b6113ab868387016112da565b604084015260608501359150808211156113c457600080fd5b506113d1858286016112da565b6060830152505092915050565b60006001600160401b038211156113f7576113f7611245565b5060051b60200190565b600082601f83011261141257600080fd5b813560206114226112f9836113de565b82815260059290921b8401810191818101908684111561144157600080fd5b8286015b848110156114805780356001600160401b038111156114645760008081fd5b6114728986838b01016112da565b845250918301918301611445565b509695505050505050565b6000806040838503121561149e57600080fd5b82356001600160401b03808211156114b557600080fd5b6114c186838701611330565b935060208501359150808211156114d757600080fd5b506114e485828601611401565b9150509250929050565b6001600160a01b0381168114610dc057600080fd5b60006020828403121561151557600080fd5b8135611225816114ee565b6000806040838503121561153357600080fd5b50508035926020909101359150565b600082601f83011261155357600080fd5b813560206115636112f9836113de565b82815260059290921b8401810191818101908684111561158257600080fd5b8286015b848110156114805780358352918301918301611586565b600082601f8301126115ae57600080fd5b813560206115be6112f9836113de565b82815260059290921b840181019181810190868411156115dd57600080fd5b8286015b848110156114805780356001600160401b038111156116005760008081fd5b61160e8986838b0101611330565b8452509183019183016115e1565b600082601f83011261162d57600080fd5b8135602061163d6112f9836113de565b82815260059290921b8401810191818101908684111561165c57600080fd5b8286015b848110156114805780356001600160401b0381111561167f5760008081fd5b61168d8986838b0101611401565b845250918301918301611660565b6000806000606084860312156116b057600080fd5b83356001600160401b03808211156116c757600080fd5b6116d387838801611542565b945060208601359150808211156116e957600080fd5b6116f58783880161159d565b9350604086013591508082111561170b57600080fd5b506117188682870161161c565b9150509250925092565b60006020828403121561173457600080fd5b81356001600160401b0381111561174a57600080fd5b61175684828501611542565b949350505050565b6000806040838503121561177157600080fd5b82356001600160401b038082111561178857600080fd5b6117948683870161159d565b935060208501359150808211156117aa57600080fd5b506114e48582860161161c565b8015158114610dc057600080fd5b600080604083850312156117d857600080fd5b82356117e3816117b7565b915060208301356117f3816117b7565b809150509250929050565b6000806040838503121561181157600080fd5b82356001600160401b038082111561182857600080fd5b61183486838701611542565b935060209150818501358181111561184b57600080fd5b85019050601f8101861361185e57600080fd5b803561186c6112f9826113de565b81815260059190911b8201830190838101908883111561188b57600080fd5b928401925b828410156118a957833582529284019290840190611890565b80955050505050509250929050565b6020808252825182820181905260009190848201906040850190845b818110156118f95783516001600160a01b0316835292840192918401916001016118d4565b50909695505050505050565b60008083601f84011261191757600080fd5b5081356001600160401b0381111561192e57600080fd5b6020830191508360208260051b850101111561194957600080fd5b9250929050565b6000806000806040858703121561196657600080fd5b84356001600160401b038082111561197d57600080fd5b61198988838901611905565b909650945060208701359150808211156119a257600080fd5b506119af87828801611905565b95989497509550505050565b6000806000606084860312156119d057600080fd5b8335925060208401356001600160401b03808211156119ee57600080fd5b6119fa87838801611330565b93506040860135915080821115611a1057600080fd5b5061171886828701611401565b60008060408385031215611a3057600080fd5b8235611a3b816114ee565b946020939093013593505050565b6000815480845260208085019450836000528060002060005b83811015611a875781546001600160a01b031687529582019560019182019101611a62565b509495945050505050565b60005b83811015611aad578181015183820152602001611a95565b50506000910152565b60008151808452611ace816020860160208601611a92565b601f01601f19169290920160200192915050565b805182526001600160401b0360208201511660208301526000604082015160806040850152611b146080850182611ab6565b905060608301518482036060860152611b2d8282611ab6565b95945050505050565b600081518084526020808501808196508360051b8101915082860160005b85811015611b7e578284038952611b6c848351611ab6565b98850198935090840190600101611b54565b5091979650505050505050565b608081526000611b9e6080830187611a49565b8281036020840152611bb08187611ae2565b90508281036040840152611bc48186611b36565b91505082606083015295945050505050565b604081526000611be96040830185611ae2565b905060018060a01b03831660208301529392505050565b600081518084526020808501808196508360051b8101915082860160005b85811015611b7e578284038952611c36848351611ae2565b98850198935090840190600101611c1e565b606081526000611c5b6060830186611a49565b602083820381850152611c6e8287611c00565b915083820360408501528185518084528284019150828160051b85010183880160005b83811015611cbf57601f19878403018552611cad838351611b36565b94860194925090850190600101611c91565b50909a9950505050505050505050565b600081518084526020808501945080840160005b83811015611a8757815187529582019590820190600101611ce3565b606081526000611d126060830186611ccf565b8281036020840152611d248186611c00565b91505060018060a01b0383166040830152949350505050565b6020815260006112256020830184611ccf565b604081526000611be96040830185611c00565b634e487b7160e01b600052603260045260246000fd5b600060018201611d9957634e487b7160e01b600052601160045260246000fd5b5060010190565b604081526000611db36040830185611ccf565b82810360208481019190915284518083528582019282019060005b81811015611dea57845183529383019391830191600101611dce565b5090979650505050505050565b600060208284031215611e0957600080fd5b8135611225816117b7565b838152606060208201526000611e2d6060830185611ae2565b905060018060a01b0383166040830152949350505050565b8051611e50816114ee565b919050565b600082601f830112611e6657600080fd5b81516020611e766112f9836113de565b82815260059290921b84018101918181019086841115611e9557600080fd5b8286015b84811015611480578051611eac816114ee565b8352918301918301611e99565b8051611e50816117b7565b600082601f830112611ed557600080fd5b8151611ee36112f9826112b3565b818152846020838601011115611ef857600080fd5b611756826020830160208701611a92565b600060208284031215611f1b57600080fd5b81516001600160401b0380821115611f3257600080fd5b9083019060e08286031215611f4657600080fd5b611f4e61125b565b611f5783611e45565b8152611f6560208401611e45565b6020820152604083015182811115611f7c57600080fd5b611f8887828601611e55565b604083015250611f9a60608401611eb9565b6060820152608083015182811115611fb157600080fd5b611fbd87828601611ec4565b60808301525060a083015182811115611fd557600080fd5b611fe187828601611ec4565b60a08301525060c083015182811115611ff957600080fd5b61200587828601611ec4565b60c0830152509594505050505056fea2646970667358221220f1808b8f537155ac04434c0d41f4100bbc893626d82cc9773ff41157e995a79d64736f6c63430008130033",
+  "deployedBytecode": "0x6080604052600436106101e35760003560e01c80638456cb5911610102578063b666493411610095578063ed6d73f911610064578063ed6d73f914610563578063f2fde38b14610583578063f3fef3a3146105a3578063f887ea40146105c357600080fd5b8063b6664934146104f0578063b75c7dc614610510578063b95459e414610530578063ecdbb4fd1461055057600080fd5b80639e69bee9116100d15780639e69bee914610479578063acdfb1bb14610499578063b2494df3146104ae578063b2c8ea79146104d057600080fd5b80638456cb59146104055780638da5cb5b1461041a578063958f9735146104385780639c1584dc1461045957600080fd5b80633f4ba83a1161017a578063715018a611610149578063715018a614610375578063742f06881461038a57806381b2248a146103ba5780638388e226146103f257600080fd5b80633f4ba83a146103015780634ada807614610316578063523ba7ca146103365780635c975abb1461035657600080fd5b80631ed86f19116101b65780631ed86f191461028057806320d8d2a4146102a057806339f08d1c146102c15780633cc30e2a146102e157600080fd5b806301ffc9a7146101e857806303e25c491461021d57806305e67f6314610258578063074321961461026d575b600080fd5b3480156101f457600080fd5b506102086102033660046111fb565b6105e3565b60405190151581526020015b60405180910390f35b34801561022957600080fd5b5061024a61023836600461122c565b60076020526000908152604090205481565b604051908152602001610214565b61026b61026636600461148b565b610635565b005b61026b61027b36600461148b565b610674565b34801561028c57600080fd5b5061026b61029b366004611503565b610754565b3480156102ac57600080fd5b5060055461020890600160a81b900460ff1681565b3480156102cd57600080fd5b5061026b6102dc366004611520565b6107ad565b3480156102ed57600080fd5b5061026b6102fc36600461169b565b6107dc565b34801561030d57600080fd5b5061026b6108b7565b34801561032257600080fd5b5061026b610331366004611722565b6108c9565b34801561034257600080fd5b5061026b61035136600461175e565b610937565b34801561036257600080fd5b50600554600160a01b900460ff16610208565b34801561038157600080fd5b5061026b6109d8565b34801561039657600080fd5b506102086103a536600461122c565b60066020526000908152604090205460ff1681565b3480156103c657600080fd5b506103da6103d536600461122c565b6109ea565b6040516001600160a01b039091168152602001610214565b3480156103fe57600080fd5b50336103da565b34801561041157600080fd5b5061026b610a14565b34801561042657600080fd5b506005546001600160a01b03166103da565b34801561044457600080fd5b5060055461020890600160b01b900460ff1681565b34801561046557600080fd5b5061026b6104743660046117c5565b610a24565b34801561048557600080fd5b5061026b6104943660046117fe565b610a60565b3480156104a557600080fd5b5061026b610b31565b3480156104ba57600080fd5b506104c3610b4d565b60405161021491906118b8565b3480156104dc57600080fd5b5061026b6104eb366004611950565b610baf565b3480156104fc57600080fd5b506004546103da906001600160a01b031681565b34801561051c57600080fd5b5061026b61052b36600461122c565b610c5e565b34801561053c57600080fd5b506002546103da906001600160a01b031681565b61026b61055e3660046119bb565b610c98565b34801561056f57600080fd5b506003546103da906001600160a01b031681565b34801561058f57600080fd5b5061026b61059e366004611503565b610d45565b3480156105af57600080fd5b5061026b6105be366004611a1d565b610dc3565b3480156105cf57600080fd5b506000546103da906001600160a01b031681565b60006001600160e01b0319821663204cf90960e01b148061061457506001600160e01b031982166331c1afd560e01b145b8061062f57506001600160e01b031982166301ffc9a760e01b145b92915050565b815160009081526006602052604090205460ff16610666576040516304a057b360e21b815260040160405180910390fd5b6106708282610674565b5050565b60025460405163747129e560e11b81526001600160a01b039091169063e8e253ca906106ab90600190869086903490600401611b8b565b600060405180830381600087803b1580156106c557600080fd5b505af11580156106d9573d6000803e3d6000fd5b505050506106ee826106e83390565b34610e43565b6003546001600160a01b03166362fa3d4583336040518363ffffffff1660e01b815260040161071e929190611bd6565b600060405180830381600087803b15801561073857600080fd5b505af115801561074c573d6000803e3d6000fd5b505050505050565b61075c610e69565b6001805480820182556000919091527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf60180546001600160a01b0319166001600160a01b0392909216919091179055565b600082815260076020526040902054811015610670576040516330c00ff760e01b815260040160405180910390fd5b60025460405163715d762560e11b81526001600160a01b039091169063e2baec4a906108119060019086908690600401611c48565b600060405180830381600087803b15801561082b57600080fd5b505af115801561083f573d6000803e3d6000fd5b5050505061084e838383610ec3565b6003546001600160a01b0316636ec4d4cb8484336040518463ffffffff1660e01b815260040161088093929190611cff565b600060405180830381600087803b15801561089a57600080fd5b505af11580156108ae573d6000803e3d6000fd5b50505050505050565b6108bf610e69565b6108c7610f1a565b565b6108d281610f6f565b60035460405163256d403b60e11b81526001600160a01b0390911690634ada807690610902908490600401611d3d565b600060405180830381600087803b15801561091c57600080fd5b505af1158015610930573d6000803e3d6000fd5b5050505050565b60025460405163715d762560e11b81526001600160a01b039091169063e2baec4a9061096c9060019086908690600401611c48565b600060405180830381600087803b15801561098657600080fd5b505af115801561099a573d6000803e3d6000fd5b505050506109a88282611015565b6003546001600160a01b031663a8e2812d83336040518363ffffffff1660e01b815260040161071e929190611d50565b6109e0610e69565b6108c7600061106b565b600181815481106109fa57600080fd5b6000918252602090912001546001600160a01b0316905081565b610a1c610e69565b6108c76110bd565b610a2c610e69565b6005805461ffff60a81b1916600160b01b9315159390930260ff60a81b191692909217600160a81b91151591909102179055565b610a68610e69565b8051825114610a8a5760405163512509d360e11b815260040160405180910390fd5b60005b8251811015610af357818181518110610aa857610aa8611d63565b602002602001015160076000858481518110610ac657610ac6611d63565b60200260200101518152602001908152602001600020819055508080610aeb90611d79565b915050610a8d565b507fe6819e2393072526980433f94718a65624dac839c064a79991c3d8d06cba0c1a8282604051610b25929190611da0565b60405180910390a15050565b610b39610e69565b610b41611100565b6108c7600160006111c9565b60606001805480602002602001604051908101604052809291908181526020018280548015610ba557602002820191906000526020600020905b81546001600160a01b03168152600190910190602001808311610b87575b5050505050905090565b610bb7610e69565b828114610bd75760405163512509d360e11b815260040160405180910390fd5b60005b8381101561093057828282818110610bf457610bf4611d63565b9050602002016020810190610c099190611df7565b60066000878785818110610c1f57610c1f611d63565b90506020020135815260200190815260200160002060006101000a81548160ff0219169083151502179055508080610c5690611d79565b915050610bda565b610c6781610f6f565b600354604051635bae3ee360e11b8152600481018390526001600160a01b039091169063b75c7dc690602401610902565b60025460405163747129e560e11b81526001600160a01b039091169063e8e253ca90610ccf90600190869086903490600401611b8b565b600060405180830381600087803b158015610ce957600080fd5b505af1158015610cfd573d6000803e3d6000fd5b50505050610d138383610d0d3390565b34611150565b6003546001600160a01b0316638ffa736b8484336040518463ffffffff1660e01b815260040161088093929190611e14565b610d4d610e69565b6001600160a01b038116610db75760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084015b60405180910390fd5b610dc08161106b565b50565b610dcb610e69565b6000826001600160a01b03168260405160006040518083038185875af1925050503d8060008114610e18576040519150601f19603f3d011682016040523d82523d6000602084013e610e1d565b606091505b5050905080610e3e5760405162c0f29960e01b815260040160405180910390fd5b505050565b610e4b61117c565b600554600160b01b900460ff1615610e3e578251610e3e90826107ad565b6005546001600160a01b031633146108c75760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e65726044820152606401610dae565b610ecb61117c565b600554600160a81b900460ff16610e3e5760405162461bcd60e51b81526020600482015260136024820152724f6e6c792073696e676c65207265706c61636560681b6044820152606401610dae565b610f22611100565b6005805460ff60a01b191690557f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa335b6040516001600160a01b03909116815260200160405180910390a1565b6004805460405163181f78e960e31b815230928101929092526001600160a01b03169063c0fbc74890602401600060405180830381865afa158015610fb8573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f19168201604052610fe09190810190611f09565b602001516001600160a01b0316336001600160a01b031614610dc0576040516371f63e3160e01b815260040160405180910390fd5b61101d61117c565b600554600160a81b900460ff166106705760405162461bcd60e51b815260206004820152601260248201527113db9b1e481cda5b99db1948185d1d195cdd60721b6044820152606401610dae565b600580546001600160a01b038381166001600160a01b0319831681179093556040519116919082907f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e090600090a35050565b6110c561117c565b6005805460ff60a01b1916600160a01b1790557f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258610f523390565b600554600160a01b900460ff166108c75760405162461bcd60e51b815260206004820152601460248201527314185d5cd8589b194e881b9bdd081c185d5cd95960621b6044820152606401610dae565b61115861117c565b600554600160b01b900460ff161561117657825161117690826107ad565b50505050565b600554600160a01b900460ff16156108c75760405162461bcd60e51b815260206004820152601060248201526f14185d5cd8589b194e881c185d5cd95960821b6044820152606401610dae565b5080546000825590600052602060002090810190610dc091905b808211156111f757600081556001016111e3565b5090565b60006020828403121561120d57600080fd5b81356001600160e01b03198116811461122557600080fd5b9392505050565b60006020828403121561123e57600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b60405160e081016001600160401b038111828210171561127d5761127d611245565b60405290565b604051601f8201601f191681016001600160401b03811182821017156112ab576112ab611245565b604052919050565b60006001600160401b038211156112cc576112cc611245565b50601f01601f191660200190565b600082601f8301126112eb57600080fd5b81356112fe6112f9826112b3565b611283565b81815284602083860101111561131357600080fd5b816020850160208301376000918101602001919091529392505050565b60006080828403121561134257600080fd5b604051608081016001600160401b03828210818311171561136557611365611245565b816040528293508435835260208501359150808216821461138557600080fd5b816020840152604085013591508082111561139f57600080fd5b6113ab868387016112da565b604084015260608501359150808211156113c457600080fd5b506113d1858286016112da565b6060830152505092915050565b60006001600160401b038211156113f7576113f7611245565b5060051b60200190565b600082601f83011261141257600080fd5b813560206114226112f9836113de565b82815260059290921b8401810191818101908684111561144157600080fd5b8286015b848110156114805780356001600160401b038111156114645760008081fd5b6114728986838b01016112da565b845250918301918301611445565b509695505050505050565b6000806040838503121561149e57600080fd5b82356001600160401b03808211156114b557600080fd5b6114c186838701611330565b935060208501359150808211156114d757600080fd5b506114e485828601611401565b9150509250929050565b6001600160a01b0381168114610dc057600080fd5b60006020828403121561151557600080fd5b8135611225816114ee565b6000806040838503121561153357600080fd5b50508035926020909101359150565b600082601f83011261155357600080fd5b813560206115636112f9836113de565b82815260059290921b8401810191818101908684111561158257600080fd5b8286015b848110156114805780358352918301918301611586565b600082601f8301126115ae57600080fd5b813560206115be6112f9836113de565b82815260059290921b840181019181810190868411156115dd57600080fd5b8286015b848110156114805780356001600160401b038111156116005760008081fd5b61160e8986838b0101611330565b8452509183019183016115e1565b600082601f83011261162d57600080fd5b8135602061163d6112f9836113de565b82815260059290921b8401810191818101908684111561165c57600080fd5b8286015b848110156114805780356001600160401b0381111561167f5760008081fd5b61168d8986838b0101611401565b845250918301918301611660565b6000806000606084860312156116b057600080fd5b83356001600160401b03808211156116c757600080fd5b6116d387838801611542565b945060208601359150808211156116e957600080fd5b6116f58783880161159d565b9350604086013591508082111561170b57600080fd5b506117188682870161161c565b9150509250925092565b60006020828403121561173457600080fd5b81356001600160401b0381111561174a57600080fd5b61175684828501611542565b949350505050565b6000806040838503121561177157600080fd5b82356001600160401b038082111561178857600080fd5b6117948683870161159d565b935060208501359150808211156117aa57600080fd5b506114e48582860161161c565b8015158114610dc057600080fd5b600080604083850312156117d857600080fd5b82356117e3816117b7565b915060208301356117f3816117b7565b809150509250929050565b6000806040838503121561181157600080fd5b82356001600160401b038082111561182857600080fd5b61183486838701611542565b935060209150818501358181111561184b57600080fd5b85019050601f8101861361185e57600080fd5b803561186c6112f9826113de565b81815260059190911b8201830190838101908883111561188b57600080fd5b928401925b828410156118a957833582529284019290840190611890565b80955050505050509250929050565b6020808252825182820181905260009190848201906040850190845b818110156118f95783516001600160a01b0316835292840192918401916001016118d4565b50909695505050505050565b60008083601f84011261191757600080fd5b5081356001600160401b0381111561192e57600080fd5b6020830191508360208260051b850101111561194957600080fd5b9250929050565b6000806000806040858703121561196657600080fd5b84356001600160401b038082111561197d57600080fd5b61198988838901611905565b909650945060208701359150808211156119a257600080fd5b506119af87828801611905565b95989497509550505050565b6000806000606084860312156119d057600080fd5b8335925060208401356001600160401b03808211156119ee57600080fd5b6119fa87838801611330565b93506040860135915080821115611a1057600080fd5b5061171886828701611401565b60008060408385031215611a3057600080fd5b8235611a3b816114ee565b946020939093013593505050565b6000815480845260208085019450836000528060002060005b83811015611a875781546001600160a01b031687529582019560019182019101611a62565b509495945050505050565b60005b83811015611aad578181015183820152602001611a95565b50506000910152565b60008151808452611ace816020860160208601611a92565b601f01601f19169290920160200192915050565b805182526001600160401b0360208201511660208301526000604082015160806040850152611b146080850182611ab6565b905060608301518482036060860152611b2d8282611ab6565b95945050505050565b600081518084526020808501808196508360051b8101915082860160005b85811015611b7e578284038952611b6c848351611ab6565b98850198935090840190600101611b54565b5091979650505050505050565b608081526000611b9e6080830187611a49565b8281036020840152611bb08187611ae2565b90508281036040840152611bc48186611b36565b91505082606083015295945050505050565b604081526000611be96040830185611ae2565b905060018060a01b03831660208301529392505050565b600081518084526020808501808196508360051b8101915082860160005b85811015611b7e578284038952611c36848351611ae2565b98850198935090840190600101611c1e565b606081526000611c5b6060830186611a49565b602083820381850152611c6e8287611c00565b915083820360408501528185518084528284019150828160051b85010183880160005b83811015611cbf57601f19878403018552611cad838351611b36565b94860194925090850190600101611c91565b50909a9950505050505050505050565b600081518084526020808501945080840160005b83811015611a8757815187529582019590820190600101611ce3565b606081526000611d126060830186611ccf565b8281036020840152611d248186611c00565b91505060018060a01b0383166040830152949350505050565b6020815260006112256020830184611ccf565b604081526000611be96040830185611c00565b634e487b7160e01b600052603260045260246000fd5b600060018201611d9957634e487b7160e01b600052601160045260246000fd5b5060010190565b604081526000611db36040830185611ccf565b82810360208481019190915284518083528582019282019060005b81811015611dea57845183529383019391830191600101611dce565b5090979650505050505050565b600060208284031215611e0957600080fd5b8135611225816117b7565b838152606060208201526000611e2d6060830185611ae2565b905060018060a01b0383166040830152949350505050565b8051611e50816114ee565b919050565b600082601f830112611e6657600080fd5b81516020611e766112f9836113de565b82815260059290921b84018101918181019086841115611e9557600080fd5b8286015b84811015611480578051611eac816114ee565b8352918301918301611e99565b8051611e50816117b7565b600082601f830112611ed557600080fd5b8151611ee36112f9826112b3565b818152846020838601011115611ef857600080fd5b611756826020830160208701611a92565b600060208284031215611f1b57600080fd5b81516001600160401b0380821115611f3257600080fd5b9083019060e08286031215611f4657600080fd5b611f4e61125b565b611f5783611e45565b8152611f6560208401611e45565b6020820152604083015182811115611f7c57600080fd5b611f8887828601611e55565b604083015250611f9a60608401611eb9565b6060820152608083015182811115611fb157600080fd5b611fbd87828601611ec4565b60808301525060a083015182811115611fd557600080fd5b611fe187828601611ec4565b60a08301525060c083015182811115611ff957600080fd5b61200587828601611ec4565b60c0830152509594505050505056fea2646970667358221220f1808b8f537155ac04434c0d41f4100bbc893626d82cc9773ff41157e995a79d64736f6c63430008130033",
+  "devdoc": {
+    "details": "RubyScoreVeraxPortal is a smart contract that handles the attestation process for RubyScore certificates. It manages fees, signatures based on specific schemas.",
+    "events": {
+      "Paused(address)": {
+        "details": "Emitted when the pause is triggered by `account`."
+      },
+      "Unpaused(address)": {
+        "details": "Emitted when the pause is lifted by `account`."
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "addModule(address)": {
+        "details": "Add a new module to the list of modules.",
+        "params": {
+          "module": "The address of the new module."
+        }
+      },
+      "attest((bytes32,uint64,bytes,bytes),bytes[])": {
+        "details": "Runs all modules for the portal and registers the attestation using IAttestationRegistry",
+        "params": {
+          "attestationPayload": "the payload to attest",
+          "validationPayloads": "the payloads to validate via the modules to issue the attestations"
+        }
+      },
+      "attestRubyscore((bytes32,uint64,bytes,bytes),bytes[])": {
+        "details": "Attest a score with a given attestation payload and validation payloads.",
+        "params": {
+          "attestationPayload": "The payload of the attestation.",
+          "validationPayload": "The validation payload required for the module."
+        }
+      },
+      "bulkAttest((bytes32,uint64,bytes,bytes)[],bytes[][])": {
+        "params": {
+          "attestationsPayloads": "the payloads to attest",
+          "validationPayloads": "the payloads to validate via the modules to issue the attestations"
+        }
+      },
+      "bulkReplace(bytes32[],(bytes32,uint64,bytes,bytes)[],bytes[][])": {
+        "params": {
+          "attestationIds": "the list of IDs of the attestations to replace",
+          "attestationsPayloads": "the list of attestation payloads to create the new attestations and register them",
+          "validationPayloads": "the payloads to validate via the modules to issue the attestations"
+        }
+      },
+      "bulkRevoke(bytes32[])": {
+        "params": {
+          "attestationIds": "the IDs of the attestations to revoke"
+        }
+      },
+      "checkFee(bytes32,uint256)": {
+        "details": "Check if the provided value meets the attestation fee requirement.",
+        "params": {
+          "_value": "The value sent for the attestation.",
+          "schemaId": "The schemaId for which to check the fee."
+        }
+      },
+      "constructor": {
+        "details": "Contract constructor.",
+        "params": {
+          "modules": "List of modules to use for the portal.",
+          "router": "The Router's address."
+        }
+      },
+      "getAttester()": {
+        "details": "We strongly encourage a reflection when overriding this rule: who should be set as the attester?"
+      },
+      "getModules()": {
+        "returns": {
+          "_0": "The list of modules addresses linked to the Portal"
+        }
+      },
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "paused()": {
+        "details": "Returns true if the contract is paused, and false otherwise."
+      },
+      "removeModules()": {
+        "details": "Remove all modules from the list of modules."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "replace(bytes32,(bytes32,uint64,bytes,bytes),bytes[])": {
+        "details": "Runs all modules for the portal and registers the attestation using IAttestationRegistry",
+        "params": {
+          "attestationId": "the ID of the attestation to replace",
+          "attestationPayload": "the attestation payload to create the new attestation and register it",
+          "validationPayloads": "the payloads to validate via the modules to issue the attestation"
+        }
+      },
+      "revoke(bytes32)": {
+        "details": "By default, revocation is only possible by the portal owner We strongly encourage implementing such a rule in your Portal if you intend on overriding this method",
+        "params": {
+          "attestationId": "the ID of the attestation to revoke"
+        }
+      },
+      "setCheckStatuses(bool,bool)": {
+        "details": "Set the fee, signature, and issuance statuses.",
+        "params": {
+          "fee": "Fee status."
+        }
+      },
+      "setFees(bytes32[],uint256[])": {
+        "details": "Set the fees for specific schemaIds.",
+        "params": {
+          "_attestationFees": "The fees required to attest.",
+          "schemaIds": "The schemaIds to set the fee for."
+        }
+      },
+      "setUpCertificates(bytes32[],bool[])": {
+        "details": "Set up certificate mappings for schemaIds.",
+        "params": {
+          "certificateStatuses": "The corresponding certificate statuses.",
+          "schemaIds": "The schemaIds for which to set up certificates."
+        }
+      },
+      "supportsInterface(bytes4)": {
+        "params": {
+          "interfaceID": "the interface identifier checked in this call"
+        },
+        "returns": {
+          "_0": "The list of modules addresses linked to the Portal"
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      },
+      "withdraw(address,uint256)": {
+        "details": "Withdraw ETH from the contract.",
+        "params": {
+          "amount": "The amount of ETH to withdraw.",
+          "to": "The address to which the ETH will be withdrawn."
+        }
+      }
+    },
+    "title": "RubyScoreVeraxPortal",
+    "version": 1
+  },
+  "userdoc": {
+    "errors": {
+      "OnlyPortalOwner()": [
+        {
+          "notice": "Error thrown when someone else than the portal's owner is trying to revoke"
+        }
+      ]
+    },
+    "kind": "user",
+    "methods": {
+      "attest((bytes32,uint64,bytes,bytes),bytes[])": {
+        "notice": "Attest the schema with given attestationPayload and validationPayload"
+      },
+      "bulkAttest((bytes32,uint64,bytes,bytes)[],bytes[][])": {
+        "notice": "Bulk attest the schema with payloads to attest and validation payloads"
+      },
+      "bulkReplace(bytes32[],(bytes32,uint64,bytes,bytes)[],bytes[][])": {
+        "notice": "Bulk replaces the attestation for the given identifiers and replaces them with new attestations"
+      },
+      "bulkRevoke(bytes32[])": {
+        "notice": "Bulk revokes a list of attestations for the given identifiers"
+      },
+      "getAttester()": {
+        "notice": "Defines the address of the entity issuing attestations to the subject"
+      },
+      "getModules()": {
+        "notice": "Get all the modules addresses used by the Portal"
+      },
+      "replace(bytes32,(bytes32,uint64,bytes,bytes),bytes[])": {
+        "notice": "Replaces the attestation for the given identifier and replaces it with a new attestation"
+      },
+      "revoke(bytes32)": {
+        "notice": "Revokes an attestation for the given identifier"
+      },
+      "supportsInterface(bytes4)": {
+        "notice": "Verifies that a specific interface is implemented by the Portal, following ERC-165 specification"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8703,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "router",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(IRouter)9567"
+      },
+      {
+        "astId": 8706,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "modules",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_array(t_address)dyn_storage"
+      },
+      {
+        "astId": 8709,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "moduleRegistry",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_contract(IModuleRegistry)9406"
+      },
+      {
+        "astId": 8712,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "attestationRegistry",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_contract(IAttestationRegistry)9274"
+      },
+      {
+        "astId": 8715,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "portalRegistry",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_contract(IPortalRegistry)9539"
+      },
+      {
+        "astId": 396,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_address"
+      },
+      {
+        "astId": 544,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "_paused",
+        "offset": 20,
+        "slot": "5",
+        "type": "t_bool"
+      },
+      {
+        "astId": 7781,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "bulkStatus",
+        "offset": 21,
+        "slot": "5",
+        "type": "t_bool"
+      },
+      {
+        "astId": 7784,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "feeStatus",
+        "offset": 22,
+        "slot": "5",
+        "type": "t_bool"
+      },
+      {
+        "astId": 7788,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "certificates",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_bytes32,t_bool)"
+      },
+      {
+        "astId": 7792,
+        "contract": "contracts/certificates/RubyScoreVeraxPortal.sol:RubyScoreVeraxPortal",
+        "label": "attestationFees",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_mapping(t_bytes32,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_address)dyn_storage": {
+        "base": "t_address",
+        "encoding": "dynamic_array",
+        "label": "address[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_contract(IAttestationRegistry)9274": {
+        "encoding": "inplace",
+        "label": "contract IAttestationRegistry",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IModuleRegistry)9406": {
+        "encoding": "inplace",
+        "label": "contract IModuleRegistry",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IPortalRegistry)9539": {
+        "encoding": "inplace",
+        "label": "contract IPortalRegistry",
+        "numberOfBytes": "20"
+      },
+      "t_contract(IRouter)9567": {
+        "encoding": "inplace",
+        "label": "contract IRouter",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_bytes32,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_bytes32,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

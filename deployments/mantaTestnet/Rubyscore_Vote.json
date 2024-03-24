@@ -1,0 +1,59 @@
+{
+  "address": "0xCF253b4cA7CDFF84802EFA670d350470b31ED20C",
+  "abi": [
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "vote",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "vote2",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x06c6022d0d0e029c0ce9f8b5ded9f4e9dcc5d6a6321c09f20dea033c7a098271",
+  "receipt": {
+    "to": null,
+    "from": "0xB984f9F42d405A37F7f3903C73cbF7112DCc859b",
+    "contractAddress": "0xCF253b4cA7CDFF84802EFA670d350470b31ED20C",
+    "transactionIndex": 1,
+    "gasUsed": "69421",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x2cd2a1261bd9b63a997691155177263c547a8ca17ec97fcf11899f3088d67c74",
+    "transactionHash": "0x06c6022d0d0e029c0ce9f8b5ded9f4e9dcc5d6a6321c09f20dea033c7a098271",
+    "logs": [],
+    "blockNumber": 1420464,
+    "cumulativeGasUsed": "119074",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 2,
+  "solcInputHash": "ce3853c1c6d5754e923c7c8af81aaa55",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[],\"name\":\"vote\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"vote2\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Rubyscore_Vote.sol\":\"Rubyscore_Vote\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Rubyscore_Vote.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.19;\\n\\ncontract Rubyscore_Vote {\\n    fallback() external payable {}\\n\\n    function vote() external payable {}\\n\\n    function vote2() external payable {}\\n}\\n\",\"keccak256\":\"0xbc07958a232687f454da3527f9bc89a916a9150e33474e428d6d8cf2eb3385b0\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50604a80601d6000396000f3fe60806040526004361060125760003560e01c5b00fea2646970667358221220e7758eae009ba3d7cd699ac4384ecef988f2125bbb2bb94ab64dbad97ac6be8e64736f6c63430008130033",
+  "deployedBytecode": "0x60806040526004361060125760003560e01c5b00fea2646970667358221220e7758eae009ba3d7cd699ac4384ecef988f2125bbb2bb94ab64dbad97ac6be8e64736f6c63430008130033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
