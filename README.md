@@ -1,6 +1,61 @@
-# RubyScore smart contracts v1
+## Rubyscore Smart Contracts
 
-This repo will have a code of RubyScore Smart Contracts.
+This repo will have a code of Rubyscore Smart Contracts.
+
+## Deployed Contract Addresses
+
+### Contracts
+
+#### Optimism
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xB9cC0Bb020cF55197C4C3d826AC87CAdba51f272 | 0xc35C6497D6eDEf0D288236Ca5aDf63299e3AAD3b   |
+| Rubyscore_Vote | 0x009dbfee9e155766af434ed1652ca3769b05e76f | 0x81C55bbA5d5D05a0C02f4B561B560194f34a6D07                        |
+
+#### Linea
+
+| Name | Mainnet  | Testnet                                    |
+| ---- |----------|--------------------------------------------|
+| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b3 |
+| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                                            |
+|RubyScoreVeraxPortal|0xB9cC0Bb020cF55197C4C3d826AC87CAdba51f272|                                            |
+|RubyscoreSignCheckModule|0xEAcf8B19E104803cfCD2557D893D6a407E4994F0|                                            |
+
+#### Base
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x0A1B739ea1230dB33B7F6dce9f77Fcc0901a49f0   |
+| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                         |
+
+#### zkEVM
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4   |
+| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                         |
+
+#### Scroll
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x81C55bbA5d5D05a0C02f4B561B560194f34a6D07   |
+| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                         |
+
+#### Manta
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b |    |
+| Rubyscore_Vote | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |                         |
+
+#### Zora
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4   |
+| Rubyscore_Vote | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                         |
 
 ## Setting project
 
