@@ -29,6 +29,8 @@
     "migrate:bscTestnet": "hardhat deploy --network bscTestnet",
     "migrate:mantle": "hardhat deploy --network mantleMainnet",
     "migrate:mantleTestnet": "hardhat deploy --network mantleTestnet",
+    "migrate:morphMainnet": "hardhat deploy --network morphMainnet",
+    "migrate:morphDevnet": "hardhat deploy --network morphDevnet",
     "verify:mainnet": "hardhat verify-by-name --network mainnet --contracts",
     "verify:goerli": "hardhat verify-by-name --network goerli --contracts",
     "verify:polygon": "hardhat verify-by-name --network polygon --contracts",
@@ -36,7 +38,9 @@
     "verify:bsc": "hardhat verify-by-name --network bsc --contracts",
     "verify:mantle": "hardhat verify-by-name --network mantleMainnet --contracts",
     "verify:mantleTestnet": "hardhat verify-by-name --network mantleTestnet --contracts Rubyscore_Achievement",
-    "verify": "hardhat verify-by-name --network bscTestnet --contracts"
+    "verify": "hardhat verify-by-name --network bscTestnet --contracts",
+    "verify:morphMainnet": "hardhat verify-by-name --network morphMainnet --contracts",
+    "verify:morphDevnet": "hardhat verify-by-name --network morphDevnet --contracts"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.4",
