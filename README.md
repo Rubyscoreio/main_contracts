@@ -57,6 +57,34 @@ This repo will have a code of Rubyscore Smart Contracts.
 | Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4   |
 | Rubyscore_Vote | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                         |
 
+#### Morph
+
+| Name                   | Mainnet  | Testnet                                    |
+|------------------------|----------|--------------------------------------------|
+| Rubyscore_Achievement  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                                            |
+| Rubyscore_Vote         | 0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+
+#### Soneium
+
+| Name                   | Mainnet | Testnet                                    |
+|------------------------|---------|--------------------------------------------|
+| Rubyscore_Achievement  |         |                                            |
+| Rubyscore_Vote         |         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+
+#### Zora
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4   |
+| Rubyscore_Vote | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                         |
+
+#### Morph
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xc35C6497D6eDEf0D288236Ca5aDf63299e3AAD3b   |
+| Rubyscore_Vote | 0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB | 0x81C55bbA5d5D05a0C02f4B561B560194f34a6D07                        |
+
 ## Setting project
 
 ### Install dependencies
