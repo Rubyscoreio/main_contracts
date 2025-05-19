@@ -85,6 +85,12 @@ This repo will have a code of Rubyscore Smart Contracts.
 | Rubyscore_Achievement | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xc35C6497D6eDEf0D288236Ca5aDf63299e3AAD3b   |
 | Rubyscore_Vote | 0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB | 0x81C55bbA5d5D05a0C02f4B561B560194f34a6D07                        |
 
+#### Somnia
+
+| Name | Mainnet  | Testnet                                               |
+| ---- |----------|-------------------------------------------------------|
+| Rubyscore_Achievement |  | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896   |
+
 ## Setting project
 
 ### Install dependencies
