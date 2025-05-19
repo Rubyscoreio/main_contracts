@@ -1,0 +1,416 @@
+{
+  "address": "0x81f06f4b143a6eAD0e246DA04420F9d6d1fBEF59",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "initialOwner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "ArrayLengthMismatch",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidAttestationFee",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyPortalOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAddressCheck",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes32[]",
+          "name": "schemaIds",
+          "type": "bytes32[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "attestationFees",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "FeesSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "attestationFees",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "bytes32",
+              "name": "schemaId",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expirationDate",
+              "type": "uint64"
+            },
+            {
+              "internalType": "bytes",
+              "name": "subject",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "attestationData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct AttestationPayload",
+          "name": "_attestationPayload",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "run",
+      "outputs": [],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "schemaIds",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_attestationFees",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "setFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceID",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x9689a789c92d2df31fbfb22ea758c549def19d3bd485850bdb924430f957aa69",
+  "receipt": {
+    "to": null,
+    "from": "0x72f46FFBd3213218137015EBCcf70bFAaF619513",
+    "contractAddress": "0x81f06f4b143a6eAD0e246DA04420F9d6d1fBEF59",
+    "transactionIndex": 0,
+    "gasUsed": "513240",
+    "logsBloom": "0x00000000000000000000000080000000000000000000000000800000000000080000000000000000200000000000000000008000000001000000000000000000000000000000000000000000000000800001000000000000000100000000000000000000020000000000000000000800000000000000000080000000000000400000000000004000000000000000000000000000000000000000000000040000200000000000000000000000000000000000000000000000000000000000084000000000000000000001000000000000000000000000000002100000000020000000000000000000000000000000001000000000000000000000000000100000",
+    "blockHash": "0x2271f30152b2535a0c91b3cfe557724223dc04051a03bf207c48d678fa01b3eb",
+    "transactionHash": "0x9689a789c92d2df31fbfb22ea758c549def19d3bd485850bdb924430f957aa69",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 68635916,
+        "transactionHash": "0x9689a789c92d2df31fbfb22ea758c549def19d3bd485850bdb924430f957aa69",
+        "address": "0x81f06f4b143a6eAD0e246DA04420F9d6d1fBEF59",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x00000000000000000000000072f46ffbd3213218137015ebccf70bfaaf619513"
+        ],
+        "data": "0x",
+        "logIndex": 0,
+        "blockHash": "0x2271f30152b2535a0c91b3cfe557724223dc04051a03bf207c48d678fa01b3eb"
+      },
+      {
+        "transactionIndex": 0,
+        "blockNumber": 68635916,
+        "transactionHash": "0x9689a789c92d2df31fbfb22ea758c549def19d3bd485850bdb924430f957aa69",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x00000000000000000000000072f46ffbd3213218137015ebccf70bfaaf619513",
+          "0x000000000000000000000000701eb9090bdcd0029c8a9b5a570a5ff442166bd2"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000000000177e8800000000000000000000000000000000000000000000003635c9adc5dd24d5300000000000000000000000000000000000000000000000000000000000177e8800000000000000000000000000000000000000000000003635c9adc5dd24d5300000000000000000000000000000000000000000000000000000000000177e88",
+        "logIndex": 1,
+        "blockHash": "0x2271f30152b2535a0c91b3cfe557724223dc04051a03bf207c48d678fa01b3eb"
+      }
+    ],
+    "blockNumber": 68635916,
+    "cumulativeGasUsed": "513240",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x72f46FFBd3213218137015EBCcf70bFAaF619513"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "c569a50ea43f1b4f55b85829c9e612e2",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"initialOwner\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"ArrayLengthMismatch\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidAttestationFee\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"OnlyPortalOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ZeroAddressCheck\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32[]\",\"name\":\"schemaIds\",\"type\":\"bytes32[]\"},{\"indexed\":false,\"internalType\":\"uint256[]\",\"name\":\"attestationFees\",\"type\":\"uint256[]\"}],\"name\":\"FeesSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"attestationFees\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"bytes32\",\"name\":\"schemaId\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"expirationDate\",\"type\":\"uint64\"},{\"internalType\":\"bytes\",\"name\":\"subject\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"attestationData\",\"type\":\"bytes\"}],\"internalType\":\"struct AttestationPayload\",\"name\":\"_attestationPayload\",\"type\":\"tuple\"},{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"}],\"name\":\"run\",\"outputs\":[],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"schemaIds\",\"type\":\"bytes32[]\"},{\"internalType\":\"uint256[]\",\"name\":\"_attestationFees\",\"type\":\"uint256[]\"}],\"name\":\"setFees\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceID\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"run((bytes32,uint64,bytes,bytes),bytes,address,uint256)\":{\"params\":{\"_value\":\"The value sent for the attestation\"}},\"setFees(bytes32[],uint256[])\":{\"params\":{\"_attestationFees\":\"The fees required to attest\",\"schemaIds\":\"The schemaIds to set the fee for\"}},\"supportsInterface(bytes4)\":{\"params\":{\"interfaceID\":\"The ID of the interface to check.\"},\"returns\":{\"_0\":\"A boolean indicating interface support.\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"Rubyscore Fee Module\",\"version\":1},\"userdoc\":{\"errors\":{\"ArrayLengthMismatch()\":[{\"notice\":\"Error thrown when an array length mismatch occurs\"}],\"InvalidAttestationFee()\":[{\"notice\":\"Error thrown when an invalid attestation fee is provided\"}],\"OnlyPortalOwner()\":[{\"notice\":\"Error thrown when someone else than the portal's owner is trying to revoke\"}]},\"kind\":\"user\",\"methods\":{\"constructor\":{\"notice\":\"Contract constructor sets the portal registry\"},\"run((bytes32,uint64,bytes,bytes),bytes,address,uint256)\":{\"notice\":\"The main method for the module, running the check\"},\"setFees(bytes32[],uint256[])\":{\"notice\":\"Set the fee required to attest\"},\"supportsInterface(bytes4)\":{\"notice\":\"Checks if the contract implements the Module interface.\"}},\"notice\":\"This module can be used by portal creators to enforce a fee on attestations.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/certificates/modules/RubyscoreFeeModule.sol\":\"RubyscoreFeeModule\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/introspection/IERC165.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/introspection/IERC165.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Interface of the ERC165 standard, as defined in the\\n * https://eips.ethereum.org/EIPS/eip-165[EIP].\\n *\\n * Implementers can declare support of contract interfaces, which can then be\\n * queried by others ({ERC165Checker}).\\n *\\n * For an implementation, see {ERC165}.\\n */\\ninterface IERC165 {\\n    /**\\n     * @dev Returns true if this contract implements the interface defined by\\n     * `interfaceId`. See the corresponding\\n     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]\\n     * to learn more about how these ids are created.\\n     *\\n     * This function call must use less than 30 000 gas.\\n     */\\n    function supportsInterface(bytes4 interfaceId) external view returns (bool);\\n}\\n\",\"keccak256\":\"0x4296879f55019b23e135000eb36896057e7101fb7fb859c5ef690cf14643757b\",\"license\":\"MIT\"},\"contracts/certificates/abstracts/AbstractModule.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.21;\\n\\nimport {AttestationPayload} from \\\"../interfaces/Structs.sol\\\";\\nimport {IERC165} from \\\"@openzeppelin/contracts/utils/introspection/IERC165.sol\\\";\\n\\n/**\\n * @title Abstract Module\\n * @author Consensys\\n * @notice Defines the minimal Module interface\\n */\\nabstract contract AbstractModule is IERC165 {\\n    /// @notice Error thrown when someone else than the portal's owner is trying to revoke\\n    error OnlyPortalOwner();\\n\\n    /**\\n     * @notice Executes the module's custom logic.\\n     * @param attestationPayload The incoming attestation data.\\n     * @param validationPayload Additional data required for verification.\\n     * @param txSender The transaction sender's address.\\n     * @param value The transaction value.\\n     */\\n    function run(\\n        AttestationPayload memory attestationPayload,\\n        bytes memory validationPayload,\\n        address txSender,\\n        uint256 value\\n    ) public virtual;\\n\\n    /**\\n     * @notice Checks if the contract implements the Module interface.\\n     * @param interfaceID The ID of the interface to check.\\n     * @return A boolean indicating interface support.\\n     */\\n    function supportsInterface(bytes4 interfaceID) public view virtual override returns (bool) {\\n        return interfaceID == type(AbstractModule).interfaceId || interfaceID == type(IERC165).interfaceId;\\n    }\\n}\\n\",\"keccak256\":\"0xae86d2e0aca0f03ae39a61667790850214690fbcf2104108fd7789186fffbf30\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IPortalRegistry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.21;\\n\\nimport {Portal} from \\\"./Structs.sol\\\";\\nimport {IRouter} from \\\"./IRouter.sol\\\";\\n\\ninterface IPortalRegistry {\\n    function router() external view returns (IRouter);\\n\\n    function portals(address id) external view returns (Portal memory);\\n\\n    function issuers(address issuerAddress) external view returns (bool);\\n\\n    function portalAddresses(uint256 index) external view returns (address);\\n\\n    function initialize() external;\\n\\n    function updateRouter(address _router) external;\\n\\n    function setIssuer(address issuer) external;\\n\\n    function removeIssuer(address issuer) external;\\n\\n    function isIssuer(address issuer) external view returns (bool);\\n\\n    function register(\\n        address id,\\n        string memory name,\\n        string memory description,\\n        bool isRevocable,\\n        string memory ownerName\\n    ) external;\\n\\n    function revoke(address id) external;\\n\\n    function deployDefaultPortal(\\n        address[] calldata modules,\\n        string memory name,\\n        string memory description,\\n        bool isRevocable,\\n        string memory ownerName\\n    ) external;\\n\\n    function getPortalByAddress(address id) external view returns (Portal memory);\\n\\n    function isRegistered(address id) external view returns (bool);\\n\\n    function getPortalsCount() external view returns (uint256);\\n}\\n\",\"keccak256\":\"0xff7a985f88d9b62c5ba537eea42279efa8dae9685aa2036fa5903d010b739454\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/IRouter.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.21;\\n\\n/**\\n * @title Router\\n * @author Consensys\\n * @notice This contract aims to provides a single entrypoint for the Verax registries\\n */\\ninterface IRouter {\\n    /**\\n     * @notice Gives the address for the AttestationRegistry contract\\n     * @return The current address of the AttestationRegistry contract\\n     */\\n    function getAttestationRegistry() external view returns (address);\\n\\n    /**\\n     * @notice Gives the address for the ModuleRegistry contract\\n     * @return The current address of the ModuleRegistry contract\\n     */\\n    function getModuleRegistry() external view returns (address);\\n\\n    /**\\n     * @notice Gives the address for the PortalRegistry contract\\n     * @return The current address of the PortalRegistry contract\\n     */\\n    function getPortalRegistry() external view returns (address);\\n\\n    /**\\n     * @notice Gives the address for the SchemaRegistry contract\\n     * @return The current address of the SchemaRegistry contract\\n     */\\n    function getSchemaRegistry() external view returns (address);\\n}\\n\",\"keccak256\":\"0x55fdc705d1159521d33164b2d8a1592ee289a3e99500eb23213ce33154cc7b2d\",\"license\":\"MIT\"},\"contracts/certificates/interfaces/Structs.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.21;\\n\\nstruct AttestationPayload {\\n    bytes32 schemaId; // The identifier of the schema this attestation adheres to.\\n    uint64 expirationDate; // The expiration date of the attestation.\\n    bytes subject; // The ID of the attestee, EVM address, DID, URL etc.\\n    bytes attestationData; // The attestation data.\\n}\\n\\nstruct Attestation {\\n    bytes32 attestationId; // The unique identifier of the attestation.\\n    bytes32 schemaId; // The identifier of the schema this attestation adheres to.\\n    bytes32 replacedBy; // Whether the attestation was replaced by a new one.\\n    address attester; // The address issuing the attestation to the subject.\\n    address portal; // The id of the portal that created the attestation.\\n    uint64 attestedDate; // The date the attestation is issued.\\n    uint64 expirationDate; // The expiration date of the attestation.\\n    uint64 revocationDate; // The date when the attestation was revoked.\\n    uint16 version; // Version of the registry when the attestation was created.\\n    bool revoked; // Whether the attestation is revoked or not.\\n    bytes subject; // The ID of the attestee, EVM address, DID, URL etc.\\n    bytes attestationData; // The attestation data.\\n}\\n\\nstruct Schema {\\n    string name; // The name of the schema.\\n    string description; // A description of the schema.\\n    string context; // The context of the schema.\\n    string schema; // The schema definition.\\n}\\n\\nstruct Portal {\\n    address id; // The unique identifier of the portal.\\n    address ownerAddress; // The address of the owner of this portal.\\n    address[] modules; // Addresses of modules implemented by the portal.\\n    bool isRevocable; // Whether attestations issued can be revoked.\\n    string name; // The name of the portal.\\n    string description; // A description of the portal.\\n    string ownerName; // The name of the owner of this portal.\\n}\\n\\nstruct Module {\\n    address moduleAddress; // The address of the module.\\n    string name; // The name of the module.\\n    string description; // A description of the module.\\n}\\n\",\"keccak256\":\"0x0fb9e07170e9bec5da6e0b1146307916173234a5297f74b88aba006da17104b6\",\"license\":\"MIT\"},\"contracts/certificates/modules/RubyscoreFeeModule.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.21;\\n\\nimport {AbstractModule} from \\\"../abstracts/AbstractModule.sol\\\";\\nimport {AttestationPayload} from \\\"../interfaces/Structs.sol\\\";\\nimport {IPortalRegistry} from \\\"../interfaces/IPortalRegistry.sol\\\";\\nimport {Ownable} from \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\n\\n/**\\n * @title Rubyscore Fee Module\\n * @notice This module can be used by portal creators to enforce a fee on attestations.\\n */\\ncontract RubyscoreFeeModule is AbstractModule, Ownable {\\n    mapping(bytes32 => uint256) public attestationFees;\\n\\n    /// @notice Error thrown when an array length mismatch occurs\\n    error ArrayLengthMismatch();\\n    /// @notice Error thrown when an invalid attestation fee is provided\\n    error InvalidAttestationFee();\\n    error ZeroAddressCheck();\\n\\n    event FeesSet(bytes32[] schemaIds, uint256[] attestationFees);\\n\\n    /**\\n     * @notice Contract constructor sets the portal registry\\n     */\\n    constructor(address initialOwner) Ownable(initialOwner) {}\\n\\n    /**\\n     * @notice Set the fee required to attest\\n     * @param _attestationFees The fees required to attest\\n     * @param schemaIds The schemaIds to set the fee for\\n     */\\n    function setFees(bytes32[] memory schemaIds, uint256[] memory _attestationFees) public onlyOwner {\\n        if (schemaIds.length != _attestationFees.length) revert ArrayLengthMismatch();\\n\\n        for (uint256 i = 0; i < schemaIds.length; i++) {\\n            attestationFees[schemaIds[i]] = _attestationFees[i];\\n        }\\n\\n        emit FeesSet(schemaIds, _attestationFees);\\n    }\\n\\n    /**\\n     * @notice The main method for the module, running the check\\n     * @param _value The value sent for the attestation\\n     */\\n    function run(\\n        AttestationPayload memory _attestationPayload,\\n        bytes memory /*_validationPayload*/,\\n        address /*_txSender*/,\\n        uint256 _value\\n    ) public view override {\\n        uint256 attestationFee = attestationFees[_attestationPayload.schemaId];\\n        if (_value < attestationFee) revert InvalidAttestationFee();\\n    }\\n}\\n\",\"keccak256\":\"0xc9718c7538648e815f1a5ac026126d12e23e0cd6d5c5844e6bd3cc4a9093442f\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516108cf3803806108cf83398101604081905261002f916100be565b806001600160a01b03811661005e57604051631e4fbdf760e01b81526000600482015260240160405180910390fd5b6100678161006e565b50506100ee565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b6000602082840312156100d057600080fd5b81516001600160a01b03811681146100e757600080fd5b9392505050565b6107d2806100fd6000396000f3fe608060405234801561001057600080fd5b506004361061007d5760003560e01c8063715018a61161005b578063715018a6146100ed5780638da5cb5b146100f55780639e69bee914610110578063f2fde38b1461012357600080fd5b806301ffc9a71461008257806303e25c49146100aa578063378144b0146100d8575b600080fd5b61009561009036600461034b565b610136565b60405190151581526020015b60405180910390f35b6100ca6100b836600461037c565b60016020526000908152604090205481565b6040519081526020016100a1565b6100eb6100e6366004610491565b61016d565b005b6100eb6101a6565b6000546040516001600160a01b0390911681526020016100a1565b6100eb61011e366004610610565b6101ba565b6100eb6101313660046106c9565b61028b565b60006001600160e01b0319821663367e8d1760e01b148061016757506001600160e01b031982166301ffc9a760e01b145b92915050565b83516000908152600160205260409020548082101561019f576040516330c00ff760e01b815260040160405180910390fd5b5050505050565b6101ae6102ce565b6101b860006102fb565b565b6101c26102ce565b80518251146101e45760405163512509d360e11b815260040160405180910390fd5b60005b825181101561024d57818181518110610202576102026106e4565b602002602001015160016000858481518110610220576102206106e4565b60200260200101518152602001908152602001600020819055508080610245906106fa565b9150506101e7565b507fe6819e2393072526980433f94718a65624dac839c064a79991c3d8d06cba0c1a828260405161027f929190610721565b60405180910390a15050565b6102936102ce565b6001600160a01b0381166102c257604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b6102cb816102fb565b50565b6000546001600160a01b031633146101b85760405163118cdaa760e01b81523360048201526024016102b9565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b60006020828403121561035d57600080fd5b81356001600160e01b03198116811461037557600080fd5b9392505050565b60006020828403121561038e57600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b6040516080810167ffffffffffffffff811182821017156103ce576103ce610395565b60405290565b604051601f8201601f1916810167ffffffffffffffff811182821017156103fd576103fd610395565b604052919050565b600082601f83011261041657600080fd5b813567ffffffffffffffff81111561043057610430610395565b610443601f8201601f19166020016103d4565b81815284602083860101111561045857600080fd5b816020850160208301376000918101602001919091529392505050565b80356001600160a01b038116811461048c57600080fd5b919050565b600080600080608085870312156104a757600080fd5b843567ffffffffffffffff808211156104bf57600080fd5b90860190608082890312156104d357600080fd5b6104db6103ab565b82358152602083013582811681146104f257600080fd5b602082015260408301358281111561050957600080fd5b6105158a828601610405565b60408301525060608301358281111561052d57600080fd5b6105398a828601610405565b6060830152509550602087013591508082111561055557600080fd5b5061056287828801610405565b93505061057160408601610475565b9396929550929360600135925050565b600067ffffffffffffffff82111561059b5761059b610395565b5060051b60200190565b600082601f8301126105b657600080fd5b813560206105cb6105c683610581565b6103d4565b82815260059290921b840181019181810190868411156105ea57600080fd5b8286015b8481101561060557803583529183019183016105ee565b509695505050505050565b6000806040838503121561062357600080fd5b823567ffffffffffffffff8082111561063b57600080fd5b818501915085601f83011261064f57600080fd5b8135602061065f6105c683610581565b82815260059290921b8401810191818101908984111561067e57600080fd5b948201945b8386101561069c57853582529482019490820190610683565b965050860135925050808211156106b257600080fd5b506106bf858286016105a5565b9150509250929050565b6000602082840312156106db57600080fd5b61037582610475565b634e487b7160e01b600052603260045260246000fd5b60006001820161071a57634e487b7160e01b600052601160045260246000fd5b5060010190565b604080825283519082018190526000906020906060840190828701845b8281101561075a5781518452928401929084019060010161073e565b5050508381038285015284518082528583019183019060005b8181101561078f57835183529284019291840191600101610773565b509097965050505050505056fea26469706673582212207da1147a0a817cc375fdd5f8f20eca68206ee42bc622e2405eec689691b052cf64736f6c63430008150033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061007d5760003560e01c8063715018a61161005b578063715018a6146100ed5780638da5cb5b146100f55780639e69bee914610110578063f2fde38b1461012357600080fd5b806301ffc9a71461008257806303e25c49146100aa578063378144b0146100d8575b600080fd5b61009561009036600461034b565b610136565b60405190151581526020015b60405180910390f35b6100ca6100b836600461037c565b60016020526000908152604090205481565b6040519081526020016100a1565b6100eb6100e6366004610491565b61016d565b005b6100eb6101a6565b6000546040516001600160a01b0390911681526020016100a1565b6100eb61011e366004610610565b6101ba565b6100eb6101313660046106c9565b61028b565b60006001600160e01b0319821663367e8d1760e01b148061016757506001600160e01b031982166301ffc9a760e01b145b92915050565b83516000908152600160205260409020548082101561019f576040516330c00ff760e01b815260040160405180910390fd5b5050505050565b6101ae6102ce565b6101b860006102fb565b565b6101c26102ce565b80518251146101e45760405163512509d360e11b815260040160405180910390fd5b60005b825181101561024d57818181518110610202576102026106e4565b602002602001015160016000858481518110610220576102206106e4565b60200260200101518152602001908152602001600020819055508080610245906106fa565b9150506101e7565b507fe6819e2393072526980433f94718a65624dac839c064a79991c3d8d06cba0c1a828260405161027f929190610721565b60405180910390a15050565b6102936102ce565b6001600160a01b0381166102c257604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b6102cb816102fb565b50565b6000546001600160a01b031633146101b85760405163118cdaa760e01b81523360048201526024016102b9565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b60006020828403121561035d57600080fd5b81356001600160e01b03198116811461037557600080fd5b9392505050565b60006020828403121561038e57600080fd5b5035919050565b634e487b7160e01b600052604160045260246000fd5b6040516080810167ffffffffffffffff811182821017156103ce576103ce610395565b60405290565b604051601f8201601f1916810167ffffffffffffffff811182821017156103fd576103fd610395565b604052919050565b600082601f83011261041657600080fd5b813567ffffffffffffffff81111561043057610430610395565b610443601f8201601f19166020016103d4565b81815284602083860101111561045857600080fd5b816020850160208301376000918101602001919091529392505050565b80356001600160a01b038116811461048c57600080fd5b919050565b600080600080608085870312156104a757600080fd5b843567ffffffffffffffff808211156104bf57600080fd5b90860190608082890312156104d357600080fd5b6104db6103ab565b82358152602083013582811681146104f257600080fd5b602082015260408301358281111561050957600080fd5b6105158a828601610405565b60408301525060608301358281111561052d57600080fd5b6105398a828601610405565b6060830152509550602087013591508082111561055557600080fd5b5061056287828801610405565b93505061057160408601610475565b9396929550929360600135925050565b600067ffffffffffffffff82111561059b5761059b610395565b5060051b60200190565b600082601f8301126105b657600080fd5b813560206105cb6105c683610581565b6103d4565b82815260059290921b840181019181810190868411156105ea57600080fd5b8286015b8481101561060557803583529183019183016105ee565b509695505050505050565b6000806040838503121561062357600080fd5b823567ffffffffffffffff8082111561063b57600080fd5b818501915085601f83011261064f57600080fd5b8135602061065f6105c683610581565b82815260059290921b8401810191818101908984111561067e57600080fd5b948201945b8386101561069c57853582529482019490820190610683565b965050860135925050808211156106b257600080fd5b506106bf858286016105a5565b9150509250929050565b6000602082840312156106db57600080fd5b61037582610475565b634e487b7160e01b600052603260045260246000fd5b60006001820161071a57634e487b7160e01b600052601160045260246000fd5b5060010190565b604080825283519082018190526000906020906060840190828701845b8281101561075a5781518452928401929084019060010161073e565b5050508381038285015284518082528583019183019060005b8181101561078f57835183529284019291840191600101610773565b509097965050505050505056fea26469706673582212207da1147a0a817cc375fdd5f8f20eca68206ee42bc622e2405eec689691b052cf64736f6c63430008150033",
+  "devdoc": {
+    "errors": {
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "run((bytes32,uint64,bytes,bytes),bytes,address,uint256)": {
+        "params": {
+          "_value": "The value sent for the attestation"
+        }
+      },
+      "setFees(bytes32[],uint256[])": {
+        "params": {
+          "_attestationFees": "The fees required to attest",
+          "schemaIds": "The schemaIds to set the fee for"
+        }
+      },
+      "supportsInterface(bytes4)": {
+        "params": {
+          "interfaceID": "The ID of the interface to check."
+        },
+        "returns": {
+          "_0": "A boolean indicating interface support."
+        }
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "Rubyscore Fee Module",
+    "version": 1
+  },
+  "userdoc": {
+    "errors": {
+      "ArrayLengthMismatch()": [
+        {
+          "notice": "Error thrown when an array length mismatch occurs"
+        }
+      ],
+      "InvalidAttestationFee()": [
+        {
+          "notice": "Error thrown when an invalid attestation fee is provided"
+        }
+      ],
+      "OnlyPortalOwner()": [
+        {
+          "notice": "Error thrown when someone else than the portal's owner is trying to revoke"
+        }
+      ]
+    },
+    "kind": "user",
+    "methods": {
+      "constructor": {
+        "notice": "Contract constructor sets the portal registry"
+      },
+      "run((bytes32,uint64,bytes,bytes),bytes,address,uint256)": {
+        "notice": "The main method for the module, running the check"
+      },
+      "setFees(bytes32[],uint256[])": {
+        "notice": "Set the fee required to attest"
+      },
+      "supportsInterface(bytes4)": {
+        "notice": "Checks if the contract implements the Module interface."
+      }
+    },
+    "notice": "This module can be used by portal creators to enforce a fee on attestations.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 387,
+        "contract": "contracts/certificates/modules/RubyscoreFeeModule.sol:RubyscoreFeeModule",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 10127,
+        "contract": "contracts/certificates/modules/RubyscoreFeeModule.sol:RubyscoreFeeModule",
+        "label": "attestationFees",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_bytes32,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_bytes32,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
