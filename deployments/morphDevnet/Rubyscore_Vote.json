@@ -1,0 +1,68 @@
+{
+  "address": "0xEAcf8B19E104803cfCD2557D893D6a407E4994F0",
+  "abi": [
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "vote",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x005958ad7c4051dafe17726a68113660c69162b7ada9603a449cb077ff295468",
+  "receipt": {
+    "to": null,
+    "from": "0x72f46FFBd3213218137015EBCcf70bFAaF619513",
+    "contractAddress": "0xEAcf8B19E104803cfCD2557D893D6a407E4994F0",
+    "transactionIndex": 0,
+    "gasUsed": "69441",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000200000000000000000008000010001000000000000000400000000000000000000000000000000800000000000000000000100000000000000000000000000000000000000000000000000000000000080020000000000000000000000004000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000004000000000000000000001000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000100000",
+    "blockHash": "0xf2a397fd8cc221b6ad9cf28883fba710253c2bb821148b6a14f25455bdeab76c",
+    "transactionHash": "0x005958ad7c4051dafe17726a68113660c69162b7ada9603a449cb077ff295468",
+    "logs": [
+      {
+        "transactionIndex": 0,
+        "blockNumber": 68635915,
+        "transactionHash": "0x005958ad7c4051dafe17726a68113660c69162b7ada9603a449cb077ff295468",
+        "address": "0x0000000000000000000000000000000000001010",
+        "topics": [
+          "0x4dfe1bbbcf077ddc3e01291eea2d5c70c2b422b415d95645b9adcfd678cb1d63",
+          "0x0000000000000000000000000000000000000000000000000000000000001010",
+          "0x00000000000000000000000072f46ffbd3213218137015ebccf70bfaaf619513",
+          "0x00000000000000000000000045aafcb651e608e9a1007d77299baeb8a011cd9d"
+        ],
+        "data": "0x0000000000000000000000000000000000000000000000000000000000032dc300000000000000000000000000000000000000000000003635c9adc5dd4428900000000000000000000000000000000000000000000000000000000000032dc300000000000000000000000000000000000000000000003635c9adc5dd4428900000000000000000000000000000000000000000000000000000000000032dc3",
+        "logIndex": 0,
+        "blockHash": "0xf2a397fd8cc221b6ad9cf28883fba710253c2bb821148b6a14f25455bdeab76c"
+      }
+    ],
+    "blockNumber": 68635915,
+    "cumulativeGasUsed": "69441",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "c569a50ea43f1b4f55b85829c9e612e2",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"stateMutability\":\"payable\",\"type\":\"fallback\"},{\"inputs\":[],\"name\":\"vote\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Rubyscore_Vote.sol\":\"Rubyscore_Vote\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Rubyscore_Vote.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.21;\\n\\ncontract Rubyscore_Vote {\\n    fallback() external payable {}\\n\\n    function vote() external payable {}\\n}\\n\",\"keccak256\":\"0x0d748083fa5d7f52ccab6497dd9350f99e10ba1895fabc97f6bac5be5263c762\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50604a80601d6000396000f3fe60806040526004361060125760003560e01c5b00fea2646970667358221220be3a574a5a2a8b66fc650e7993e5343eeed91903b76f1c57e916e191dddceade64736f6c63430008150033",
+  "deployedBytecode": "0x60806040526004361060125760003560e01c5b00fea2646970667358221220be3a574a5a2a8b66fc650e7993e5343eeed91903b76f1c57e916e191dddceade64736f6c63430008150033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}
