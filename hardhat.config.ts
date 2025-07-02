@@ -4,6 +4,7 @@ import { ApiKey, ChainConfig } from "@nomicfoundation/hardhat-verify/types";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
 import "solidity-docgen";
+import "@nomicfoundation/hardhat-foundry";
 
 import "tsconfig-paths/register";
 
