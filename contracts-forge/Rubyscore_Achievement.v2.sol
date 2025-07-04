@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.21;
+pragma solidity 0.8.28;
 
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {EIP712Upgradeable} from "@openzeppelin/contracts-upgradeable/utils/cryptography/EIP712Upgradeable.sol";
@@ -41,11 +41,13 @@ contract Rubyscore_Achievement_v2 is
         _setPrice(_price);
     }
 
-    function setPrice(uint256 _newPrice) external onlyRole(OPERATOR_ROLE) {
+    function setPrice(uint256 _newPrice) external onlyRole(DEFAULT_ADMIN_ROLE) {
         _setPrice(_newPrice);
     }
 
-    function claimAchievement(address _receiver, uint256 _level, bytes _signature) public {
+    function claimAchievement(address _receiver, uint256 _level, bytes calldata _signature) public payable {
+        require(msg.value >= price, "Not enough payment");
+
         bytes32 digest = generateNextClaimDigest(_receiver, _level);
 
         _checkRole(OPERATOR_ROLE, ECDSA.recover(digest, _signature));
@@ -61,7 +63,11 @@ contract Rubyscore_Achievement_v2 is
         return _generateClaimDigest(_receiver, _level, userNonce[_receiver] + 1);
     }
 
-    function _generateClaimDigest(address _receiver, uint256 _level, uint32 _nonce) internal view returns (bytes32) {
+    function withdraw(address payable _receiver, address _asset, uint256 _amount) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        _withdraw(_receiver, _asset, _amount);
+    }
+
+    function _generateClaimDigest(address _receiver, uint256 _level, uint256 _nonce) internal view returns (bytes32) {
         require(userClaims[_receiver][_level] == 0, "Already claimed");
         return _hashTypedDataV4(
             keccak256(

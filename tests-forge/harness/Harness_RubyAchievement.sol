@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.28;
 
 import {Rubyscore_Achievement_v2} from "contracts-forge/Rubyscore_Achievement.v2.sol";
 

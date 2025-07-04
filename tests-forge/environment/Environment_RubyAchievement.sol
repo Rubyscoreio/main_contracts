@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.28;
 
 import {Harness_RubyAchievement} from "tests-forge/harness/Harness_RubyAchievement.sol";
 import {Storage_RubyAchievement} from "tests-forge/storage/Storage_RubyAchievement.sol";
