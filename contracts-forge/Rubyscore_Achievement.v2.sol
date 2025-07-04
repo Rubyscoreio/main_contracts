@@ -46,7 +46,7 @@ contract Rubyscore_Achievement_v2 is
     }
 
     function claimAchievement(address _receiver, uint256 _level, bytes _signature) public {
-        bytes32 digest = generateNextMintDigest(_receiver, _level);
+        bytes32 digest = generateNextClaimDigest(_receiver, _level);
 
         _checkRole(OPERATOR_ROLE, ECDSA.recover(digest, _signature));
 
@@ -57,11 +57,11 @@ contract Rubyscore_Achievement_v2 is
         emit LevelClaimed(_receiver, _level);
     }
 
-    function generateNextMintDigest(address _receiver, uint256 _level) public view returns (bytes32) {
-        return _generateMintDigest(_receiver, _level, userNonce[_receiver] + 1);
+    function generateNextClaimDigest(address _receiver, uint256 _level) public view returns (bytes32) {
+        return _generateClaimDigest(_receiver, _level, userNonce[_receiver] + 1);
     }
 
-    function _generateMintDigest(address _receiver, uint256 _level, uint32 _nonce) internal view returns (bytes32) {
+    function _generateClaimDigest(address _receiver, uint256 _level, uint32 _nonce) internal view returns (bytes32) {
         require(userClaims[_receiver][_level] == 0, "Already claimed");
         return _hashTypedDataV4(
             keccak256(

@@ -4,8 +4,8 @@ pragma solidity ^0.8.10;
 import {Rubyscore_Achievement_v2} from "contracts-forge/Rubyscore_Achievement.v2.sol";
 
 contract Harness_RubyAchievement is Rubyscore_Achievement_v2 {
-    function exposed_generateMintDigest(address _receiver, uint256 _level, uint32 _nonce) public {
-        _generateMintDigest(_receiver, _level, _nonce);
+    function exposed_generateClaimDigest(address _receiver, uint256 _level, uint32 _nonce) public {
+        _generateClaimDigest(_receiver, _level, _nonce);
     }
 
     function exposed_withdraw(address payable _receiver, address _asset, uint256 _amount) public {
