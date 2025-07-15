@@ -15,3 +15,13 @@ deployAchievementContract:
 	--etherscan-api-key ${ETHERSCAN_API_KEY} \
 # 	--broadcast \
 # 	--verify \
+
+deploySoneiumBadge:
+	forge script scripts/DeploySoneiumBadge.s.sol:DeploySoneiumBadgeScript \
+	$(chain) \
+	--sig "run(string)" \
+	--via-ir \
+	-vvvv \
+	--etherscan-api-key ${ETHERSCAN_API_KEY} \
+# 	--broadcast \
+# 	--verify \
