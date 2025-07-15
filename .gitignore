@@ -23,6 +23,7 @@ package-error.log
 .env*
 !.env.example
 
-# Forge
-out/
-cache_forge/
+# Foundry files
+/out
+/broadcast
+/cache_forge

@@ -34,13 +34,26 @@ function typedNamedAccounts<T>(namedAccounts: { [key in string]: T }) {
 
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.21",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200,
+    compilers: [
+      {
+        version: "0.8.21",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
       },
-    },
+      {
+        version: "0.8.28",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
+    ],
   },
   typechain: {
     outDir: "types/typechain-types",
