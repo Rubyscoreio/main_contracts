@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.28;
 
-import {IRubyscore_Soneium_Badge} from "./interfaces/IRubyscore_Soneium_Badge.sol";
+import {IRubyscore_Badges} from "./interfaces/IRubyscore_Badges.sol";
 import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
@@ -11,24 +11,23 @@ import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 import {ERC1155, ERC1155Supply} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 /**
- * @title Rubyscore_Soneium_Badge
+ * @title Rubyscore_Badges
  * @dev An ERC1155 token contract for minting and managing badges with URI support.
- * @dev Badge can be minted by users with the MINTER_ROLE after proper authorization.
- * @dev Badge can have their URIs set by operators with the MINTER_ROLE.
- * @dev Badge can be safely transferred with restrictions on certain tokens.
+ * @dev Rubyscore_Badges can be minted by users with the MINTER_ROLE after proper authorization.
+ * @dev Rubyscore_Badges can have their URIs set by operators with the MINTER_ROLE.
+ * @dev Rubyscore_Badges can be safely transferred with restrictions on certain tokens.
  */
-contract Rubyscore_Soneium_Badge is
+contract Rubyscore_Badges is
     ERC1155,
     EIP712,
     AccessControl,
     ERC1155Supply,
     ERC1155URIStorage,
     ReentrancyGuard,
-IRubyscore_Soneium_Badge
+    IRubyscore_Badges
 {
     bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
-    string public constant NAME = "Soneium_Badge";
     string public constant VERSION = "0.0.1";
 
     uint256 private price;
@@ -40,46 +39,46 @@ IRubyscore_Soneium_Badge
     mapping(address => uint256) private userNonce;
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function supportsInterface(
         bytes4 interfaceId
-    ) public view override(ERC1155, AccessControl, IRubyscore_Soneium_Badge) returns (bool) {
+    ) public view override(ERC1155, AccessControl, IRubyscore_Badges) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function uri(
         uint256 tokenId
-    ) public view override(ERC1155, ERC1155URIStorage, IRubyscore_Soneium_Badge) returns (string memory) {
+    ) public view override(ERC1155, ERC1155URIStorage, IRubyscore_Badges) returns (string memory) {
         return super.uri(tokenId);
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function getTransferStatus(uint256 tokenId) external view returns (bool) {
         return transferUnlock[tokenId];
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function getPrice() external view returns (uint256) {
         return price;
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function getUserNonce(address userAddress) external view returns (uint256) {
         return userNonce[userAddress];
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function tokenURI(uint256 tokenId) public view returns (string memory) {
         return uri(tokenId);
@@ -88,7 +87,7 @@ IRubyscore_Soneium_Badge
     //TODO: use ERC1155("https://xproject.api/achivments/") like error URI and set new for ERC1155URIStorage
 
     /**
-     * @notice Constructor for the Soneium_Badge contract.
+     * @notice Constructor for the Rubyscore_Badges contract.
      * @dev Initializes the contract with roles and settings.
      * @param admin The address of the admin role, which has overall control.
      * @param operator The address of the operator role, responsible for unlock tokens and set base URI.
@@ -105,7 +104,7 @@ IRubyscore_Soneium_Badge
         string memory baseURI,
         string memory _name,
         string memory _symbol
-    ) ERC1155("ipfs://") EIP712(NAME, VERSION) {
+    ) ERC1155("ipfs://") EIP712(_name, VERSION) {
         require(admin != address(0), "Zero address check");
         require(operator != address(0), "Zero address check");
         require(minter != address(0), "Zero address check");
@@ -119,7 +118,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function setTokenURI(uint256 tokenId, string memory newTokenURI) public onlyRole(MINTER_ROLE) {
         super._setURI(tokenId, newTokenURI);
@@ -127,7 +126,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function setBatchTokenURI(
         uint256[] calldata tokenIds,
@@ -140,7 +139,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function setBaseURI(string memory newBaseURI) external onlyRole(OPERATOR_ROLE) {
         super._setBaseURI(newBaseURI);
@@ -148,7 +147,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function setPrice(uint256 newPrice) external onlyRole(OPERATOR_ROLE) {
         price = newPrice;
@@ -156,7 +155,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function safeMint(MintParams memory mintParams, bytes calldata operatorSignature) external payable nonReentrant {
         require(mintParams.nftIds.length >= 1, "Invalid NFT ids");
@@ -179,7 +178,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function setTransferUnlock(uint256 tokenId, bool lock) external onlyRole(OPERATOR_ROLE) {
         transferUnlock[tokenId] = lock;
@@ -187,7 +186,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function withdraw() external onlyRole(DEFAULT_ADMIN_ROLE) {
         uint256 amount = address(this).balance;
@@ -198,7 +197,7 @@ IRubyscore_Soneium_Badge
     }
 
     /**
-     * @dev See {Soneium_Badge}
+     * @dev See {Rubyscore_Badges}
      */
     function _mint(address to, uint256 id, bytes memory data) internal {
         require(balanceOf(to, id) == 0, "You already have this badge");
