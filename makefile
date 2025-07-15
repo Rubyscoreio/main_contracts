@@ -17,7 +17,7 @@ deployAchievementContract:
 # 	--verify \
 
 deploySoneiumBadge:
-	forge script scripts/DeploySoneiumBadge.s.sol:DeploySoneiumBadgeScript \
+	forge script scripts/DeployRubyscoreSoneiumBadge.s.sol:DeployRubyscoreSoneiumBadgeScript \
 	$(chain) \
 	--sig "run(string)" \
 	--via-ir \
