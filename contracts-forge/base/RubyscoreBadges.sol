@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.28;
 
-import {IRubyscore_Badges} from "./interfaces/IRubyscore_Badges.sol";
+import {IRubyscoreBadges} from "./interfaces/IRubyscoreBadges.sol";
 import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
@@ -11,20 +11,20 @@ import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 import {ERC1155, ERC1155Supply} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 /**
- * @title Rubyscore_Badges
+ * @title RubyscoreBadges
  * @dev An ERC1155 token contract for minting and managing badges with URI support.
- * @dev Rubyscore_Badges can be minted by users with the MINTER_ROLE after proper authorization.
- * @dev Rubyscore_Badges can have their URIs set by operators with the MINTER_ROLE.
- * @dev Rubyscore_Badges can be safely transferred with restrictions on certain tokens.
+ * @dev RubyscoreBadges can be minted by users with the MINTER_ROLE after proper authorization.
+ * @dev RubyscoreBadges can have their URIs set by operators with the MINTER_ROLE.
+ * @dev RubyscoreBadges can be safely transferred with restrictions on certain tokens.
  */
-contract Rubyscore_Badges is
+contract RubyscoreBadges is
     ERC1155,
     EIP712,
     AccessControl,
     ERC1155Supply,
     ERC1155URIStorage,
     ReentrancyGuard,
-    IRubyscore_Badges
+    IRubyscoreBadges
 {
     bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
@@ -39,46 +39,46 @@ contract Rubyscore_Badges is
     mapping(address => uint256) private userNonce;
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function supportsInterface(
         bytes4 interfaceId
-    ) public view override(ERC1155, AccessControl, IRubyscore_Badges) returns (bool) {
+    ) public view override(ERC1155, AccessControl, IRubyscoreBadges) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function uri(
         uint256 tokenId
-    ) public view override(ERC1155, ERC1155URIStorage, IRubyscore_Badges) returns (string memory) {
+    ) public view override(ERC1155, ERC1155URIStorage, IRubyscoreBadges) returns (string memory) {
         return super.uri(tokenId);
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function getTransferStatus(uint256 tokenId) external view returns (bool) {
         return transferUnlock[tokenId];
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function getPrice() external view returns (uint256) {
         return price;
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function getUserNonce(address userAddress) external view returns (uint256) {
         return userNonce[userAddress];
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function tokenURI(uint256 tokenId) public view returns (string memory) {
         return uri(tokenId);
@@ -87,7 +87,7 @@ contract Rubyscore_Badges is
     //TODO: use ERC1155("https://xproject.api/achivments/") like error URI and set new for ERC1155URIStorage
 
     /**
-     * @notice Constructor for the Rubyscore_Badges contract.
+     * @notice Constructor for the RubyscoreBadges contract.
      * @dev Initializes the contract with roles and settings.
      * @param admin The address of the admin role, which has overall control.
      * @param operator The address of the operator role, responsible for unlock tokens and set base URI.
@@ -118,7 +118,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function setTokenURI(uint256 tokenId, string memory newTokenURI) public onlyRole(MINTER_ROLE) {
         super._setURI(tokenId, newTokenURI);
@@ -126,7 +126,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function setBatchTokenURI(
         uint256[] calldata tokenIds,
@@ -139,7 +139,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function setBaseURI(string memory newBaseURI) external onlyRole(OPERATOR_ROLE) {
         super._setBaseURI(newBaseURI);
@@ -147,7 +147,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function setPrice(uint256 newPrice) external onlyRole(OPERATOR_ROLE) {
         price = newPrice;
@@ -155,7 +155,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function safeMint(MintParams memory mintParams, bytes calldata operatorSignature) external payable nonReentrant {
         require(mintParams.nftIds.length >= 1, "Invalid NFT ids");
@@ -178,7 +178,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function setTransferUnlock(uint256 tokenId, bool lock) external onlyRole(OPERATOR_ROLE) {
         transferUnlock[tokenId] = lock;
@@ -186,7 +186,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function withdraw() external onlyRole(DEFAULT_ADMIN_ROLE) {
         uint256 amount = address(this).balance;
@@ -197,7 +197,7 @@ contract Rubyscore_Badges is
     }
 
     /**
-     * @dev See {Rubyscore_Badges}
+     * @dev See {RubyscoreBadges}
      */
     function _mint(address to, uint256 id, bytes memory data) internal {
         require(balanceOf(to, id) == 0, "You already have this badge");
