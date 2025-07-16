@@ -17,9 +17,29 @@ deployAchievementContract:
 # 	--verify \
 
 deploySoneiumBadge:
-	forge script scripts/DeployRubyscoreSoneiumBadge.s.sol:DeployRubyscoreSoneiumBadgeScript \
+	forge script scripts/DeployRubyscoreSoneiumContracts.s.sol:DeployRubyscoreSoneiumContractsScript \
 	$(chain) \
-	--sig "run(string)" \
+	--sig "deployBadge(string)" \
+	--via-ir \
+	-vvvv \
+	--etherscan-api-key ${ETHERSCAN_API_KEY} \
+# 	--broadcast \
+# 	--verify \
+
+deploySoneiumId:
+	forge script scripts/DeployRubyscoreSoneiumContracts.s.sol:DeployRubyscoreSoneiumContractsScript \
+	$(chain) \
+	--sig "deployId(string)" \
+	--via-ir \
+	-vvvv \
+	--etherscan-api-key ${ETHERSCAN_API_KEY} \
+# 	--broadcast \
+# 	--verify \
+
+deploySoneiumVote:
+	forge script scripts/DeployRubyscoreSoneiumContracts.s.sol:DeployRubyscoreSoneiumContractsScript \
+	$(chain) \
+	--sig "deployVote(string)" \
 	--via-ir \
 	-vvvv \
 	--etherscan-api-key ${ETHERSCAN_API_KEY} \
