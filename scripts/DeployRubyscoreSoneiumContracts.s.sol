@@ -19,7 +19,7 @@ contract DeployRubyscoreSoneiumContractsScript is Script {
 
     string public constant ID_NAME = "RubyScore ID: Soneium";
     string public constant ID_SYMBOL = "RubyScore ID: Soneium";
-    uint256 public constant ID_FEE = 300_000_000_000_000;
+    uint256 public constant ID_FEE = 1_500_000_000_000_000;
 
     function deployBadge(string calldata network) external {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
