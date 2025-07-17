@@ -3,30 +3,30 @@ import { typedDeployments } from "@utils";
 import { ZERO_BYTES } from "@test-utils";
 
 const migrate: DeployFunction = async ({ deployments, getNamedAccounts }) => {
-  const { deploy, execute } = typedDeployments(deployments);
-  const { deployer } = await getNamedAccounts();
-
-  console.log(deployer);
-
-  const owner = deployer;
-  const certificateNFT = "0x79257C480058094d790A2E31944e41E08ed17cD5";
-  const portal = deployer;
-  const schemaId = "0x8fd97ea8d093598a317f51f593c647b44ebaf0f07b831be36b5c1afa0e3bdbe3";
-  const certId = 1;
-
-  await deploy("RubyscoreIssuanceModule", {
-    from: deployer,
-    args: [owner, portal, certificateNFT],
-    log: true,
-  });
-
-  await execute(
-    "RubyscoreIssuanceModule",
-    { from: deployer, log: true },
-    "setUpCertificates",
-    [schemaId],
-    [certId]
-  );
+  // const { deploy, execute } = typedDeployments(deployments);
+  // const { deployer } = await getNamedAccounts();
+  //
+  // console.log(deployer);
+  //
+  // const owner = deployer;
+  // const certificateNFT = "0x79257C480058094d790A2E31944e41E08ed17cD5";
+  // const portal = deployer;
+  // const schemaId = "0x8fd97ea8d093598a317f51f593c647b44ebaf0f07b831be36b5c1afa0e3bdbe3";
+  // const certId = 1;
+  //
+  // await deploy("RubyscoreIssuanceModule", {
+  //   from: deployer,
+  //   args: [owner, portal, certificateNFT],
+  //   log: true,
+  // });
+  //
+  // await execute(
+  //   "RubyscoreIssuanceModule",
+  //   { from: deployer, log: true },
+  //   "setUpCertificates",
+  //   [schemaId],
+  //   [certId]
+  // );
 };
 
 // struct AttestationPayload {
