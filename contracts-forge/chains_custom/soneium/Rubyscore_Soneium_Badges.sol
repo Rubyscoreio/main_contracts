@@ -5,8 +5,8 @@ pragma solidity 0.8.28;
 import {RubyscoreBadges} from "contracts-forge/base/RubyscoreBadges.sol";
 
 contract Rubyscore_Soneium_Badges is RubyscoreBadges {
-    string public constant NAME = "Rubyscore: Soneium_Badges";
-    string public constant SYMBOL = "Rubyscore: Soneium_Badges";
+    string public constant NAME = "RubyScore Badges: Soneium";
+    string public constant SYMBOL = "RubyScore Badges: Soneium";
 
     constructor(
         address admin,

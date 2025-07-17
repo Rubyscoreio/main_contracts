@@ -9,7 +9,7 @@ import {ERC721Extended} from "./extensions/ERC721Extended.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
 import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
 
-contract RubyscoreID is
+abstract contract RubyscoreID is
     AccessControlUpgradeable,
     UUPSUpgradeable,
     ERC721Extended,
@@ -48,8 +48,8 @@ contract RubyscoreID is
         uint256 _attestationFee
     ) public initializer {
         __AccessControl_init();
-        __EIP712_init(_name, VERSION);
         __ERC721Extended_init(_name, _symbol);
+        __EIP712_init(_name, VERSION);
 
         _grantRole(DEFAULT_ADMIN_ROLE, _admin);
         _grantRole(OPERATOR_ROLE, _operator);
@@ -106,10 +106,6 @@ contract RubyscoreID is
 
     function burn(uint256 tokenId) public override onlyRole(OPERATOR_ROLE) {
         _burn(tokenId);
-    }
-
-    function name() view public override returns(string memory) {
-        return "RubyScore ID Somnia";
     }
 
     function withdraw(address _receiver, Asset calldata _asset) external onlyRole(DEFAULT_ADMIN_ROLE) {

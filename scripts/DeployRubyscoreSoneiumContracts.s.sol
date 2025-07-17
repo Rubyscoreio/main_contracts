@@ -17,8 +17,8 @@ contract DeployRubyscoreSoneiumContractsScript is Script {
     uint256 public constant BADGE_PRICE = 300_000_000_000_000;
     string public constant BADGE_BASE_URI = "ipfs://";
 
-    string public constant ID_NAME = "Rubyscore: Soneium ID";
-    string public constant ID_SYMBOL = "Rubyscore: Soneium ID";
+    string public constant ID_NAME = "RubyScore ID: Soneium";
+    string public constant ID_SYMBOL = "RubyScore ID: Soneium";
     uint256 public constant ID_FEE = 300_000_000_000_000;
 
     function deployBadge(string calldata network) external {
