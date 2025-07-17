@@ -6,7 +6,11 @@ test = 'tests-forge'
 cache_path  = 'cache_forge'
 
 [rpc_endpoints]
+soneiumMainnet = "https://rpc.soneium.org"
+
 baseSepolia = "https://sepolia.base.org"
 
 [etherscan]
-baseSepolia = { key = "${BASE_API_KEY}", chain = 84532, url="https://api-sepolia.basescan.org/api" }
+soneiumMainnet = { key = "${BASE_API_KEY}", chain = 84532, url="https://soneium.blockscout.com/api/" }
+
+baseSepolia = { key = "any", chain = 1868, url="https://api-sepolia.basescan.org/api" }

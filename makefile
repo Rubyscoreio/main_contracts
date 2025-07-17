@@ -22,7 +22,6 @@ deploySoneiumBadge:
 	--sig "deployBadge(string)" \
 	--via-ir \
 	-vvvv \
-	--etherscan-api-key ${ETHERSCAN_API_KEY} \
 # 	--broadcast \
 # 	--verify \
 
@@ -30,7 +29,6 @@ deploySoneiumId:
 	forge script scripts/DeployRubyscoreSoneiumContracts.s.sol:DeployRubyscoreSoneiumContractsScript \
 	$(chain) \
 	--sig "deployId(string)" \
-	--via-ir \
 	-vvvv \
 	--etherscan-api-key ${ETHERSCAN_API_KEY} \
 # 	--broadcast \
@@ -42,6 +40,5 @@ deploySoneiumVote:
 	--sig "deployVote(string)" \
 	--via-ir \
 	-vvvv \
-	--etherscan-api-key ${ETHERSCAN_API_KEY} \
 # 	--broadcast \
 # 	--verify \
