@@ -57,14 +57,6 @@ This repo will have a code of Rubyscore Smart Contracts.
 | Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4   |
 | Rubyscore_Vote | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                         |
 
-#### Soneium
-
-| Name                     | Mainnet                                    | Testnet |
-|--------------------------|--------------------------------------------|---------|
-| Rubyscore_Soneium_Badges | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |         |
-| Rubyscore_Soneium_Id     | 0xAff9D3Af3495c54E0bb90e03Bc762681bF5a52Bf |         |
-| Rubyscore_Vote           | 0xb0F3b3553cE518339c1B5807A392ae904fB658Ec |         |
-
 #### Morph
 
 | Name                   | Mainnet  | Testnet                                    |
@@ -74,17 +66,10 @@ This repo will have a code of Rubyscore Smart Contracts.
 
 #### Soneium
 
-| Name                   | Mainnet | Testnet                                    |
-|------------------------|---------|--------------------------------------------|
-| Rubyscore_Achievement  |         |                                            |
-| Rubyscore_Vote         |         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
-
-#### Soneium
-
 | Name                     | Mainnet                                    | Testnet |
 |--------------------------|--------------------------------------------|---------|
 | Rubyscore_Soneium_Badges | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |         |
-| Rubyscore_Soneium_Id     | 0xAff9D3Af3495c54E0bb90e03Bc762681bF5a52Bf |         |
+| Rubyscore_Soneium_Id     | 0x4E44211aFe692a4fea11344a2a5827a06aFa573f |         |
 | Rubyscore_Vote           | 0xb0F3b3553cE518339c1B5807A392ae904fB658Ec | 0xDC3D8318Fbaec2de49281843f5bba22e78338146     |
 
 #### Zora
