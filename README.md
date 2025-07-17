@@ -84,7 +84,7 @@ This repo will have a code of Rubyscore Smart Contracts.
 | Name                     | Mainnet                                    | Testnet |
 |--------------------------|--------------------------------------------|---------|
 | Rubyscore_Soneium_Badges | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |         |
-| Rubyscore_Soneium_Id     | 0xAff9D3Af3495c54E0bb90e03Bc762681bF5a52Bf |         |
+| Rubyscore_Soneium_Id     | 0x4E44211aFe692a4fea11344a2a5827a06aFa573f |         |
 | Rubyscore_Vote           | 0xb0F3b3553cE518339c1B5807A392ae904fB658Ec | 0xDC3D8318Fbaec2de49281843f5bba22e78338146     |
 
 #### Zora
