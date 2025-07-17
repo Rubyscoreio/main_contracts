@@ -22,3 +22,8 @@ package-error.log
 # Ignore all .env files except .env.example
 .env*
 !.env.example
+
+# Foundry files
+/out
+/broadcast
+/cache_forge

@@ -5,13 +5,11 @@ const migrate: DeployFunction = async ({ deployments, getNamedAccounts }) => {
   const { deploy } = typedDeployments(deployments);
   const { deployer } = await getNamedAccounts();
 
-  console.log(deployer);
-
-  await deploy("Rubyscore_Vote", {
-    from: deployer,
-    args: [],
-    log: true,
-  });
+  // await deploy("Rubyscore_Vote", {
+  //   from: deployer,
+  //   args: [],
+  //   log: true,
+  // });
 };
 
 migrate.tags = ["vote"];
