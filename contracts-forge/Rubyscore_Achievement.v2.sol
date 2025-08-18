@@ -26,7 +26,7 @@ contract Rubyscore_Achievement_v2 is
     uint256 public price;
 
     mapping(address => uint256) public userNonce;
-    mapping(address => mapping(uint256 level => uint8 status)) public userClaims;
+    mapping(address => uint256 level) public userLevels;
 
     event PriceUpdated(uint256 indexed newPrice);
     event LevelClaimed(address indexed receiver, uint256 indexed level);
@@ -47,12 +47,13 @@ contract Rubyscore_Achievement_v2 is
 
     function claimAchievement(address _receiver, uint256 _level, bytes calldata _signature) public payable {
         require(msg.value >= price, "Not enough payment");
+        require(_level == userLevels[_receiver] + 1, "Non sequential level");
 
         bytes32 digest = generateNextClaimDigest(_receiver, _level);
 
         _checkRole(OPERATOR_ROLE, ECDSA.recover(digest, _signature));
 
-        userClaims[_receiver][_level] = 1;
+        userLevels[_receiver] = _level;
 
         userNonce[_receiver] += 1;
 
@@ -68,7 +69,7 @@ contract Rubyscore_Achievement_v2 is
     }
 
     function _generateClaimDigest(address _receiver, uint256 _level, uint256 _nonce) internal view returns (bytes32) {
-        require(userClaims[_receiver][_level] == 0, "Already claimed");
+        require(userLevels[_receiver] <= _level, "Already claimed");
         return _hashTypedDataV4(
             keccak256(
                 abi.encode(

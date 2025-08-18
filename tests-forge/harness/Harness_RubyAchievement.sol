@@ -20,6 +20,10 @@ contract Harness_RubyAchievement is Rubyscore_Achievement_v2 {
         _sendERC20Token(_receiver, _token, _amount);
     }
 
+    function helper_setLevel(address _account, uint256 _level) public {
+        userLevels[_account] = _level;
+    }
+
     function helper_grantRole(bytes32 _role, address _account) public {
         _grantRole(_role, _account);
     }
