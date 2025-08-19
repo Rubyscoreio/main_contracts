@@ -67,12 +67,19 @@ abstract contract RubyscoreID is
         uint256 newNonce = _getNextAttestationNonce(_user);
         attestationNonces[_user] = newNonce;
 
-        tokenCounter += 1;
-
         emit AttestationNonceUpdated(_user, newNonce);
-        emit Attested(_user, tokenCounter);
 
-        _mint(_user, tokenCounter);
+        _attest(_user);
+    }
+
+    function attest(address _user) public onlyRole(OPERATOR_ROLE) {
+        _attest(_user);
+    }
+
+    function attestBatch(address[] calldata _users) public onlyRole(OPERATOR_ROLE) {
+        for (uint256 i = 0; i<_users.length; i++) {
+            _attest(_users[i]);
+        }
     }
 
     function composeNextAttestationAllowanceDigest(address _user) public view returns (bytes32 digest) {
@@ -119,6 +126,16 @@ abstract contract RubyscoreID is
         returns (bool)
     {
         return AccessControlUpgradeable.supportsInterface(interfaceId) || ERC721Extended.supportsInterface(interfaceId);
+    }
+
+    function _attest(address _user) internal {
+        if (balanceOf(_user) != 0) return;
+
+        tokenCounter += 1;
+
+        emit Attested(_user, tokenCounter);
+
+        _mint(_user, tokenCounter);
     }
 
     function _baseURI() internal view override returns (string memory) {
