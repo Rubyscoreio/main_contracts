@@ -24,8 +24,8 @@ deployV2Achievements:
 	-vvvv \
     --verifier blockscout \
 	--etherscan-api-key ${BASESCAN_API_KEY} \
-	--broadcast \
-	--verify \
+# 	--broadcast \
+# 	--verify \
 # 	--with-gas-price 100000000 \
 # 	--priority-gas-price 100000000 \
 
