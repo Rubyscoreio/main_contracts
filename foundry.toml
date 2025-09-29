@@ -4,13 +4,236 @@ out = 'out'
 libs = ['node_modules', 'lib']
 test = 'tests-forge'
 cache_path  = 'cache_forge'
+evm_version = 'london'
 
 [rpc_endpoints]
-soneiumMainnet = "https://rpc.soneium.org"
+#Mainnets
+abstract = "https://api.mainnet.abs.xyz"
+apeChain = "https://apechain.drpc.org"
+appChain = "https://rpc.appchain.xyz/http"
+arbitrumOne = "https://arbitrum-one-rpc.publicnode.com"
+avalanche = "https://avalanche-c-chain-rpc.publicnode.com"
+b3 = "https://mainnet-rpc.b3.fun"
+base = "https://base.drpc.org"
+berachain = "https://berachain-rpc.publicnode.com"
+bsc = "https://bsc-rpc.publicnode.com"
+bob = "https://bob-mainnet.public.blastapi.io"
+boba = "https://boba-ethereum.gateway.tenderly.co"
+celo = "https://rpc.ankr.com/celo"
+cronos = "https://cronos-evm-rpc.publicnode.com"
+gravity = "https://rpc.gravity.xyz"
+hashKey = "https://mainnet.hsk.xyz"
+hemi = "https://rpc.hemi.network/rpc"
+hyperEVM = "https://rpc.hypurrscan.io"
+immutable = "https://rpc.immutable.com"
+ink = "https://ink.drpc.org"
+lisk = "https://lisk.drpc.org"
+metalL2 = "https://rpc.metall2.com"
+mint = "https://rpc.mintchain.io"
 
-baseSepolia = "https://sepolia.base.org"
+mode = "https://mode.drpc.org"
+opMainnet = "https://optimism-rpc.publicnode.com"
+plume = "https://rpc.plume.org"
+polygon = "https://polygon-bor-rpc.publicnode.com"
+polynomial = "https://rpc.polynomial.fi"
+race = "https://racemainnet.io"
+rari= "https://mainnet.rpc.rarichain.org"
+redstone = "https://rpc.redstonechain.com"
+sei = "https://sei.drpc.org"
+shape = "https://mainnet.shape.network"
+somnia = "https://api.infra.mainnet.somnia.network/"
+sonic = "https://sonic-rpc.publicnode.com"
+sophon = "https://rpc.sophon.xyz"
+story = "https://rpc.ankr.com/story_mainnet"
+superposition = "https://rpc.superposition.so"
+swellchain = "https://rpc.ankr.com/swell"
+tac = "https://rpc.tac.build"
+unichain = "https://unichain-rpc.publicnode.com"
+vana = "https://rpc.vana.org"
+worldChain = "https://worldchain.drpc.org"
+xrpl = "https://rpc.xrplevm.org/"
+zetaChain = "https://zeta-chain.drpc.org"
+
+soneiumMainnet = "https://rpc.ankr.com/celo"
+
+katana = "https://rpc.katana.network"
+xai = "https://rpc.ankr.com/xai"
+corn = "https://mainnet.corn-rpc.com"
+gnosis_chain = "https://erpc.gnosis.shutter.network/"
+moonbeam = "https://moonbeam.drpc.org"
+core = "https://rpc.test2.btcs.network"
+movement = "https://full.mainnet.movementinfra.xyz/v1"
+fraxtal = "https://rpc.frax.com/"
+bounce_bit = "https://fullnode-mainnet.bouncebitapi.com"
+ronin = "https://api.roninchain.com/rpc"
+merlin = "https://rpc.merlinchain.io/"
+zircuit = "https://mainnet.zircuit.com"
+aurora = "https://mainnet.aurora.dev"
+oasis_sapphir = "https://1rpc.io/oasis/sapphire"
+harmony = "https://1rpc.io/one"
+arbitrum_nova = "https://arbitrum-nova.drpc.org"
+bevm = "https://rpc-mainnet-1.geb.network"
+canto = "https://canto-rpc.ansybl.io"
+ancient8 = "https://rpc.ancient8.gg"
+cyber = "https://cyber.alt.technology/"
+mind_network = "https://rpc-mainnet.mindnetwork.xyz"
+
+moonriver = "https://moonriver-rpc.dwellir.com"
+fuse = "https://fuse.drpc.org"
+kaia = "https://klaytn.drpc.org"
+astar = "https://1rpc.io/astr"
+iotex = "https://iotex-network.rpc.thirdweb.com"
+rootstock = "https://rootstock.drpc.org"
+dfk = "https://subnets.avax.network/defi-kingdoms/dfk-chain/rpc"
+telos_evm = "https://telos.drpc.org"
+dogechain = "https://rpc.dogechain.dog"
+kava = "https://kava.drpc.org"
+conflux = "https://evm.confluxrpc.com"
+wemix = "https://wemix.drpc.org"
+flare = "https://rpc.ankr.com/flare"
+oasys = "https://rpc.mainnet.oasys.games"
+shibarium = "https://rpc.shibrpc.com"
+bitlayer = "https://rpc.ankr.com/bitlayer"
+b2 = "https://rpc.ankr.com/b2"
+reya = "https://rpc.reya.network"
+chiliz = "https://chiliz.publicnode.com"
+dbk_chain = "https://rpc.mainnet.dbkchain.io"
+orderly = "https://rpc.orderly.network"
+zero = "https://zero.drpc.org"
+duck_chain = "https://rpc.duckchain.io"
+lens = "https://lens.drpc.org"
+metis = "https://andromeda.metis.io/?owner=1088"
+camp = "https://rpc.camp.raas.gelato.cloud"
+
+botanix = "https://rpc.ankr.com/botanix_mainnet"
+flow = "https://mainnet.evm.nodes.onflow.org"
+iota = "https://rpc.ankr.com/iota_evm"
+neon = "https://neon-evm.drpc.org"
+pulse = "https://rpc.pulsechain.com"
+openledger = "https://rpc.openledger.xyz"
+
+#Testnets
+basecamp = "https://rpc-campnetwork.xyz"
+base-sepolia = "https://sepolia.base.org"
+riseTestnet = "https://testnet.riselabs.xyz"
+sahara = "https://scroll-sepolia.drpc.org"
+scroll-sepolia = "https://scroll-sepolia.drpc.org"
+optimism-sepolia = "https://optimism-sepolia.drpc.org"
+xrpl-testnet = "https://rpc.testnet.xrplevm.org/"
+somnia-testnet = "https://rpc.ankr.com/somnia_testnet/6e3fd81558cf77b928b06b38e9409b4677b637118114e83364486294d5ff4811"
+nexus = "https://testnet3.rpc.nexus.xyz"
+openledger-testnet = "https://rpctn.openledger.xyz"
+citrea = "https://rpc.testnet.citrea.xyz"
+goat = "https://rpc.goat.network"
+giwa = "https://sepolia-rpc.giwa.io/"
 
 [etherscan]
+#Mainnets
+abstract = { key = "${ETHERSCAN_API_KEY}", chain = 2741, url="https://api.abscan.org/v2/api" }
+apeChain = { key = "anything", chain = 33139, url="https://apechain.calderaexplorer.xyz/api" }
+appChain = { key = "anything", chain = 466, url="https://appchain.calderaexplorer.xyz/api" }
+arbitrumOne = { key = "${ETHERSCAN_API_KEY}", chain = 42161, url="https://arbitrum.blockscout.com/api/" }
+avalanche = { key = "anything", chain = 43114, url="https://api.avascan.info/v2/network/mainnet/evm/43114/etherscan/" }
+b3 = { key = "anything", chain = 8333, url="https://b3.calderaexplorer.xyz/api" }
+berachain = { key = "${ETHERSCAN_API_KEY}", chain = 80094, url="https://api.berascan.com/v2/api" }
+bsc = { key = "${ETHERSCAN_API_KEY}", chain = 56, url="https://api.bscscan.com/v2/api" }
+bob = { key = "anything", chain = 60808, url="https://explorer-bob-mainnet-0.t.conduit.xyz/api/" }
+boba = { key = "anything", chain = 288 }
+celo = { key = "anything", chain = 42220, url="https://celo.blockscout.com/api" }
+cronos = { key = "${ETHERSCAN_API_KEY}", chain = 25, url="https://cronoscan.com/" }
+gravity = { key = "anything", chain = 1625, url="https://explorer-gravity-mainnet-0.t.conduit.xyz/api/" }
+hashKey = { key = "anything", chain = 177, url="https://hashkey.blockscout.com/api" }
+hemi = { key = "anything", chain = 43111, url="https://explorer.hemi.xyz/api" }
+hyperEVM = { key = "anything", chain = 999, url="https://www.hyperscan.com/api" }
+immutable = { key = "anything", chain = 13371, url="https://explorer.immutable.com/api" }
+ink = { key = "anything", chain = 57073, url="https://explorer.inkonchain.com/api" }
+lisk = { key = "anything", chain = 1135, url="https://blockscout.lisk.com/api" }
+metalL2 = { key = "anything", chain = 169, url="https://explorer-metal-mainnet-0.t.conduit.xyz/api" }
+mint = { key = "anything", chain = 1750, url="https://explorer-mint-mainnet-0.t.conduit.xyz/api/" }
+mode = { key = "anything", chain = 34443, url="https://explorer-mode-mainnet-0.t.conduit.xyz/api" }
+opMainnet = { key = "anything", chain = 10, url="https://optimism.blockscout.com/api" }
+pharosTestnet = { key = "anything", chain = 688688, url="https://testnet.pharosscan.xyz/api/" }
+plume = { key = "anything", chain = 98866, url="https://explorer.plume.org/api/" }
+polygon = { key = "${ETHERSCAN_API_KEY}", chain = 137, url="https://v2.polygonscan.com/v2/api" }
+polynomial = { key = "anything", chain = 8008, url="https://api.routescan.io/v2/network/mainnet/evm/8008/etherscan/api/" }
+race = { key = "anything", chain = 6805, url="https://racescan.io/api" }
+rari= { key = "anything", chain = 1380012617, url="https://rari.calderaexplorer.xyz/api" }
+redstone = { key = "anything", chain = 690, url="https://explorer.redstone.xyz/api" }
+sei = { key = "anything", chain = 1329, url="https://sei.blockscout.com/api/" }
+shape = { key = "anything", chain = 360, url="https://shapescan.xyz/api" }
+somnia = { key = "anything", chain = 5031, url="https://mainnet.somnia.w3us.site/api/" }
+sonic = { key = "${ETHERSCAN_API_KEY}", chain = 146, url="https://v2.sonicscan.org/v2/api" }
+sophon = { key = "${ETHERSCAN_API_KEY}", chain = 50104, url="https://v2.sophscan.xyz/v2/api" }
+story = { key = "anything", chain = 1514, url="https://www.storyscan.io/api/" }
+superposition = { key = "anything", chain = 55244, url="https://explorer-superposition-1v9rjalnat.t.conduit.xyz/api/" }
+swellchain = { key = "anything", chain = 1923, url="https://explorer.swellnetwork.io:443/api" }
+tac = { key = "anything", chain = 239, url="https://explorer.tac.build/api" }
+unichain = { key = "anything", chain = 130, url="https://unichain.blockscout.com/api" }
+vana = { key = "anything", chain = 1480, url="https://vanascan.io/api" }
+worldChain = { key = "${ETHERSCAN_API_KEY}", chain = 480, url="https://v2.worldscan.org/v2/api" }
+xrpl = { key = "anything", chain = 1440000, url="https://explorer.xrplevm.org/api/" }
+zetaChain = { key = "anything", chain = 7000, url="https://zetachain.blockscout.com/api" }
 soneiumMainnet = { key = "${BASE_API_KEY}", chain = 84532, url="https://soneium.blockscout.com/api/" }
+katana = { key = "anything", chain = 747474, url="https://explorer.katanarpc.com/api" }
+xai = { key = "anything", chain = 660279, url="https://explorer.xai-chain.net/api" }
+corn = { key = "anything", chain = 21000000, url="https://maizenet-explorer.usecorn.com/api" }
+gnosis_chain = { key = "anything", chain = 100, url="https://gnosis.blockscout.com/api" }
+moonbeam = { key = "anything", chain = 1284 }
+core = { key = "anything", chain = 1114 }
+movement = { key = "anything", chain = 126 }
+fraxtal = { key = "anything", chain = 252, url="https://252.thesuperscan.io/api" }
+bounce_bit = { key = "anything", chain = 6001 }
+ronin = { key = "anything", chain = 2020 }
+merlin = { key = "anything", chain = 4200 }
+zircuit = { key = "anything", chain = 48900 }
+aurora = { key = "anything", chain = 1313161554, url="https://explorer.aurora.dev/api" }
+oasis_sapphir = { key = "anything", chain = 23294 }
+harmony = { key = "anything", chain = 1666600000 }
+arbitrum_nova = { key = "anything", chain = 42170, url="https://arbitrum-nova.blockscout.com/api" }
+bevm = { key = "anything", chain = 11501, url="https://scan-canary.bevm.io/api" }
+canto = { key = "anything", chain = 7700 }
+ancient8 = { key = "anything", chain = 888888888, url="https://scan.ancient8.gg/api" }
+cyber = { key = "anything", chain = 7560 }
+mind_network = { key = "anything", chain = 228, url="https://explorer.mindnetwork.xyz/api" }
+moonriver = { key = "anything", chain = 1285 }
+fuse = { key = "anything", chain = 122 }
+kaia = { key = "anything", chain = 8217 }
+astar = { key = "anything", chain = 592 }
+iotex = { key = "anything", chain = 4689 }
+rootstock = { key = "anything", chain = 30, url="https://rootstock.blockscout.com//api" }
+dfk = { key = "anything", chain = 53935 }
+telos_evm = { key = "anything", chain = 40 }
+dogechain = { key = "anything", chain = 2000 }
+kava = { key = "anything", chain = 2222 }
+conflux = { key = "anything", chain = 1030 }
+wemix = { key = "anything", chain = 1111 }
+flare = { key = "anything", chain = 14 }
+oasys = { key = "anything", chain = 248, url="https://explorer.oasys.games/api" }
+shibarium = { key = "anything", chain = 109, url="https://www.shibariumscan.io/api" }
+bitlayer = { key = "anything", chain = 200901 }
+b2 = { key = "anything", chain = 223, url="https://explorer.bsquared.network/api" }
+reya = { key = "anything", chain = 1729, url="https://explorer.reya.network/api" }
+chiliz = { key = "anything", chain = 88888 }
+dbk_chain = { key = "anything", chain = 20240603 }
+orderly = { key = "anything", chain = 291 }
+zero = { key = "anything", chain = 543210 }
+duck_chain = { key = "anything", chain = 5545 }
+lens = { key = "anything", chain = 232 }
+metis = { key = "anything", chain = 1088, url="https://andromeda-explorer.metis.io/api" }
+botanix = { key = "anything", chain = 3637 }
+openledger = { key = "anything", chain = 1612, url="https://scan.openledger.xyz/api" }
 
-baseSepolia = { key = "any", chain = 1868, url="https://api-sepolia.basescan.org/api" }
+#Testnets
+basecamp = { key = "any", chain = 123420001114, url="https://camp-network-testnet.blockscout.com/api" }
+base-sepolia = { key = "${BASESCAN_API_KEY}", chain = 84532, url="https://api-sepolia.basescan.org/api" }
+riseTestnet = { key = "anything", chain = 11155931, url="https://explorer.testnet.riselabs.xyz/api" }
+sahara = { key = "anything", chain = 3132023, url="https://testnet-explorer.saharalabs.ai/api" }
+scroll-sepolia = { key = "anything", chain = 534351, url="https://scroll-sepolia.blockscout.com/api" }
+optimism-sepolia = { key = "anything", chain = 11155420, url="https://testnet-explorer.optimism.io/api" }
+xrpl-testnet = { key = "anything", chain = 1449000, url="https://explorer.testnet.xrplevm.org/api/" }
+nexus = { key = "anything", chain = 3940, url="https://testnet3.explorer.nexus.xyz/api/" }
+openledger-testnet = { key = "anything", chain = 161201, url="https://scantn.openledger.xyz/api/" }
+citrea = { key = "anything", chain = 5115, url="https://explorer.testnet.citrea.xyz/api/" }
+somnia-testnet = { key = "anything", chain = 50312, url="https://somnia.w3us.site/api/" }
+goat = { key = "anything", chain = 48816, url="https://explorer.testnet3.goat.network/api" }
+giwa = { key = "anything", chain = 91342, url="https://sepolia-explorer.giwa.io/api" }

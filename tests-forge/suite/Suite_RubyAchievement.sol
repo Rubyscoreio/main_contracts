@@ -44,9 +44,11 @@ abstract contract Suite_RubyAchievement is Storage_RubyAchievement {
 
     function test_claimAchievement_Ok(address _receiver, uint256 _level, address _caller, uint32 _operatorId) public {
         vm.assume(_caller != address(achievementContract));
+        vm.assume(_level > 0);
 
         (uint256 operatorPk, address operator) = generateAddress(_operatorId, "operator");
 
+        achievementContract.helper_setLevel(_receiver, _level - 1);
         achievementContract.helper_grantRole(OPERATOR_ROLE, operator);
         vm.deal(_caller, 1 ether);
 
@@ -68,12 +70,44 @@ abstract contract Suite_RubyAchievement is Storage_RubyAchievement {
 
         assertEq(balanceAfter, balanceBefore + claimPrice);
         assertEq(achievementContract.userNonce(_receiver), 1);
-        assertEq(achievementContract.userClaims(_receiver, _level), 1);
+        assertEq(achievementContract.userLevels(_receiver), _level);
+    }
+
+    function test_claimAchievement_RevertIfLevelIsNotSequential(address _receiver, uint256 _level, address _caller, uint32 _operatorId) public {
+        vm.assume(_caller != address(achievementContract));
+        vm.assume(_level > 1);
+
+        (uint256 operatorPk, address operator) = generateAddress(_operatorId, "operator");
+
+        achievementContract.helper_grantRole(OPERATOR_ROLE, operator);
+        vm.deal(_caller, 1 ether);
+
+        bytes32 digest = achievementContract.generateNextClaimDigest(_receiver, _level);
+        bytes memory signature = helper_sign(operatorPk, digest);
+
+        uint256 claimPrice = achievementContract.price();
+        uint256 balanceBefore = address(achievementContract).balance;
+
+        assertEq(achievementContract.userNonce(_receiver), 0);
+
+        vm.expectRevert("Non sequential level");
+        emit Rubyscore_Achievement_v2.LevelClaimed(_receiver, _level);
+
+        vm.prank(_caller);
+        achievementContract.claimAchievement{ value: claimPrice }(_receiver, _level, signature);
+
+        uint256 balanceAfter = address(achievementContract).balance;
+
+        assertEq(balanceAfter, balanceBefore);
+        assertEq(achievementContract.userNonce(_receiver), 0);
+        assertEq(achievementContract.userLevels(_receiver), 0);
     }
 
     function test_claimAchievement_RevertIfDigestInvalid(address _receiver, address _fakeReceiver, uint256 _level, address _caller, uint32 _operatorId) public {
         (uint256 operatorPk, address operator) = generateAddress(_operatorId, "operator");
+        vm.assume(_level > 0);
 
+        achievementContract.helper_setLevel(_receiver, _level - 1);
         achievementContract.helper_grantRole(OPERATOR_ROLE, operator);
         vm.deal(_caller, 1 ether);
 
@@ -94,14 +128,16 @@ abstract contract Suite_RubyAchievement is Storage_RubyAchievement {
 
         assertEq(balanceAfter, balanceBefore);
         assertEq(achievementContract.userNonce(_receiver), 0);
-        assertEq(achievementContract.userClaims(_receiver, _level), 0);
+        assertEq(achievementContract.userLevels(_receiver), _level - 1);
     }
 
     function test_claimAchievement_RevertIfPaymentIsNotEnough(address _receiver, uint256 _level, address _caller, uint256 _payment, uint32 _operatorId) public {
         vm.assume(_payment < achievementContract.price());
+        vm.assume(_level > 0);
 
         (uint256 operatorPk, address operator) = generateAddress(_operatorId, "operator");
 
+        achievementContract.helper_setLevel(_receiver, _level - 1);
         achievementContract.helper_grantRole(OPERATOR_ROLE, operator);
         vm.deal(_caller, 1 ether);
 
@@ -121,14 +157,16 @@ abstract contract Suite_RubyAchievement is Storage_RubyAchievement {
 
         assertEq(balanceAfter, balanceBefore);
         assertEq(achievementContract.userNonce(_receiver), 0);
-        assertEq(achievementContract.userClaims(_receiver, _level), 0);
+        assertEq(achievementContract.userLevels(_receiver), _level - 1);
     }
 
     function test_claimAchievement_RevertIfSignerIsNotAnOperator(address _receiver, uint256 _level, address _caller, uint32 _anonymousId) public {
         (uint256 anonymousPk, address anonymous_) = generateAddress(_anonymousId, "anonymous");
+        vm.assume(_level > 0);
 
         vm.deal(_caller, 1 ether);
 
+        achievementContract.helper_setLevel(_receiver, _level - 1);
         bytes32 digest = achievementContract.generateNextClaimDigest(_receiver, _level);
         bytes memory signature = helper_sign(anonymousPk, digest);
 
@@ -146,7 +184,7 @@ abstract contract Suite_RubyAchievement is Storage_RubyAchievement {
 
         assertEq(balanceAfter, balanceBefore);
         assertEq(achievementContract.userNonce(_receiver), 0);
-        assertEq(achievementContract.userClaims(_receiver, _level), 0);
+        assertEq(achievementContract.userLevels(_receiver), _level - 1);
     }
 
     function test_withdraw_Ok_ERC20asset(address payable _receiver, address _asset, uint256 _amount, uint32 _adminPrivateKeyIndex) public {

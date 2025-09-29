@@ -4,93 +4,103 @@ This repo will have a code of Rubyscore Smart Contracts.
 
 ## Deployed Contract Addresses
 
-### Contracts
-
-#### Optimism
-
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement | 0xB9cC0Bb020cF55197C4C3d826AC87CAdba51f272 | 0xc35C6497D6eDEf0D288236Ca5aDf63299e3AAD3b   |
-| Rubyscore_Vote | 0x009dbfee9e155766af434ed1652ca3769b05e76f | 0x81C55bbA5d5D05a0C02f4B561B560194f34a6D07                        |
+### Individual chain contracts
 
 #### Linea
 
-| Name | Mainnet  | Testnet                                    |
-| ---- |----------|--------------------------------------------|
-| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b3 |
-| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                                            |
-|RubyScoreVeraxPortal|0xB9cC0Bb020cF55197C4C3d826AC87CAdba51f272|                                            |
-|RubyscoreSignCheckModule|0xEAcf8B19E104803cfCD2557D893D6a407E4994F0|                                            |
-
-#### Base
-
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x0A1B739ea1230dB33B7F6dce9f77Fcc0901a49f0   |
-| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                         |
-
-#### zkEVM
-
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4   |
-| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                         |
-
-#### Scroll
-
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x81C55bbA5d5D05a0C02f4B561B560194f34a6D07   |
-| Rubyscore_Vote | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 |                         |
-
-#### Manta
-
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b |    |
-| Rubyscore_Vote | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |                         |
-
-#### Zora
-
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4   |
-| Rubyscore_Vote | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                         |
-
-#### Morph
-
-| Name                   | Mainnet  | Testnet                                    |
-|------------------------|----------|--------------------------------------------|
-| Rubyscore_Achievement  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                                            |
-| Rubyscore_Vote         | 0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
-
-#### Soneium
-
 | Name                     | Mainnet                                    | Testnet |
 |--------------------------|--------------------------------------------|---------|
-| Rubyscore_Soneium_Badges | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |         |
-| Rubyscore_Soneium_Id     | 0x4E44211aFe692a4fea11344a2a5827a06aFa573f |         |
-| Rubyscore_Vote           | 0xb0F3b3553cE518339c1B5807A392ae904fB658Ec | 0xDC3D8318Fbaec2de49281843f5bba22e78338146     |
-
-#### Zora
-
-| Name | Mainnet  | Testnet                                              |
-| ---- |----------|------------------------------------------------------|
-| Rubyscore_Achievement | 0xbDB018e21AD1e5756853fe008793a474d329991b | 0x2A1000293467a221F5d4cA98F4b7912c4c9c22b4  |
-| Rubyscore_Vote | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |                         |
-
-#### Morph
-
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xc35C6497D6eDEf0D288236Ca5aDf63299e3AAD3b   |
-| Rubyscore_Vote | 0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB | 0x81C55bbA5d5D05a0C02f4B561B560194f34a6D07                        |
+| RubyScoreVeraxPortal     | 0xB9cC0Bb020cF55197C4C3d826AC87CAdba51f272 |         |
+| RubyscoreSignCheckModule | 0xEAcf8B19E104803cfCD2557D893D6a407E4994F0 |         |
 
 #### Somnia
 
-| Name | Mainnet  | Testnet                                               |
-| ---- |----------|-------------------------------------------------------|
-| Rubyscore_Achievement |  | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896   |
+| Name         | Mainnet                                    | Testnet |
+|--------------|--------------------------------------------|---------|
+| Rubyscore_Id | 0x1B723fe70CBc01eaad304cE6733B70F8F988c21e |         |
+
+#### Soneiun
+
+| Name            | Mainnet                                    | Testnet |
+|-----------------|--------------------------------------------|---------|
+| Rubyscore_Badge | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |         |
+| Rubyscore_Id    | 0x4E44211aFe692a4fea11344a2a5827a06aFa573f |         |
+
+### Vote and achievement contracts
+
+#### Mainnets
+
+| Name          | Rubyscore_Vote                             | Rubyscore_Achievement                      |
+|---------------|--------------------------------------------|--------------------------------------------|
+| Optimism      | 0x4C36Af9311D453D663454363397C1cE09439A467 | 0xB9cC0Bb020cF55197C4C3d826AC87CAdba51f272 |
+| Base          | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 | 0xbDB018e21AD1e5756853fe008793a474d329991b |
+| zkEVM         | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |
+| Scroll        | 0xe10Add2ad591A7AC3CA46788a06290De017b9fB4 | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Manta         | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 | 0xbdb018e21ad1e5756853fe008793a474d329991b |
+| Zora          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xbDB018e21AD1e5756853fe008793a474d329991b |
+| Morph         | 0x4D1E2145082d0AB0fDa4a973dC4887C7295e21aB | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| Soneium       | 0xb0F3b3553cE518339c1B5807A392ae904fB658Ec |   |
+| Somnia        | 0xa7dA3564F36c446e94c74F2Cf81342F0754C2572 | 0x9c89e169A5552b5ac8b79b2b4BFcCB18e846579d |
+| XRPL EVM      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xB9cC0Bb020cF55197C4C3d826AC87CAdba51f272 |
+| Arbitrum One  | 0x7c9AE25F52DfE6E31F004DB2907c9D70CD8535BE | 0x02E5AD03Ce77868B6Fe4E4DD78358229a9513040 |
+| B3            | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Ape Chain     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Ink           | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Unichain      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Redstone      | 0x483aC3C8F6C48737a3E524a086A32581Ad433D53 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Polygon       | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xfa31AB150782F086Ba93b7902E73B05DCBDe716b |
+| Swellchain    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Rari Chain    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Plume         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Story         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Vana          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Berachain     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| zkSync        | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x8A1142620CbdE2f2d63E88F35D0D76eAAce0AC9e |
+| Linea         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xbdb018e21ad1e5756853fe008793a474d329991b |
+| Taiko         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 |
+| BOB           | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Lisk          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| MetalL2       | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Mint          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Mode          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| RACE          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Shape         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Camp Network  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| HashKey       | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Superposition | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Celo          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| AppChain      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Gravity       | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| ZetaChain     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Hemi          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Avalanche     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Immutable     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x3d52d95D58fCb53814ea37d580601D2AF2B4CC98 |
+| TAC           | 0x009DBFEe9E155766AF434ED1652CA3769B05E76f | 0xF57Cb671D50535126694Ce5Cc3CeBe3F32794896 |
+| BOBA Network  | 0x009DBFEe9E155766AF434ED1652CA3769B05E76f | 0xf57cb671d50535126694ce5cc3cebe3f32794896 |
+| Arbitrum Nova | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Aurora        | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Mind Network  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Corn          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| B^2           | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Flare         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x3d52d95D58fCb53814ea37d580601D2AF2B4CC98 |
+| Reya          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Rootstock     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Shibarium     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Flow EVM      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| PulseChain    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0xEAcf8B19E104803cfCD2557D893D6a407E4994F0 |
+| Metis         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Katana        | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Polynomial    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+
+#### Testnets
+
+| Name   | Rubyscore_Vote                             | Rubyscore_Achievement                      |
+|--------|--------------------------------------------|--------------------------------------------|
+| Citrea | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| GIWA   | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Nexus  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+
+### Contracts
 
 ## Setting project
 
@@ -202,7 +212,8 @@ npm run coverage
 
 ### Gas reporter
 
-You can start the gas reporter either through a separate gas reporter script through "**npm run**" or by changing the variable in the config "**GAS_REPORTER.ENABLED**" when running tests
+You can start the gas reporter either through a separate gas reporter script through "**npm run**" or by changing the
+variable in the config "**GAS_REPORTER.ENABLED**" when running tests
 
 ```sh
 # Native gas reporter

@@ -18,8 +18,6 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
         vm.assertTrue(attestationContract.hasRole(DEFAULT_ADMIN_ROLE, admin));
         vm.assertTrue(attestationContract.hasRole(OPERATOR_ROLE, operator));
         vm.assertEq(attestationContract.attestationFee(), attestationFee);
-        vm.assertEq(toComparable(attestationContract.name()), toComparable("RubyScore ID Somnia"));
-        vm.assertEq(toComparable(attestationContract.symbol()), toComparable("TST"));
     }
 
     function test_TokenURI_Ok(address _user, uint256 _tokenId, string calldata _baseUri, string calldata _tokenUri)
@@ -117,6 +115,95 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
 
         vm.prank(_anonym);
         attestationContract.setBaseUri(_newBaseUri);
+    }
+
+    function test_Attest_Ok(
+        address _user,
+        address _operator
+    ) public {
+        vm.assume(_user != address(0));
+
+        attestationContract.helper_grantRole(OPERATOR_ROLE, _operator);
+
+        vm.expectEmit();
+        emit RubyscoreID.Attested(_user, 1);
+
+        vm.prank(_operator);
+        attestationContract.attest(_user);
+
+        vm.assertEq(attestationContract.balanceOf(_user), 1);
+
+        vm.assertEq(attestationContract.tokenCounter(), 1);
+    }
+
+    function test_Attest_RevertIfCallerIsNotAnOperator(
+        address _user,
+        address _anonym
+    ) public {
+        vm.assume(_user != address(0));
+
+        vm.expectRevert(
+            abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, _anonym, OPERATOR_ROLE)
+        );
+
+        vm.prank(_anonym);
+        attestationContract.attest(_user);
+
+        vm.assertEq(attestationContract.balanceOf(_user), 0);
+
+        vm.assertEq(attestationContract.tokenCounter(), 0);
+    }
+
+    mapping(address => bool) public usersCounter;
+    function test_AttestBatch_Ok(
+        address[] calldata _users,
+        address _operator
+    ) public {
+        attestationContract.helper_grantRole(OPERATOR_ROLE, _operator);
+
+        uint256 uniqueCounter = 0;
+
+        for (uint256 i = 0; i < _users.length; i++) {
+            if (!usersCounter[_users[i]]) {
+                vm.assume(_users[i] != address(0));
+                uniqueCounter += 1;
+                usersCounter[_users[i]] = true;
+
+                vm.expectEmit();
+                emit RubyscoreID.Attested(_users[i], uniqueCounter);
+            }
+        }
+
+        vm.prank(_operator);
+        attestationContract.attestBatch(_users);
+
+        for (uint256 i = 0; i < _users.length; i++) {
+            vm.assertEq(attestationContract.balanceOf(_users[i]), 1);
+        }
+
+        vm.assertEq(attestationContract.tokenCounter(), uniqueCounter);
+    }
+
+    function test_Attest_RevertIfCallerIsNotAnOperator(
+        address[] calldata _users,
+        address _anonym
+    ) public {
+        for (uint256 i = 0; i < _users.length; i++) {
+            vm.assume(_users[i] != address(0));
+        }
+
+        vm.expectRevert(
+            abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, _anonym, OPERATOR_ROLE)
+        );
+
+        vm.prank(_anonym);
+        attestationContract.attestBatch(_users);
+
+        for (uint256 i = 0; i < _users.length; i++) {
+            vm.assertEq(attestationContract.balanceOf(_users[i]), 0);
+        }
+
+        vm.assertEq(attestationContract.tokenCounter(), 0);
     }
 
     function test_SetTokenUri_Ok(
@@ -247,6 +334,7 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
     {
         assumeUnusedAddress(_user);
         assumeUnusedAddress(_invalidUser);
+        vm.assume(_user != _invalidUser);
 
         (uint256 operatorPK, address operator) = generateWallet(_operatorIndex, "Operator");
 
