@@ -68,6 +68,10 @@ contract Rubyscore_Achievement_v2 is
         _withdraw(_receiver, _asset, _amount);
     }
 
+    function withdrawAllEth() external onlyRole(DEFAULT_ADMIN_ROLE) {
+        _withdraw(payable(msg.sender), address(0), address(this).balance);
+    }
+
     function _generateClaimDigest(address _receiver, uint256 _level, uint256 _nonce) internal view returns (bytes32) {
         require(userLevels[_receiver] <= _level, "Already claimed");
         return _hashTypedDataV4(
