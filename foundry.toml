@@ -111,6 +111,8 @@ iota = "https://rpc.ankr.com/iota_evm"
 neon = "https://neon-evm.drpc.org"
 pulse = "https://rpc.pulsechain.com"
 openledger = "https://rpc.openledger.xyz"
+forta = "https://rpc-forta-chain-8gj1qndmfc.t.conduit.xyz"
+plasma = "https://rpc.plasma.to"
 
 #Testnets
 basecamp = "https://rpc-campnetwork.xyz"
@@ -222,6 +224,8 @@ lens = { key = "anything", chain = 232 }
 metis = { key = "anything", chain = 1088, url="https://andromeda-explorer.metis.io/api" }
 botanix = { key = "anything", chain = 3637 }
 openledger = { key = "anything", chain = 1612, url="https://scan.openledger.xyz/api" }
+forta = { key = "anything", chain = 80931 }
+palsma = { key = "anything", chain = 9745 }
 
 #Testnets
 basecamp = { key = "any", chain = 123420001114, url="https://camp-network-testnet.blockscout.com/api" }
