@@ -288,4 +288,43 @@ abstract contract Suite_RubyAchievement is Storage_RubyAchievement {
 
         vm.assertEq(achievementContract.price(), oldPrice);
     }
+
+    function test_withdrawAllEth_Ok(uint256 _amount, uint32 _adminPrivateKeyIndex) public {
+        deal(address(achievementContract), _amount);
+        (, address admin) = generateAddress(_adminPrivateKeyIndex, "admin");
+        achievementContract.helper_grantRole(DEFAULT_ADMIN_ROLE, admin);
+
+        uint256 contractBalanceBefore = address(achievementContract).balance;
+        uint256 adminBalanceBefore = admin.balance;
+
+        vm.expectEmit();
+        emit Rubyscore_Achievement_v2.Withdrew(admin, address(0), contractBalanceBefore);
+
+        vm.prank(admin);
+        achievementContract.withdrawAllEth();
+
+        uint256 contractBalanceAfter = address(achievementContract).balance;
+        uint256 adminBalanceAfter = admin.balance;
+
+        assertEq(contractBalanceAfter, 0);
+        assertEq(adminBalanceAfter, adminBalanceBefore + _amount);
+    }
+
+    function test_withdrawAllEth_RevertIfNotAnAdmin(uint256 _amount, uint32 _anonymousPrivateKeyIndex) public {
+        deal(address(achievementContract), _amount);
+        (, address anonymousAddress) = generateAddress(_anonymousPrivateKeyIndex, "anonymous");
+
+        uint256 contractBalanceBefore = address(achievementContract).balance;
+        uint256 senderBalanceBefore = anonymousAddress.balance;
+
+        expectUnauthorizedAccount(anonymousAddress, DEFAULT_ADMIN_ROLE);
+        vm.prank(anonymousAddress);
+        achievementContract.withdrawAllEth();
+
+        uint256 contractBalanceAfter = address(achievementContract).balance;
+        uint256 senderBalanceAfter = anonymousAddress.balance;
+
+        assertEq(contractBalanceAfter, contractBalanceBefore);
+        assertEq(senderBalanceAfter, senderBalanceBefore);
+    }
 }
