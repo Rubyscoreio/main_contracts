@@ -94,6 +94,11 @@ This repo will have a code of Rubyscore Smart Contracts.
 | Botanix       | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 | Plasma        | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 | Openledger    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Abstract      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Bnb           | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Moonbeam      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Moonriver     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Worldchain    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 
 #### Testnets
 
