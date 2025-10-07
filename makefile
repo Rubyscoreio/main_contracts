@@ -14,8 +14,8 @@ deployVoteAndV2Achievements:
 	--etherscan-api-key ${ETHERSCAN_API_KEY} \
 # 	--broadcast \
 # 	--verify \
-# 	--with-gas-price 500000000000 \
-# 	--priority-gas-price 500000000000 \
+# 	--with-gas-price 0.01gwei \
+# 	--priority-gas-price 0.01gwei \
 
 deployV2Achievements:
 	forge script scripts/DeployGeneralContracts.s.sol:DeployGeneralContractsScript \
@@ -26,8 +26,8 @@ deployV2Achievements:
 	--etherscan-api-key ${BASESCAN_API_KEY} \
 # 	--broadcast \
 # 	--verify \
-# 	--with-gas-price 100000000 \
-# 	--priority-gas-price 100000000 \
+# 	--with-gas-price 0.01gwei \
+# 	--priority-gas-price 0.01gwei \
 
 deployBasicVote:
 	forge script scripts/DeployGeneralContracts.s.sol:DeployGeneralContractsScript \
@@ -38,8 +38,8 @@ deployBasicVote:
 	--etherscan-api-key ${ETHERSCAN_API_KEY} \
 # 	--broadcast \
 # 	--verify \
-# 	--with-gas-price 100000000 \
-# 	--priority-gas-price 100000000 \
+# 	--with-gas-price 0.01gwei \
+# 	--priority-gas-price 0.01gwei \
 
 deploySoneiumBadge:
 	forge script scripts/DeployRubyscoreSoneiumContracts.s.sol:DeployRubyscoreSoneiumContractsScript \

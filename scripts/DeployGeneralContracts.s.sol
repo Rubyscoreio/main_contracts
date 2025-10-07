@@ -15,7 +15,7 @@ contract DeployGeneralContractsScript is Script {
     address public constant OPERATOR = 0x381c031bAA5995D0Cc52386508050Ac947780815;
     address public constant MINTER = 0x381c031bAA5995D0Cc52386508050Ac947780815;
 
-    uint256 public constant ACHIEVEMENTS_PRICE = 1_000_000_000_000_000_000;
+    uint256 public constant ACHIEVEMENTS_PRICE = 0.0003e18;
 
     function deployVoteAndV2Achievements(string calldata network) public {
         deployVote(network);
