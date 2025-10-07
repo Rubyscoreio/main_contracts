@@ -4,7 +4,8 @@ out = 'out'
 libs = ['node_modules', 'lib']
 test = 'tests-forge'
 cache_path  = 'cache_forge'
-evm_version = 'london'
+optimizer = true
+optimizer_runs = 200
 
 [rpc_endpoints]
 #Mainnets
@@ -50,7 +51,7 @@ swellchain = "https://rpc.ankr.com/swell"
 tac = "https://rpc.tac.build"
 unichain = "https://unichain-rpc.publicnode.com"
 vana = "https://rpc.vana.org"
-worldChain = "https://worldchain.drpc.org"
+worldChain = "https://sparkling-autumn-dinghy.worldchain-mainnet.quiknode.pro"
 xrpl = "https://rpc.xrplevm.org/"
 zetaChain = "https://zeta-chain.drpc.org"
 
@@ -60,7 +61,7 @@ katana = "https://rpc.katana.network"
 xai = "https://rpc.ankr.com/xai"
 corn = "https://mainnet.corn-rpc.com"
 gnosis_chain = "https://erpc.gnosis.shutter.network/"
-moonbeam = "https://moonbeam.drpc.org"
+moonbeam = "https://1rpc.io/glmr"
 core = "https://rpc.test2.btcs.network"
 movement = "https://full.mainnet.movementinfra.xyz/v1"
 fraxtal = "https://rpc.frax.com/"
