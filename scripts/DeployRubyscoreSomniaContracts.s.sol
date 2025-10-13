@@ -8,6 +8,7 @@ import {RubyscoreVote} from "contracts-forge/base/RubyscoreVote.sol";
 import {Rubyscore_Achievement} from "contracts/Rubyscore_Achievement.sol";
 import {Rubyscore_Somnia_ID} from "contracts-forge/chains_custom/somnia/Rubyscore_Somnia_ID.sol";
 import {SafeSingletonDeployer} from "./helpers/SafeSingletonDeployer.sol";
+import {RubyscoreVoteV2} from "../contracts-forge/base/RubyscoreVote.v2.sol";
 
 contract DeployRubyscoreSomniaContractsScript is Script {
     address public constant ADMIN = 0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361;
@@ -18,6 +19,9 @@ contract DeployRubyscoreSomniaContractsScript is Script {
     string public constant ACHIEVEMENT_SYMBOL = "RubyScore Reputation Boxes: Somnia";
     uint256 public constant ACHIEVEMENT_PRICE = 1e18;
     string public constant ACHIEVEMENT_BASE_URI = "ipfs://bafybeiecqknzppl3hhmvuo4d7uejht6cy5ztaqmwaj2pvhbx7xvrfloswa/";
+
+    uint256 public constant VOTE_PRICE = 1e18;
+    uint256 public constant VOTE_INITIAL_COUNTER = 0;
 
     string public constant ID_NAME = "RubyScore ID: Somnia";
     string public constant ID_SYMBOL = "RubyScore ID: Somnia";
@@ -106,5 +110,13 @@ contract DeployRubyscoreSomniaContractsScript is Script {
 
         vm.broadcast(deployerPrivateKey);
         RubyscoreVote voteContract = new RubyscoreVote();
+    }
+
+    function deployVoteV2(string calldata network) external {
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
+        vm.createSelectFork(network);
+
+        vm.broadcast(deployerPrivateKey);
+        RubyscoreVoteV2 voteContract = new RubyscoreVoteV2(ADMIN, VOTE_PRICE, VOTE_INITIAL_COUNTER);
     }
 }
