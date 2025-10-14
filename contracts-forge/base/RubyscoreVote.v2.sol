@@ -13,13 +13,14 @@ contract RubyscoreVoteV2 is Ownable {
 
     event Voted(address indexed voter);
     event PriceUpdated(uint256 indexed newPrice);
+    event VotesCounterUpdated(uint256 indexed newValue);
     event Withdrew(address indexed receiver, address indexed asset, uint256 amount);
 
     error InsufficientPayment(uint256 expected, uint256 received);
 
     constructor(address _admin, uint256 _price, uint256 _initialCounter) Ownable(_admin) {
-        price = _price;
-        voteCounter = _initialCounter;
+        _setPrice(_price);
+        _setVotesCounter(_initialCounter);
     }
 
     function vote() external payable {
@@ -31,7 +32,7 @@ contract RubyscoreVoteV2 is Ownable {
     }
 
     function setVoteCounter(uint256 _newVoteCounter) external onlyOwner {
-        voteCounter = _newVoteCounter;
+        _setVotesCounter(_newVoteCounter);
     }
 
     function setPrice(uint256 _newPrice) external onlyOwner {
@@ -50,6 +51,12 @@ contract RubyscoreVoteV2 is Ownable {
         price = _newPrice;
 
         emit PriceUpdated(_newPrice);
+    }
+
+    function _setVotesCounter(uint256 _newValue) internal {
+        voteCounter = _newValue;
+
+        emit VotesCounterUpdated(_newValue);
     }
 
     function _withdraw(address payable _receiver, address _asset, uint256 _amount) internal {
