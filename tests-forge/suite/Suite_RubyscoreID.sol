@@ -141,6 +141,7 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
         address _anonym
     ) public {
         vm.assume(_user != address(0));
+        vm.assume(_anonym != operator);
 
         vm.expectRevert(
             abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, _anonym, OPERATOR_ROLE)
@@ -184,10 +185,11 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
         vm.assertEq(attestationContract.tokenCounter(), uniqueCounter);
     }
 
-    function test_Attest_RevertIfCallerIsNotAnOperator(
+    function test_AttestBatch_RevertIfCallerIsNotAnOperator(
         address[] calldata _users,
         address _anonym
     ) public {
+        vm.assume(_anonym != operator);
         for (uint256 i = 0; i < _users.length; i++) {
             vm.assume(_users[i] != address(0));
         }
