@@ -39,7 +39,6 @@ contract DeployRubyscoreSomniaContractsScript is Script {
         address operator = vm.addr(operatorPrivateKey);
 
         vm.broadcast(deployerPrivateKey);
-        Rubyscore_Achievement badgesContract = Rubyscore_Achievement(0x9c89e169A5552b5ac8b79b2b4BFcCB18e846579d);
         Rubyscore_Achievement badgesContract = new Rubyscore_Achievement(
             ADMIN,
             OPERATOR,

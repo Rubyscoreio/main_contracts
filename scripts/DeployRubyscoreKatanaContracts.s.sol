@@ -9,19 +9,18 @@ import {Rubyscore_Achievement} from "contracts/Rubyscore_Achievement.sol";
 import {Rubyscore_Katana_ID} from "contracts-forge/chains_custom/katana/Rubyscore_Katana_ID.sol";
 import {SafeSingletonDeployer} from "./helpers/SafeSingletonDeployer.sol";
 import {RubyscoreVoteV2} from "contracts-forge/base/RubyscoreVote.v2.sol";
+import {Rubyscore_Katana_Badges} from "../contracts-forge/chains_custom/katana/Rubyscore_Katana_Badges.sol";
 
 contract DeployRubyscoreKatanaContractsScript is Script {
     address public constant ADMIN = 0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361;
     address public constant OPERATOR = 0x381c031bAA5995D0Cc52386508050Ac947780815;
     address public constant MINTER = 0x381c031bAA5995D0Cc52386508050Ac947780815;
 
-    string public constant ACHIEVEMENT_NAME = "RubyScore Reputation Boxes: Katana";
-    string public constant ACHIEVEMENT_SYMBOL = "RubyScore Reputation Boxes: Katana";
-    uint256 public constant ACHIEVEMENT_PRICE = 1e18;
-    string public constant ACHIEVEMENT_BASE_URI = "ipfs://bafybeiecqknzppl3hhmvuo4d7uejht6cy5ztaqmwaj2pvhbx7xvrfloswa/";
-
     uint256 public constant VOTE_PRICE = 0.000005e18;
     uint256 public constant VOTE_INITIAL_COUNTER = 0e6;
+
+    uint256 public constant BADGE_PRICE = 300_000_000_000_000;
+    string public constant BADGE_BASE_URI = "ipfs://";
 
     string public constant ID_NAME = "RubyScore ID: Katana";
     string public constant ID_SYMBOL = "RubyScore ID: Katana";
@@ -30,7 +29,7 @@ contract DeployRubyscoreKatanaContractsScript is Script {
     uint256[] public tokenIds;
     string[] public tokenUris;
 
-    function deployAchievements(string calldata network) external {
+    function deployBadge(string calldata network) external {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
         uint256 operatorPrivateKey = vm.envUint("OPERATOR_KEY");
         vm.createSelectFork(network);
@@ -39,18 +38,15 @@ contract DeployRubyscoreKatanaContractsScript is Script {
         address operator = vm.addr(operatorPrivateKey);
 
         vm.broadcast(deployerPrivateKey);
-        Rubyscore_Achievement badgesContract = Rubyscore_Achievement(0x9c89e169A5552b5ac8b79b2b4BFcCB18e846579d);
-        Rubyscore_Achievement badgesContract = new Rubyscore_Achievement(
+        Rubyscore_Katana_Badges badgesContract = new Rubyscore_Katana_Badges(
             ADMIN,
             OPERATOR,
             MINTER,
-            ACHIEVEMENT_BASE_URI,
-            ACHIEVEMENT_NAME,
-            ACHIEVEMENT_SYMBOL
+            BADGE_BASE_URI
         );
 
         vm.broadcast(deployerPrivateKey);
-        badgesContract.setPrice(3e18);
+        badgesContract.setPrice(BADGE_PRICE);
 
         tokenIds.push(1);
         tokenIds.push(2);
@@ -62,6 +58,7 @@ contract DeployRubyscoreKatanaContractsScript is Script {
         tokenIds.push(8);
         tokenIds.push(9);
         tokenIds.push(10);
+        tokenIds.push(11);
 
         tokenUris.push("1.json");
         tokenUris.push("2.json");
@@ -73,6 +70,7 @@ contract DeployRubyscoreKatanaContractsScript is Script {
         tokenUris.push("8.json");
         tokenUris.push("9.json");
         tokenUris.push("10.json");
+        tokenUris.push("11.json");
 
         vm.broadcast(operatorPrivateKey);
         badgesContract.setBatchTokenURI(tokenIds, tokenUris);
