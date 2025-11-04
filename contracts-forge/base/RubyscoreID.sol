@@ -119,6 +119,10 @@ abstract contract RubyscoreID is
         _withdraw(payable(_receiver), _asset);
     }
 
+    function withdrawAllEth() external onlyRole(DEFAULT_ADMIN_ROLE) {
+        _withdraw(payable(msg.sender), Asset(address(0), address(this).balance));
+    }
+
     function supportsInterface(bytes4 interfaceId)
         public
         view
