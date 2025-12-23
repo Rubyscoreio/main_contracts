@@ -45,10 +45,13 @@ contract DeployGeneralContractsScript is Script {
         Rubyscore_Achievement_v2 achievementContract = new Rubyscore_Achievement_v2();
 
         vm.broadcast(deployerPrivateKey);
-        ERC1967Proxy proxy = new ERC1967Proxy(address(achievementContract), "");
-
-        vm.broadcast(deployerPrivateKey);
-        Rubyscore_Achievement_v2(payable(proxy)).initialize(ADMIN, OPERATOR, ACHIEVEMENTS_PRICE);
+        ERC1967Proxy proxy = new ERC1967Proxy(
+            address(achievementContract),
+            abi.encodeWithSelector(
+                Rubyscore_Achievement_v2.initialize.selector,
+                ADMIN, OPERATOR, ACHIEVEMENTS_PRICE
+            )
+        );
     }
 
     function deployV2AchievementsSSD(string calldata network) public {
