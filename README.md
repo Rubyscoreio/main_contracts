@@ -15,9 +15,10 @@ This repo will have a code of Rubyscore Smart Contracts.
 
 #### Somnia
 
-| Name         | Mainnet                                    | Testnet |
-|--------------|--------------------------------------------|---------|
-| Rubyscore_Id | 0x1B723fe70CBc01eaad304cE6733B70F8F988c21e |         |
+| Name            | Mainnet                                    | Testnet |
+|-----------------|--------------------------------------------|---------|
+| Rubyscore_Id    | 0x1B723fe70CBc01eaad304cE6733B70F8F988c21e |         |
+| RubyscoreVoteV2 | 0x6cf740D3145b71F705A9745A35b9C91f8B4F7DDF |         |
 
 #### Soneiun
 
@@ -99,6 +100,23 @@ This repo will have a code of Rubyscore Smart Contracts.
 | Moonbeam      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 | Moonriver     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 | Worldchain    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Astar         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Beam          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Fuse          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Gnosis        | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Mitosis       | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Sonic         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Superseed     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Etherlink     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Gnosis        | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Ancient8      | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x3d52d95D58fCb53814ea37d580601D2AF2B4CC98 |
+| Beam          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Fuse          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Astar         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Injective     | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x3d52d95D58fCb53814ea37d580601D2AF2B4CC98 |
+| Monad         | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Doma          | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Stable        | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x3d52d95D58fCb53814ea37d580601D2AF2B4CC98 |
 
 #### Testnets
 
@@ -107,6 +125,7 @@ This repo will have a code of Rubyscore Smart Contracts.
 | Citrea | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 | GIWA   | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 | Nexus  | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
+| Arc    | 0xDC3D8318Fbaec2de49281843f5bba22e78338146 | 0x009dbfee9e155766af434ed1652ca3769b05e76f |
 
 ### Contracts
 

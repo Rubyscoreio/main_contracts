@@ -4,33 +4,34 @@ pragma solidity ^0.8.24;
 import "lib/forge-std/src/Script.sol";
 import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
+import "contracts-forge/base/modules/WithdrawingModule.sol";
 import {RubyscoreVote} from "contracts-forge/base/RubyscoreVote.sol";
 import {Rubyscore_Achievement} from "contracts/Rubyscore_Achievement.sol";
-import {Rubyscore_Somnia_ID} from "contracts-forge/chains_custom/somnia/Rubyscore_Somnia_ID.sol";
+import {Rubyscore_Katana_ID} from "contracts-forge/chains_custom/katana/Rubyscore_Katana_ID.sol";
 import {SafeSingletonDeployer} from "./helpers/SafeSingletonDeployer.sol";
 import {RubyscoreVoteV2} from "contracts-forge/base/RubyscoreVote.v2.sol";
+import {DailyCheck} from "contracts-forge/chains_custom/katana/DailyCheck.sol";
+import {Rubyscore_Katana_Badges} from "../contracts-forge/chains_custom/katana/Rubyscore_Katana_Badges.sol";
 
-contract DeployRubyscoreSomniaContractsScript is Script {
+contract DeployRubyscoreKatanaContractsScript is Script {
     address public constant ADMIN = 0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361;
     address public constant OPERATOR = 0x381c031bAA5995D0Cc52386508050Ac947780815;
     address public constant MINTER = 0x381c031bAA5995D0Cc52386508050Ac947780815;
 
-    string public constant ACHIEVEMENT_NAME = "RubyScore Reputation Boxes: Somnia";
-    string public constant ACHIEVEMENT_SYMBOL = "RubyScore Reputation Boxes: Somnia";
-    uint256 public constant ACHIEVEMENT_PRICE = 1e18;
-    string public constant ACHIEVEMENT_BASE_URI = "ipfs://bafybeiecqknzppl3hhmvuo4d7uejht6cy5ztaqmwaj2pvhbx7xvrfloswa/";
-
     uint256 public constant VOTE_PRICE = 0.000005e18;
-    uint256 public constant VOTE_INITIAL_COUNTER = 11e6;
+    uint256 public constant VOTE_INITIAL_COUNTER = 0e6;
 
-    string public constant ID_NAME = "RubyScore ID: Somnia";
-    string public constant ID_SYMBOL = "RubyScore ID: Somnia";
+    uint256 public constant BADGE_PRICE = 300_000_000_000_000;
+    string public constant BADGE_BASE_URI = "ipfs://";
+
+    string public constant ID_NAME = "RubyScore ID: Katana";
+    string public constant ID_SYMBOL = "RubyScore ID: Katana";
     uint256 public constant ID_FEE = 1_500_000_000_000_000;
 
     uint256[] public tokenIds;
     string[] public tokenUris;
 
-    function deployAchievements(string calldata network) external {
+    function deployBadge(string calldata network) external {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
         uint256 operatorPrivateKey = vm.envUint("OPERATOR_KEY");
         vm.createSelectFork(network);
@@ -39,17 +40,15 @@ contract DeployRubyscoreSomniaContractsScript is Script {
         address operator = vm.addr(operatorPrivateKey);
 
         vm.broadcast(deployerPrivateKey);
-        Rubyscore_Achievement badgesContract = new Rubyscore_Achievement(
+        Rubyscore_Katana_Badges badgesContract = new Rubyscore_Katana_Badges(
             ADMIN,
             OPERATOR,
             MINTER,
-            ACHIEVEMENT_BASE_URI,
-            ACHIEVEMENT_NAME,
-            ACHIEVEMENT_SYMBOL
+            BADGE_BASE_URI
         );
 
         vm.broadcast(deployerPrivateKey);
-        badgesContract.setPrice(3e18);
+        badgesContract.setPrice(BADGE_PRICE);
 
         tokenIds.push(1);
         tokenIds.push(2);
@@ -61,6 +60,7 @@ contract DeployRubyscoreSomniaContractsScript is Script {
         tokenIds.push(8);
         tokenIds.push(9);
         tokenIds.push(10);
+        tokenIds.push(11);
 
         tokenUris.push("1.json");
         tokenUris.push("2.json");
@@ -72,6 +72,7 @@ contract DeployRubyscoreSomniaContractsScript is Script {
         tokenUris.push("8.json");
         tokenUris.push("9.json");
         tokenUris.push("10.json");
+        tokenUris.push("11.json");
 
         vm.broadcast(operatorPrivateKey);
         badgesContract.setBatchTokenURI(tokenIds, tokenUris);
@@ -83,11 +84,14 @@ contract DeployRubyscoreSomniaContractsScript is Script {
     function deployId(string calldata network) external {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
         address deployer = vm.addr(deployerPrivateKey);
+        address operator = vm.addr(operatorPrivateKey);
+
+        assert(operator == OPERATOR);
 
         vm.createSelectFork(network);
 
         vm.broadcast(deployerPrivateKey);
-        Rubyscore_Somnia_ID implementation = new Rubyscore_Somnia_ID();
+        Rubyscore_Katana_ID implementation = new Rubyscore_Katana_ID();
 
         require(address(implementation).code.length > 0, "implementation not deployed");
 
@@ -97,7 +101,12 @@ contract DeployRubyscoreSomniaContractsScript is Script {
         require(address(proxy).code.length > 0, "proxy not deployed");
 
         vm.broadcast(deployerPrivateKey);
-        Rubyscore_Somnia_ID(address(proxy)).initialize(ID_NAME, ID_SYMBOL, ADMIN, OPERATOR, ID_FEE);
+        Rubyscore_Katana_ID(address(proxy)).initialize(ID_NAME, ID_SYMBOL, ADMIN, OPERATOR, ID_FEE);
+
+        vm.broadcast(operatorPrivateKey);
+        Rubyscore_Katana_ID(address(proxy)).setBaseUri(ID_BASE_URI);
+        vm.broadcast(operatorPrivateKey);
+        Rubyscore_Katana_ID(address(proxy)).setTokenUri('rubyId.json');
     }
 
     function deployVote(string calldata network) external {
@@ -108,12 +117,43 @@ contract DeployRubyscoreSomniaContractsScript is Script {
         RubyscoreVote voteContract = new RubyscoreVote();
     }
 
+    function custom(string calldata network) external {
+        uint256 operatorPrivateKey = vm.envUint("OPERATOR_KEY");
+        vm.createSelectFork(network);
+
+        Rubyscore_Katana_ID impl = new Rubyscore_Katana_ID();
+//
+        Rubyscore_Katana_ID proxy = Rubyscore_Katana_ID(0x09B18EFC623bf4a6247B23320920C3044a45cC2c);
+
+//        vm.broadcast(operatorPrivateKey);
+//        proxy.upgradeToAndCall(address(impl), '');
+////            abi.encodeWithSelector(0xde8eb0b1, address(impl)));
+//        proxy.Ox28493565(address(impl));
+        (bool success, bytes memory data) = address(proxy).call{value: 0, gas: 50000}(abi.encodeWithSignature("upgradeToAndCall(address,bytes)", impl, ''));
+
+        proxy.hasRole(0x00, 0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361);
+        proxy.hasRole(0x00, 0x85F9f43A7076ab48225d9b3DFDA969667a4b149d);
+
+        vm.prank(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361);
+        proxy.revokeRole(0x00, 0x85F9f43A7076ab48225d9b3DFDA969667a4b149d);
+
+        uint256 balance = address(proxy).balance;
+
+        console.log(address(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361).balance);
+
+        vm.prank(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361);
+        proxy.withdraw(ADMIN, Asset(address(0), balance));
+//        proxy.withdrawAllEth();
+
+        console.log(address(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361).balance);
+    }
+
     function deployVoteV2(string calldata network) external {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
         address deployer = vm.addr(deployerPrivateKey);
         vm.createSelectFork(network);
 
         vm.broadcast(deployerPrivateKey);
-        RubyscoreVoteV2 voteContract = new RubyscoreVoteV2(deployer, VOTE_PRICE, VOTE_INITIAL_COUNTER);
+        DailyCheck voteContract = new DailyCheck(ADMIN, VOTE_PRICE, VOTE_INITIAL_COUNTER);
     }
 }

@@ -9,11 +9,15 @@ import {RubyscoreBadges} from "contracts-forge/base/RubyscoreBadges.sol";
 import {RubyscoreVote} from "contracts-forge/base/RubyscoreVote.sol";
 import {Rubyscore_Soneium_ID} from "contracts-forge/chains_custom/soneium/Rubyscore_Soneium_ID.sol";
 import {SafeSingletonDeployer} from "./helpers/SafeSingletonDeployer.sol";
+import {RubyscoreVoteV2} from "contracts-forge/base/RubyscoreVote.v2.sol";
 
 contract DeployGeneralContractsScript is Script {
     address public constant ADMIN = 0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361;
     address public constant OPERATOR = 0x381c031bAA5995D0Cc52386508050Ac947780815;
     address public constant MINTER = 0x381c031bAA5995D0Cc52386508050Ac947780815;
+
+    uint256 public constant VOTE_PRICE = 0.000005e18;
+    uint256 public constant VOTE_INITIAL_COUNTER = 0e6;
 
     uint256 public constant ACHIEVEMENTS_PRICE = 0.0003e18;
 
@@ -41,10 +45,13 @@ contract DeployGeneralContractsScript is Script {
         Rubyscore_Achievement_v2 achievementContract = new Rubyscore_Achievement_v2();
 
         vm.broadcast(deployerPrivateKey);
-        ERC1967Proxy proxy = new ERC1967Proxy(address(achievementContract), "");
-
-        vm.broadcast(deployerPrivateKey);
-        Rubyscore_Achievement_v2(payable(proxy)).initialize(ADMIN, OPERATOR, ACHIEVEMENTS_PRICE);
+        ERC1967Proxy proxy = new ERC1967Proxy(
+            address(achievementContract),
+            abi.encodeWithSelector(
+                Rubyscore_Achievement_v2.initialize.selector,
+                ADMIN, OPERATOR, ACHIEVEMENTS_PRICE
+            )
+        );
     }
 
     function deployV2AchievementsSSD(string calldata network) public {
@@ -71,5 +78,14 @@ contract DeployGeneralContractsScript is Script {
 
         vm.broadcast(deployerPrivateKey);
         Rubyscore_Achievement_v2(payable(proxy)).initialize(ADMIN, OPERATOR, ACHIEVEMENTS_PRICE);
+    }
+
+    function deployVoteV2(string calldata network) external {
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
+        address deployer = vm.addr(deployerPrivateKey);
+        vm.createSelectFork(network);
+
+        vm.broadcast(deployerPrivateKey);
+        RubyscoreVoteV2 voteContract = new RubyscoreVoteV2(ADMIN, VOTE_PRICE, VOTE_INITIAL_COUNTER);
     }
 }

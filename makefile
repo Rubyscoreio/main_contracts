@@ -35,6 +35,18 @@ deployBasicVote:
 	--sig "deployVote(string)" \
 	-vvvv \
     --verifier blockscout \
+    --etherscan-api-key ${ETHERSCAN_API_KEY} \
+#     --broadcast \
+#     --verify \
+# 	--with-gas-price 0.01gwei \
+# 	--priority-gas-price 0.01gwei \
+
+deployBasicVoteV2:
+	forge script scripts/DeployGeneralContracts.s.sol:DeployGeneralContractsScript \
+	$(chain) \
+	--sig "deployVoteV2(string)" \
+	-vvvv \
+    --verifier blockscout \
 	--etherscan-api-key ${ETHERSCAN_API_KEY} \
 # 	--broadcast \
 # 	--verify \
@@ -61,6 +73,33 @@ deploySoneiumId:
 
 deploySoneiumVote:
 	forge script scripts/DeployRubyscoreSoneiumContracts.s.sol:DeployRubyscoreSoneiumContractsScript \
+	$(chain) \
+	--sig "deployVote(string)" \
+	--via-ir \
+	-vvvv \
+# 	--broadcast \
+# 	--verify \
+
+deployKatanaBadge:
+	forge script scripts/DeployRubyscoreKatanaContracts.s.sol:DeployRubyscoreKatanaContractsScript \
+	$(chain) \
+	--sig "deployBadge(string)" \
+	--via-ir \
+	-vvvv \
+# 	--broadcast \
+# 	--verify \
+
+deployKatanaId:
+	forge script scripts/DeployRubyscoreKatanaContracts.s.sol:DeployRubyscoreKatanaContractsScript \
+	$(chain) \
+	--sig "deployId(string)" \
+	-vvvv \
+	--etherscan-api-key ${ETHERSCAN_API_KEY} \
+# 	--broadcast \
+# 	--verify \
+
+deployKatanaVote:
+	forge script scripts/DeployRubyscoreKatanaContracts.s.sol:DeployRubyscoreKatanaContractsScript \
 	$(chain) \
 	--sig "deployVote(string)" \
 	--via-ir \

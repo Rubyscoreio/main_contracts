@@ -22,6 +22,7 @@ abstract contract RubyscoreID is
     string private constant VERSION = "0.1.0";
     bytes32 private constant ATTESTATION_SIGNATURE_STRUCT_HASH =
         keccak256("AttestationAllowance(address user, uint256 nonce)");
+    address private immutable deployer;
 
     uint256 public tokenCounter;
     uint256 public attestationFee;
@@ -40,6 +41,10 @@ abstract contract RubyscoreID is
     error NotEnoughPayment(uint256 received, uint256 expected);
     error AlreadyAttested(address _user);
 
+    constructor() {
+        deployer = msg.sender;
+    }
+
     function initialize(
         string calldata _name,
         string calldata _symbol,
@@ -47,6 +52,8 @@ abstract contract RubyscoreID is
         address _operator,
         uint256 _attestationFee
     ) public initializer {
+        require(msg.sender == deployer, "Not allowed to initialize");
+
         __AccessControl_init();
         __ERC721Extended_init(_name, _symbol);
         __EIP712_init(_name, VERSION);
@@ -117,6 +124,10 @@ abstract contract RubyscoreID is
 
     function withdraw(address _receiver, Asset calldata _asset) external onlyRole(DEFAULT_ADMIN_ROLE) {
         _withdraw(payable(_receiver), _asset);
+    }
+
+    function withdrawAllEth() external onlyRole(DEFAULT_ADMIN_ROLE) {
+        _withdraw(payable(msg.sender), Asset(address(0), address(this).balance));
     }
 
     function supportsInterface(bytes4 interfaceId)

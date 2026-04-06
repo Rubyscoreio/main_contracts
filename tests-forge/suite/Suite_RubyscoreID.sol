@@ -10,6 +10,7 @@ import {RubyscoreID} from "contracts-forge/base/RubyscoreID.sol";
 import {ERC721Extended} from "contracts-forge/base/extensions/ERC721Extended.sol";
 import {Storage_RubyscoreID} from "tests-forge/storage/Storage_RubyscoreID.sol";
 import "contracts-forge/base/modules/WithdrawingModule.sol";
+import {Rubyscore_Katana_ID} from "../../contracts-forge/chains_custom/katana/Rubyscore_Katana_ID.sol";
 
 abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
     using Strings for uint256;
@@ -141,6 +142,7 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
         address _anonym
     ) public {
         vm.assume(_user != address(0));
+        vm.assume(_anonym != operator);
 
         vm.expectRevert(
             abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, _anonym, OPERATOR_ROLE)
@@ -184,10 +186,11 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
         vm.assertEq(attestationContract.tokenCounter(), uniqueCounter);
     }
 
-    function test_Attest_RevertIfCallerIsNotAnOperator(
+    function test_AttestBatch_RevertIfCallerIsNotAnOperator(
         address[] calldata _users,
         address _anonym
     ) public {
+        vm.assume(_anonym != operator);
         for (uint256 i = 0; i < _users.length; i++) {
             vm.assume(_users[i] != address(0));
         }
@@ -492,5 +495,47 @@ abstract contract Suite_RubyscoreID is Storage_RubyscoreID {
 
         assertEq(contractBalanceAfter, contractBalanceBefore);
         assertEq(receiverBalanceAfter, receiverBalanceBefore);
+    }
+
+    function test_withdrawAllEth_Ok(uint256 _amount, uint32 _adminIndex) public {
+        deal(address(attestationContract), _amount);
+        (, address admin) = generateWallet(_adminIndex, "admin");
+        attestationContract.helper_grantRole(DEFAULT_ADMIN_ROLE, admin);
+
+        uint256 contractBalanceBefore = address(attestationContract).balance;
+        uint256 adminBalanceBefore = admin.balance;
+
+        vm.expectEmit();
+        emit WithdrawingModule.Withdrawn(admin, address(0), contractBalanceBefore);
+
+        vm.prank(admin);
+        attestationContract.withdrawAllEth();
+
+        uint256 contractBalanceAfter = address(attestationContract).balance;
+        uint256 adminBalanceAfter = admin.balance;
+
+        assertEq(contractBalanceAfter, 0);
+        assertEq(adminBalanceAfter, adminBalanceBefore + _amount);
+    }
+
+    function test_withdrawAllEth_RevertIfNotAnAdmin(uint256 _amount, uint32 _anonymIndex) public {
+        deal(address(attestationContract), _amount);
+        (, address anonym) = generateWallet(_anonymIndex, "anonym");
+
+        uint256 contractBalanceBefore = address(attestationContract).balance;
+        uint256 senderBalanceBefore = anonym.balance;
+
+        vm.expectRevert(
+            abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, anonym, DEFAULT_ADMIN_ROLE)
+        );
+
+        vm.prank(anonym);
+        attestationContract.withdrawAllEth();
+
+        uint256 contractBalanceAfter = address(attestationContract).balance;
+        uint256 senderBalanceAfter = anonym.balance;
+
+        assertEq(contractBalanceAfter, contractBalanceBefore);
+        assertEq(senderBalanceAfter, senderBalanceBefore);
     }
 }

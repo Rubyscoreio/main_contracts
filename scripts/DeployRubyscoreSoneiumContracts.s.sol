@@ -8,6 +8,7 @@ import {RubyscoreVote} from "contracts-forge/base/RubyscoreVote.sol";
 import {Rubyscore_Soneium_Badges} from "contracts-forge/chains_custom/soneium/Rubyscore_Soneium_Badges.sol";
 import {Rubyscore_Soneium_ID} from "contracts-forge/chains_custom/soneium/Rubyscore_Soneium_ID.sol";
 import {SafeSingletonDeployer} from "./helpers/SafeSingletonDeployer.sol";
+import {RubyscoreDappVote} from "../contracts-forge/base/RubyscoreDappVote.sol";
 
 contract DeployRubyscoreSoneiumContractsScript is Script {
     address public constant ADMIN = 0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361;
@@ -62,5 +63,15 @@ contract DeployRubyscoreSoneiumContractsScript is Script {
 
         vm.broadcast(deployerPrivateKey);
         RubyscoreVote voteContract = new RubyscoreVote();
+    }
+
+    function deployDappVotes(string calldata network) external {
+        uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
+        address deployer = vm.addr(deployerPrivateKey);
+
+        vm.createSelectFork(network);
+
+        vm.broadcast(deployerPrivateKey);
+        RubyscoreDappVote voteContract = new RubyscoreDappVote(ADMIN, 0.000035e18);
     }
 }
