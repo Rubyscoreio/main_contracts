@@ -56,7 +56,7 @@ worldChain = "https://sparkling-autumn-dinghy.worldchain-mainnet.quiknode.pro"
 xrpl = "https://rpc.xrplevm.org/"
 zetaChain = "https://zeta-chain.drpc.org"
 
-soneiumMainnet = "https://soneium.drpc.org"
+soneiumMainnet = "https://rpc.soneium.org"
 
 katana = "https://rpc.katana.network"
 xai = "https://rpc.ankr.com/xai"
@@ -123,6 +123,12 @@ superseed = "https://mainnet.superseed.xyz"
 etherlink = "https://rpc.ankr.com/etherlink_mainnet"
 reddio = "https://mainnet.reddio.com/rpc"
 peaq = "https://quicknode1.peaq.xyz"
+injective = "https://sentry.evm-rpc.injective.network/"
+monad = "https://rpc.monad.xyz"
+doma = "https://doma.drpc.org"
+stable = "https://rpc.stable.xyz"
+citrea = "https://rpc.mainnet.citrea.xyz"
+megaeth = "https://rpc-megaeth-mainnet.globalstake.io"
 
 #Testnets
 basecamp = "https://rpc-campnetwork.xyz"
@@ -135,10 +141,14 @@ xrpl-testnet = "https://rpc.testnet.xrplevm.org/"
 somnia-testnet = "https://rpc.ankr.com/somnia_testnet/6e3fd81558cf77b928b06b38e9409b4677b637118114e83364486294d5ff4811"
 nexus = "https://testnet3.rpc.nexus.xyz"
 openledger-testnet = "https://rpctn.openledger.xyz"
-citrea = "https://rpc.testnet.citrea.xyz"
+citrea-testnet = "https://rpc.testnet.citrea.xyz"
 goat = "https://rpc.goat.network"
 giwa = "https://sepolia-rpc.giwa.io/"
-doma = "https://rpc-testnet.doma.xyz/"
+doma-testnet = "https://rpc-testnet.doma.xyz/"
+arc = "https://rpc.testnet.arc.network"
+sand-testnet = "https://sandchain-rpc.caldera.xyz/http"
+tempo-testnet = "https://rpc.testnet.tempo.xyz"
+robinhood-testnet = "https://rpc.testnet.chain.robinhood.com"
 
 [etherscan]
 #Mainnets
@@ -246,6 +256,12 @@ iota = { key = "anything", chain = 8822, url="https://explorer.evm.iota.org/api"
 neon = { key = "anything", chain = 245022934, url="https://neon.blockscout.com/api" }
 reddio = { key = "anything", chain = 50342, url="https://reddio.cloud.blockscout.com/api" }
 peaq = { key = "anything", chain = 3338 }
+injective = { key = "anything", chain = 50342, url="https://blockscout.injective.network/api" }
+monad = { key = "anything", chain = 143 }
+doma = { key = "anything", chain = 97477 }
+stable = { key = "anything", chain = 988 }
+citrea = { key = "anything", chain = 4114, url="https://citreascan.com/api" }
+megaeth = { key = "anything", chain = 4326, url="https://megaeth.blockscout.com//api" }
 
 #Testnets
 basecamp = { key = "any", chain = 123420001114, url="https://camp-network-testnet.blockscout.com/api" }
@@ -257,9 +273,12 @@ optimism-sepolia = { key = "anything", chain = 11155420, url="https://testnet-ex
 xrpl-testnet = { key = "anything", chain = 1449000, url="https://explorer.testnet.xrplevm.org/api/" }
 nexus = { key = "anything", chain = 3940, url="https://testnet3.explorer.nexus.xyz/api/" }
 openledger-testnet = { key = "anything", chain = 161201, url="https://scantn.openledger.xyz/api/" }
-citrea = { key = "anything", chain = 5115, url="https://explorer.testnet.citrea.xyz/api/" }
+citrea-testnet = { key = "anything", chain = 5115, url="https://explorer.testnet.citrea.xyz/api/" }
 somnia-testnet = { key = "anything", chain = 50312, url="https://somnia.w3us.site/api/" }
 goat = { key = "anything", chain = 48816, url="https://explorer.testnet3.goat.network/api" }
 giwa = { key = "anything", chain = 91342, url="https://sepolia-explorer.giwa.io/api" }
-
-doma = { key = "anything", chain = 97476, url="https://explorer-testnet.doma.xyz/api" }
+arc = { key = "anything", chain = 5042002, url="https://testnet.arcscan.app/api" }
+sand-testnet = { key = "anything", chain = 6252, url="https://sandchain-explorer.caldera.xyz/api" }
+doma-testnet = { key = "anything", chain = 97476, url="https://explorer-testnet.doma.xyz/api" }
+tempo-testnet = { key = "anything", chain = 97476, url="https://explorer-testnet.doma.xyz/api" }
+robinhood-testnet = { key = "anything", chain = 46630, url="https://explorer.testnet.chain.robinhood.com/api" }

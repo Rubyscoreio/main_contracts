@@ -4,11 +4,13 @@ pragma solidity ^0.8.24;
 import "lib/forge-std/src/Script.sol";
 import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol";
 
+import "contracts-forge/base/modules/WithdrawingModule.sol";
 import {RubyscoreVote} from "contracts-forge/base/RubyscoreVote.sol";
 import {Rubyscore_Achievement} from "contracts/Rubyscore_Achievement.sol";
 import {Rubyscore_Katana_ID} from "contracts-forge/chains_custom/katana/Rubyscore_Katana_ID.sol";
 import {SafeSingletonDeployer} from "./helpers/SafeSingletonDeployer.sol";
 import {RubyscoreVoteV2} from "contracts-forge/base/RubyscoreVote.v2.sol";
+import {DailyCheck} from "contracts-forge/chains_custom/katana/DailyCheck.sol";
 import {Rubyscore_Katana_Badges} from "../contracts-forge/chains_custom/katana/Rubyscore_Katana_Badges.sol";
 
 contract DeployRubyscoreKatanaContractsScript is Script {
@@ -82,6 +84,9 @@ contract DeployRubyscoreKatanaContractsScript is Script {
     function deployId(string calldata network) external {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
         address deployer = vm.addr(deployerPrivateKey);
+        address operator = vm.addr(operatorPrivateKey);
+
+        assert(operator == OPERATOR);
 
         vm.createSelectFork(network);
 
@@ -97,6 +102,11 @@ contract DeployRubyscoreKatanaContractsScript is Script {
 
         vm.broadcast(deployerPrivateKey);
         Rubyscore_Katana_ID(address(proxy)).initialize(ID_NAME, ID_SYMBOL, ADMIN, OPERATOR, ID_FEE);
+
+        vm.broadcast(operatorPrivateKey);
+        Rubyscore_Katana_ID(address(proxy)).setBaseUri(ID_BASE_URI);
+        vm.broadcast(operatorPrivateKey);
+        Rubyscore_Katana_ID(address(proxy)).setTokenUri('rubyId.json');
     }
 
     function deployVote(string calldata network) external {
@@ -107,12 +117,43 @@ contract DeployRubyscoreKatanaContractsScript is Script {
         RubyscoreVote voteContract = new RubyscoreVote();
     }
 
+    function custom(string calldata network) external {
+        uint256 operatorPrivateKey = vm.envUint("OPERATOR_KEY");
+        vm.createSelectFork(network);
+
+        Rubyscore_Katana_ID impl = new Rubyscore_Katana_ID();
+//
+        Rubyscore_Katana_ID proxy = Rubyscore_Katana_ID(0x09B18EFC623bf4a6247B23320920C3044a45cC2c);
+
+//        vm.broadcast(operatorPrivateKey);
+//        proxy.upgradeToAndCall(address(impl), '');
+////            abi.encodeWithSelector(0xde8eb0b1, address(impl)));
+//        proxy.Ox28493565(address(impl));
+        (bool success, bytes memory data) = address(proxy).call{value: 0, gas: 50000}(abi.encodeWithSignature("upgradeToAndCall(address,bytes)", impl, ''));
+
+        proxy.hasRole(0x00, 0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361);
+        proxy.hasRole(0x00, 0x85F9f43A7076ab48225d9b3DFDA969667a4b149d);
+
+        vm.prank(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361);
+        proxy.revokeRole(0x00, 0x85F9f43A7076ab48225d9b3DFDA969667a4b149d);
+
+        uint256 balance = address(proxy).balance;
+
+        console.log(address(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361).balance);
+
+        vm.prank(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361);
+        proxy.withdraw(ADMIN, Asset(address(0), balance));
+//        proxy.withdrawAllEth();
+
+        console.log(address(0x0d0D5Ff3cFeF8B7B2b1cAC6B6C27Fd0846c09361).balance);
+    }
+
     function deployVoteV2(string calldata network) external {
         uint256 deployerPrivateKey = vm.envUint("DEPLOYER_KEY");
         address deployer = vm.addr(deployerPrivateKey);
         vm.createSelectFork(network);
 
         vm.broadcast(deployerPrivateKey);
-        RubyscoreVoteV2 voteContract = new RubyscoreVoteV2(deployer, VOTE_PRICE, VOTE_INITIAL_COUNTER);
+        DailyCheck voteContract = new DailyCheck(ADMIN, VOTE_PRICE, VOTE_INITIAL_COUNTER);
     }
 }
